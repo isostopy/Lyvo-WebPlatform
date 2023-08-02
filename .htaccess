@@ -1,4 +1,4 @@
 DirectoryIndex public/index.php
-ErrorDocument 404 /lyvo-pre/errors/404.php
+ErrorDocument 404 /Lyvo-WebPlatform/errors/404.php
 
 Options -Indexes

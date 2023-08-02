@@ -6,7 +6,7 @@
     // Inicio de la sesión. Todo el mundo que necesite de sesiones tiene que cargar este script.
     if (!isset($_SESSION['userData']))
     {
-        header("location: ".$GLOBALS['Base_Url']."public/login_form.php");
+        LoadPage("public/login_form.php");
         exit;
     }
     else

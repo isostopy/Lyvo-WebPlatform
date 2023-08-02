@@ -1,0 +1,38 @@
+{
+    "informacionPersonal": {
+        "dni": "Nuevo DNI",
+        "apellido": "Actualizado",
+        "nombre": "Actualizado",
+        "edad": "000",
+        "ocupacion": "ocupacion",
+        "nacimiento": "01/01/2000",
+        "nacionalidad": "nacionalidad",
+        "residencia": "residencia"
+    },
+    "antecedentesPersonales": {
+        "habitosToxicos": {
+            "alcohol": "alcohol",
+            "tabaco": "tabaco",
+            "drogas": "drogas"
+        },
+        "habitosFisiologicos": {
+            "dieta": "dieta",
+            "sueno": "sueño",
+            "otros": "otros"
+        }
+    },
+    "enfermedades": {
+        "cv": "descripción general de enfermedades padecidas.",
+        "gastrointestinales": "Sin datos patológicos parentes.",
+        "nefrourologicos": "Sin datos patológicos parentes.",
+        "neurologicos": "Sin datos patológicos parentes.",
+        "hematologicos": "Sin datos patológicos parentes.",
+        "ginecologicos": "Sin datos patológicos parentes.",
+        "menopausia": "00 años",
+        "infectologicos": "Sin datos patológicos parentes.",
+        "endocrinologicos": "Sin datos patológicos parentes.",
+        "quirurgicos": "Sin datos patológicos parentes.",
+        "alergicos": "Sin datos patológicos parentes."
+    },
+    "antecedentesFamiliares": "Descripción de antecedentes familiares."
+}

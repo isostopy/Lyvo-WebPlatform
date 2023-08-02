@@ -19,6 +19,7 @@
     // al cargar páginas desde index.php o desde otras páginas, ya que index.php
     // al ser el elemento principal, lo va a hacer desde la raiz.
 
+    /*
     $URL_Base = "http://localhost/Lyvo-WebPlatform";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
 
@@ -35,5 +36,23 @@
     $Role_Aministrator = '3f543429-02b7-420e-b5d7-14f1b2d8523f';
     $Role_Client = 'c46bd43c-1030-45c2-b0b2-d8abb74b5208';
     $Role_Doctor = '297aff85-3332-4b96-8b1b-e7a49e607a0f';
+    */
+
+    $URL_Base = "http://lyvoweb.isostopyserver.net/Lyvo-WebPlatform";
+    $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
+
+    // Admin token
+    $DirectusToken = "-VGG3ck0ijSH0t5yj5bgObjUxXe7WmKt";
+
+    // Endpoints
+    $URL_DirectusLogin = "https://lyvocms.isostopyserver.net/auth/login";
+    $URL_DirectusLogout = "https://lyvocms.isostopyserver.net/auth/logout";
+    $URL_DirectusUsers = "https://lyvocms.isostopyserver.net/users";
+    $URL_DirectusUsersMe = "https://lyvocms.isostopyserver.net/users/me";
+
+    // Directus rolecode
+    $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';
+    $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
+    $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
 
 ?>

@@ -20,8 +20,8 @@
     // al ser el elemento principal, lo va a hacer desde la raiz.
 
     /*
-    $URL_Base = "http://localhost/Lyvo-WebPlatform";
-    $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
+    $URL_Base = "http://localhost/Lyvo-WebPlatform/";
+    $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo/";
 
     // Admin token
     $DirectusToken = "-re8CEHHBLjQEV7fxIZL4v5BUIWKNBty";
@@ -38,17 +38,17 @@
     $Role_Doctor = '297aff85-3332-4b96-8b1b-e7a49e607a0f';
     */
 
-    $URL_Base = "http://lyvoweb.isostopyserver.net/Lyvo-WebPlatform";
+    $URL_Base = "http://13.37.246.78";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
 
     // Admin token
     $DirectusToken = "-VGG3ck0ijSH0t5yj5bgObjUxXe7WmKt";
 
     // Endpoints
-    $URL_DirectusLogin = "https://lyvocms.isostopyserver.net/auth/login";
-    $URL_DirectusLogout = "https://lyvocms.isostopyserver.net/auth/logout";
-    $URL_DirectusUsers = "https://lyvocms.isostopyserver.net/users";
-    $URL_DirectusUsersMe = "https://lyvocms.isostopyserver.net/users/me";
+    $URL_DirectusLogin = "http://15.188.179.241:8055/auth/login";
+    $URL_DirectusLogout = "http://15.188.179.241:8055/auth/logout";
+    $URL_DirectusUsers = "http://15.188.179.241:8055/users";
+    $URL_DirectusUsersMe = "http://15.188.179.241:8055/users/me";
 
     // Directus rolecode
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';

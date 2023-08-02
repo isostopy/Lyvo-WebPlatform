@@ -17,6 +17,7 @@
    <div class="content">
       <h3>¡Registro completo!</h3>
       <h3>Por favor comprueba tu correo electrónico.</h3>
+      <h2>Puede cerrar esta ventana.</h2>
    </div>
 
 </div>

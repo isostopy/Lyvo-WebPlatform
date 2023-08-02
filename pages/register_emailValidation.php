@@ -47,6 +47,12 @@
             }
          ?>
 
+         <form action="" method="post">
+
+            <p><a href="login_form.php">login</a></p>
+
+         </form>
+
       </div>
 
    </body>

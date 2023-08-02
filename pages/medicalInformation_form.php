@@ -46,7 +46,7 @@
    if(isset($_POST['continue']))
    {
       // Cargar
-      LoadPage("public/3D_Launcher.php");
+      LoadPage("public/3D_launcher.php");
    }
 ?>
 

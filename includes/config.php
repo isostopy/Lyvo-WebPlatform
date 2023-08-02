@@ -19,7 +19,7 @@
     // al cargar páginas desde index.php o desde otras páginas, ya que index.php
     // al ser el elemento principal, lo va a hacer desde la raiz.
 
-    $URL_Base = "http://localhost/lyvo-pre";
+    $URL_Base = "http://localhost/Lyvo-WebPlatform";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
 
     // Admin token

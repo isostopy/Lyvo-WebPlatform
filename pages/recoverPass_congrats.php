@@ -15,7 +15,7 @@
 <div class="container">
 
    <div class="content">
-      <h3>¡Registro completo!</h3>
+      <h3>¡Se han enviado las instrucciones para recuperar su contraseña!</h3>
       <h3>Por favor compruebe su correo electrónico.</h3>
       <h2>Puede cerrar esta ventana.</h2>
    </div>

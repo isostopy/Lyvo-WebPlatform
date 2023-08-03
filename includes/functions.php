@@ -201,8 +201,38 @@
 
 
 
+    // RECOVER PASS REQUEST
+    function UserRecoverPassRequest($email)
+    {      
+        $headers = array('Content-Type: application/json');
+        $credentials = array('email' =>  $email, 'reset_url' => $GLOBALS['URL_RecoverPass']);
+        $jsonCredentials = json_encode($credentials);
+  
+        // Enviar la solicitud.
+        $responseLogin = HttpRequest('POST', $GLOBALS['URL_DirectusRecoverPass_Request'], $headers, $jsonCredentials);
+
+        // No hay respuesta, Directus envía el correo y devuelve 204 No Content.
+    }
+
+
+    
+    // RECOVER PASS RESET
+    function UserRecoverPassSet($token, $pass)
+    {
+        $headers = array('Content-Type: application/json');
+        $credentials = array('token' =>  $token, 'password' => $pass);
+        $jsonCredentials = json_encode($credentials);
+  
+        // Enviar la solicitud.
+        $responseLogin = HttpRequest('POST', $GLOBALS['URL_DirectusRecoverPass_Reset'], $headers, $jsonCredentials);
+
+        // No hay respuesta, Directus envía el correo y devuelve 204 No Content.
+    }
+
+
+
     // OBTENER INFORMACIÓN DEL USUARIO
-    function GetUserData($access_token)
+    function UserGetData($access_token)
     {
       $headers = array('Content-Type: application/json','Authorization: Bearer '.$access_token);
 

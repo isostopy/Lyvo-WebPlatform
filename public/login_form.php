@@ -18,7 +18,7 @@
          if (!$token) { throw new Exception("No se ha podido realizar el Login."); }
 
          // Obtener información del Usuario.
-         GetUserData($token);
+         UserGetData($token);
 
          // Redirigir al usuario o mostrar alguna otra página aquí
          if (isset($_SESSION['userData']->data->role)) 
@@ -69,6 +69,8 @@
          <input type="submit" name="submit" value="ENTRAR" class="form-btn">
          <p>¿Necesitas una cuenta? <a href="register_form.php">REGÍSTRATE</a></p>
          <a href="avatar.php">Continuar sin usuario</a>
+         <br>
+         <a href="recoverPass_form_email.php">He olvidado mi contraseña</a>
       </form>
    
    </div>

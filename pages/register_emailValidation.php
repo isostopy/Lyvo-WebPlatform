@@ -49,7 +49,7 @@
 
          <form action="" method="post">
 
-            <p><a href="login_form.php">login</a></p>
+            <p><a href="../public/login_form.php">login</a></p>
 
          </form>
 

@@ -96,8 +96,8 @@
 
         $userEmail = $userInfo->email;
         $subject = "No-Reply: Lyvo bienvenida.";
-        $body = "Gracias por registrarte en nuestra plataforma. Pulsa el siguiente enlace para validar tu E-mail: ".$GLOBALS['URL_Base']."pages/register_emailValidation.php?user=".$userId;
-        $bodyNonHTML = "Gracias por registrarte en nuestra plataforma. Pulsa el siguiente enlace para validar tu E-mail: ".$GLOBALS['URL_Base']."pages/register_emailValidation.php?user=".$userId;
+        $body = "Gracias por registrarte en nuestra plataforma. Pulsa el siguiente enlace para validar tu E-mail: ".$GLOBALS['URL_Base']."/pages/register_emailValidation.php?user=".$userId;
+        $bodyNonHTML = "Gracias por registrarte en nuestra plataforma. Pulsa el siguiente enlace para validar tu E-mail: ".$GLOBALS['URL_Base']."/pages/register_emailValidation.php?user=".$userId;
 
         SendEmail($userEmail, $subject, $body, $bodyNonHTML);
     }
@@ -215,7 +215,7 @@
     }
 
 
-    
+
     // RECOVER PASS RESET
     function UserRecoverPassSet($token, $pass)
     {

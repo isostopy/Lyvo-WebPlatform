@@ -1,10 +1,13 @@
 <?php
 
-    // PRE ------------------------------------------------------------------------
-    // INICIAR SESIÓN CON COOKIE  
+    //*******************************************************************
+    // PHP con datos de configuración.
+    //*******************************************************************
+
     if (session_status() == PHP_SESSION_NONE) 
     {
         /*
+        // Creación de cookie para el servidor.
         session_set_cookie_params
         ([
             'lifetime' => 60 * 60 * 24 * 30, // Duración de 30 días
@@ -18,7 +21,6 @@
     // Definimos la base para establecer rutas absolutas para evitar problemas 
     // al cargar páginas desde index.php o desde otras páginas, ya que index.php
     // al ser el elemento principal, lo va a hacer desde la raiz.
-
 
     /*
     $URL_Base = "http://localhost/Lyvo-WebPlatform/";
@@ -62,6 +64,5 @@
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
     $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
-
 
 ?>

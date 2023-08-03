@@ -1,12 +1,17 @@
 <?php
 
+    //*******************************************************************
+    // PHP con la funcionalidad general de la aplicación.
+    //*******************************************************************
+
+    // RECURSOS -----------------------------------------------------------------------------
+
     // Datos.
     require '../includes/config.php';
     // Funcionalidades comunes.
     require 'email.php';
 
     // FUNCIONES -----------------------------------------------------------------------------
-
 
     // SISTEMA GENERAL PARA REALIZAR PETICIONES
     function HttpRequest($mode, $url, $headers, $data)
@@ -38,7 +43,7 @@
         // Gestión de errores.
         if (curl_errno($curl)) 
         {
-            $error = curl_error($curl);
+            //$error = curl_error($curl);
             curl_close($curl);
             throw new Exception("Error en la petición: ".$error);
         }

@@ -1,33 +1,36 @@
 <?php
 
-    //"C:/xampp/htdocs/Lyvo-Pre"
+function listar_directorios_ruta($ruta) {
+   // Abre un gestor de directorios para la ruta indicada
+   $gestor_dir = opendir($ruta);
 
-    function print_directory_structure($path, $indent = 0) {
-        $dir = new DirectoryIterator($path);
-        $output = '';
-    
-        foreach ($dir as $file) {
-            if ($file->isDot()) continue;
-            
-            $prefix = $file->isDir() ? '+ [DIR] ' : '-- [FILE] ';
-            
-            $output .= str_repeat("|   ", $indent) . $prefix . $file->getFilename();
-    
-            if ($file->isDir() && count(scandir($file->getPathname())) > 2) {
-                $output .= "/";
-            }
-            
-            $output .= "\n";
-    
-            if ($file->isDir()) {
-                $output .= print_directory_structure($file->getPathname(), $indent + 1);
-                $output .= "\n";
-            }
-        }
-    
-        return $output;
-    }
-    
-    // Imprimir la estructura de directorios con saltos de línea convertidos a <br>
-    echo nl2br(print_directory_structure("C:/xampp/htdocs/Lyvo-Pre"));
-    ?>
+   echo "Directorio: " . $ruta;
+   echo "<ul>";
+
+   // Recorre todos los elementos del directorio
+   while (false !== ($nombre_fichero = readdir($gestor_dir))) {
+      $ruta_completa = $ruta . "/" . $nombre_fichero;
+
+      // Si es un directorio se recorre recursivamente
+      if (is_dir($ruta_completa) && $nombre_fichero!="." && $nombre_fichero!=".." && $nombre_fichero!="vendor") {
+         listar_directorios_ruta($ruta_completa);
+      } else if(pathinfo($ruta_completa, PATHINFO_EXTENSION) == "php") {
+         echo "<li>";
+         echo $nombre_fichero.": ";
+         echo "<br/>";
+         mostrar_contenido($ruta_completa);
+         echo "</li>";
+      }
+   }
+   echo "</ul>";
+}
+
+function mostrar_contenido($ruta_completa) {
+   $contenido = file_get_contents($ruta_completa);
+   echo "<pre>".htmlspecialchars($contenido)."</pre>";
+}
+
+// Aquí necesitarás proporcionar la ruta de tu directorio
+listar_directorios_ruta("C:/xampp/htdocs/Lyvo-WebPlatform");
+
+?>

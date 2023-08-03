@@ -6,6 +6,9 @@
    // Funcionalidades comunes.
    require '../includes/functions.php';
 
+   // Mensajes de error.
+   require '../includes/error_messages.php';
+
    // -------------------------------------------------------------------------------------
    if(isset($_POST['submit']))
    {

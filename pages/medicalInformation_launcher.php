@@ -11,7 +11,7 @@
    // Si el usuario ya tiene historia clínica, enviar al 3D.
    if(isset($_SESSION['userData']->data->MedicalInformation)) 
    {
-      LoadPage("public/3D_Launcher.php");
+      LoadPage("public/3D_launcher.php");
    }
 
    // Si no tiene historia clínica, dar la opción de rechazar o rellenar la información.
@@ -33,7 +33,7 @@
       MedicalInformationSave($json);
 
       // Cargar
-      LoadPage("public/3D_Launcher.php");
+      LoadPage("public/3D_launcher.php");
    }
 ?>
 

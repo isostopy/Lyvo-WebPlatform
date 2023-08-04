@@ -9,6 +9,7 @@
    UserCheckSession($GLOBALS['Role_Client']);
 
    // Si el usuario ya tiene historia clínica, enviar al 3D.
+
    if(isset($_SESSION['userData']->data->MedicalInformation)) 
    {
       LoadPage("public/3D_launcher.php");
@@ -16,10 +17,7 @@
 
    // Si no tiene historia clínica, dar la opción de rechazar o rellenar la información.
    // Si rechaza la información hay que guardar algo para que la próxima vez salte esto.
-   if(isset($_POST['fill'])) 
-   { 
-      LoadPage("pages/medicalInformation_form.php");
-   } 
+
    if(isset($_POST['skip'])) 
    {
       $data = array(
@@ -37,6 +35,7 @@
    }
 ?>
 
+<!--
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -45,7 +44,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>login form</title>
 
-      <!-- custom css file link  -->
       <link rel="stylesheet" href="../assets/css/style.css">
 
    </head>
@@ -71,4 +69,84 @@
    </div>
    
    </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+
+</head>
+
+<body>
+   <div class="main-container">
+
+      <div id="lyvo-logo">
+         <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+      </div>
+
+      <div id="left-panel">
+
+         <div id="hoja-livo"></div>
+
+         <div class="content">
+
+            <h1>Vamos a completar tu <br> historia clínica</h1>
+
+            <p>Queremos conocerte mejor para poder darte el mejor servicio.</p>
+            <br>
+            <p>Si rellenas tu historia clínica, podrás conectar con los mejores profesionales e intercambiar información de manera sencilla y totalmente confidencial.</p>
+
+            <button class="button-general" id="enter-button" onclick="location.href = 'medicalInformation_form.php' ">EMPEZAR</button>
+
+            <form action="" method="post">
+               <p class="texto-bajo-boton">¿Quieres ir directamente a Lyvo World? Podrás completar tu historia más tarde.
+                  <button type="submit" name="skip" value="1" class="button-text">SALTAR</button>
+               </p>
+            </form>
+
+            <?php
+
+               if(isset($error))
+               {
+                  echo '<span class="error-msg">'.$error.'</span>';
+               }
+
+            ?>
+
+         </div>
+
+      </div>
+
+      <div id="textos-inferiores">
+         <div id="copyright">
+            <p>Copyright 2023© All rights reserved</p>
+         </div>
+
+         <div id="botones-esquina">
+            <div id="politica-privacidad">
+               <a href="#">Política de privacidad</a>
+            </div>
+
+            <div id="cookies">
+               <a href="#">Aviso de cookies</a>
+            </div>
+         </div>
+      </div>
+
+      <div id="right-panel">
+
+      </div>
+
+      <div id="hoja-livo-grande">
+
+      </div>
+
+   </div>
+
+</body>
+
 </html>

@@ -6,7 +6,7 @@
     // Inicio de la sesión. Todo el mundo que necesite de sesiones tiene que cargar este script.
     if (!isset($_SESSION['userData']))
     {
-        LoadPage("public/login_form.php");
+        LoadPage("public/welcome.php");
         exit;
     }
     else

@@ -23,44 +23,6 @@
 
 ?>
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>register form</title>
-
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-   </head>
-   <body>
-      
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>RECUPERAR CONTRASEÑA</h3>
-
-         <input type="email" name="email" required placeholder="E-mail">
-
-         <?php
-            if (isset($error)) 
-            {
-               echo '<span class="error-msg">'.$error.'</span>';
-            }
-         ?>
-
-         <input type="submit" name="submit" value="RECUPERAR" class="form-btn">
-
-      </form>
-
-   </div>
-
-   </body>
-</html>
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -109,13 +71,7 @@
 
                   </div>
 
-                  <?php
-
-                     if (isset($error)) {
-                        echo '<span class="error-msg">' . $error . '</span>';
-                     }
-
-                  ?>
+                  <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
 
                   <input type="submit" name="submit" value="RECUPERAR" >
 

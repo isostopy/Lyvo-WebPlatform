@@ -30,7 +30,6 @@
     <title>Lyvo Welcome</title>
 
     <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-    <link rel="stylesheet" href="../assets/css/welcome.css">
 
 </head>
 
@@ -55,7 +54,7 @@
                 <button class="button-general button-border margin-top-bottom-10px" onclick="location.href = 'register_form.php' ">CREAR CUENTA</button>
                 <button class="button-general button-border margin-top-50px" onclick="location.href = 'avatar.php' ">ENTRAR COMO INVITADO</button>
 
-                <p id="aviso-sin-registro" class="texto-bajo-boton">No es necesario registro</p>
+                <p class="caracteres-minimos">No es necesario registro</p>
 
             </div>
 

@@ -35,43 +35,6 @@
    }
 ?>
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>login form</title>
-
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-   </head>
-   <body>
-      
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>HISTORIA CLÍNICA</h3>
-
-         <?php
-            if(isset($error))
-            {
-               echo '<span class="error-msg">'.$error.'</span>';
-            }
-         ?>
-
-         <input type="submit" name="fill" value="COMPLETAR" class="form-btn">
-         <input type="submit" name="skip" value="SALTAR" class="form-btn">
-
-      </form>
-   
-   </div>
-   
-   </body>
-</html>
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -96,11 +59,11 @@
 
             <h1>Vamos a completar tu <br> historia clínica</h1>
 
-            <p>Queremos conocerte mejor para poder darte el mejor servicio.</p>
-            <br>
-            <p>Si rellenas tu historia clínica, podrás conectar con los mejores profesionales e intercambiar información de manera sencilla y totalmente confidencial.</p>
+            <p class="margin-bottom-20px">Queremos conocerte mejor para poder darte el mejor servicio.</p>
+            <p class="margin-bottom-30px">Si rellenas tu historia clínica, podrás conectar con los mejores profesionales e intercambiar información de manera sencilla y totalmente confidencial.</p>
 
             <button class="button-general" id="enter-button" onclick="location.href = 'medicalInformation_form.php' ">EMPEZAR</button>
+            
 
             <form action="" method="post">
                <p class="texto-bajo-boton">¿Quieres ir directamente a Lyvo World? Podrás completar tu historia más tarde.
@@ -110,10 +73,7 @@
 
             <?php
 
-               if(isset($error))
-               {
-                  echo '<span class="error-msg">'.$error.'</span>';
-               }
+               if(isset($error)) { echo '<span class="msg msg-error">'.$error.'</span>'; }
 
             ?>
 

@@ -56,11 +56,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <script src="../assets/js/login_form.js"></script>
+    <script src="../assets/js/input_field_utilities.js"></script>
 
 </head>
 
 <body>
+
     <div class="main-container">
 
         <div id="lyvo-logo">
@@ -94,27 +95,21 @@
 
                         <div class="input-icon">
 
-                        <div id="show-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:visible;">
+                        <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
                             <i class="fa fa-eye-slash icon-input"></i>
                         </div>
 
-                        <div id="hide-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:hidden;">
+                        <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
                             <i class="fa fa-eye icon-input"></i>
                         </div>
-
                             <input id="pass-input" type="password" name="password" required>
-
                         </div>
 
                     </div>
 
-                    <?php
-                        if (isset($error)) {
-                            echo '<span class="error-msg">' . $error . '</span>';
-                        }
-                    ?>
-
                     <label id="recordarme"><input type="checkbox"> <p>Recordarme</p> </label>
+
+                    <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
 
                     <input type="submit" name="submit" value="ENTRAR" >
 
@@ -150,6 +145,12 @@
 
     </div>
 
+    <script>
+
+        fieldChecker_Load('email-input', 'email-check-icon', '@', 6);
+        passDisplay_Load('pass-input','show-pass-icon','hide-pass-icon');
+        
+    </script>
 
 </body>
 

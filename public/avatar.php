@@ -74,62 +74,6 @@
    }
 ?>
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>register form</title>
-
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-   </head>
-   <body>
-      
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>Selecciona tu avatar</h3>
-
-         <input type="submit" name="avatar1" value="AVATAR 1" class="form-btn">
-         <input type="submit" name="avatar2" value="AVATAR 2" class="form-btn">
-         <input type="submit" name="avatar3" value="AVATAR 3" class="form-btn">
-         <input type="submit" name="avatar4" value="AVATAR 4" class="form-btn">
-         <input type="submit" name="avatar5" value="AVATAR 5" class="form-btn">
-         <input type="submit" name="avatar6" value="AVATAR 6" class="form-btn">
-
-         <?php
-
-            if(isset($_SESSION['userData']))
-            {
-               echo '<a href="../pages/logout.php" class="btn">logout</a>';
-            }
-            else
-            {
-               echo '<p>¿Ya tienes una cuenta? <a href="login_form.php">ENTRAR</a></p>';
-            }
-
-         ?>
-
-         <?php
-
-            if (isset($error)) 
-            {
-               echo '<span class="error-msg">'.$error.'</span>';
-            }
-
-         ?>
-
-      </form>
-
-   </div>
-
-   </body>
-</html>
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -162,9 +106,10 @@
                <?php
 
                   // Mostrar campo para añadir nombre si el usuario no está registrado
+
                   if(!isset($_SESSION['userData']))
                   {
-                     echo '<div class="content-label"> <h2>Nombre</h2><div class="input-icono"> <i class="fa fa-check icon" id="check-icon"> </i><input class="input-field" id="name-input" type="text"> </div> </div>';
+                     echo '<div class="content-label"> <h2>Nombre</h2><div class="input-icono"> </i><input class="input-field" id="name-input" type="text"> </div> </div>';
                   }
 
                ?>
@@ -193,29 +138,12 @@
 
                         <div class="avatar-button-container">
 
-                              <div class="avatar-button" id="avatar_1">
-                                 <img src="../assets/images/t_icon_man_1.png">
-                              </div>
-
-                              <div class="avatar-button" id="avatar_2">
-                                 <img src="../assets/images/t_icon_woman_2.png">
-                              </div>
-
-                              <div class="avatar-button" id="avatar_3">
-                                 <img src="../assets/images/t_icon_woman_3.png">
-                              </div>
-
-                              <div class="avatar-button" id="avatar_4">
-                                 <img src="../assets/images/t_icon_man_3.png">
-                              </div>
-
-                              <div class="avatar-button" id="avatar_5">
-                                 <img src="../assets/images/t_icon_woman_1.png">
-                              </div>
-
-                              <div class="avatar-button" id="avatar_6">
-                                 <img src="../assets/images/t_icon_man_2.png">
-                              </div>
+                           <div class="avatar-button" id="avatar_1"> <img src="../assets/images/t_icon_man_1.png"> </div>
+                           <div class="avatar-button" id="avatar_2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
+                           <div class="avatar-button" id="avatar_3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
+                           <div class="avatar-button" id="avatar_4"> <img src="../assets/images/t_icon_man_3.png"> </div>
+                           <div class="avatar-button" id="avatar_5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
+                           <div class="avatar-button" id="avatar_6"> <img src="../assets/images/t_icon_man_2.png"> </div>
 
                         </div>
 

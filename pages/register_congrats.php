@@ -27,7 +27,7 @@
 
                 <h1>Crear cuenta</h1>
 
-                <p class="margin-bottom-50px">¡Registro completo! Por favor consulte el correo electrónico proporcionado.</p>
+                <p class="margin-bottom-50px">¡Registro completo! Es necesario que acceda al correo electrónico proporcionado para realizar la validación.</p>
 
                 <p>Puede cerrar esta ventana o volver al <a href="../public/login_form.php">LOGIN</a></p>
 

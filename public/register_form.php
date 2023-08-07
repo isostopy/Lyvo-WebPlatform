@@ -43,7 +43,7 @@
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-   <script src="../assets/js/register_form.js"></script>
+   <script src="../assets/js/input_field_utilities.js"></script>
 
 </head>
 
@@ -101,11 +101,11 @@
                      <div class="input-icon">
                         <i class="fa fa-check icon-input icon-input-margin-right" id="pass-check-icon" style="visibility:hidden;"></i>
 
-                        <div id="show-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:visible;">
+                        <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
                            <i class="fa fa-eye-slash icon-input"></i>
                         </div>
 
-                        <div id="hide-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:hidden;">
+                        <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
                            <i class="fa fa-eye icon-input"></i>
                         </div>
 
@@ -113,7 +113,7 @@
 
                      </div>
 
-                     <p id="caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>
+                     <p class="caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>
 
                   </div>
                </div>
@@ -122,13 +122,7 @@
                <label id="terminos" for="terms"><p>He leído y acepto los <a href="terms_and_conditions.php">Términos y Condiciones de uso</a></p></label>
 
 
-               <?php
-
-                  if (isset($error)) {
-                     echo '<span class="error-msg">' . $error . '</span>';
-                  }
-                  
-               ?>
+               <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
 
                <input id="entrar-button" type="submit" name="submit" value="CREAR CUENTA" class="form-btn">
 
@@ -165,6 +159,17 @@
       </div>
 
    </div>
+
+   <script>
+
+      passDisplay_Load('pass-input','show-pass-icon','hide-pass-icon');
+      
+      fieldChecker_Load('name-input', 'name-check-icon', null, 6);
+      fieldChecker_Load('surname-input', 'surname-check-icon', null, 6);
+      fieldChecker_Load('email-input', 'email-check-icon', '@', 6);    
+      fieldChecker_Load('pass-input', 'pass-check-icon', null, 6);
+   
+    </script>
 
 </body>
 

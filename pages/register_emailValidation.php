@@ -20,39 +20,78 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>register form</title>
+<html>
 
-      <!-- custom css file link  -->
-      <link rel="stylesheet" href="../assets/css/style.css">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lyvo Recover</title>
 
-   </head>
-   <body>
-      
-      <div class="form-container">
+   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+   <link rel="stylesheet" href="../assets/css/login_form.css">
 
-         <?php
-            if (isset($error)) 
-            {
-               echo '<span class="error-msg">'.$error.'</span>';
-            }
-            else
-            {
-               echo '<span class="confirm-msg">Validación completa</span>';
-            }
-         ?>
+</head>
 
-         <form action="" method="post">
+<body>
+    <div class="main-container">
 
-            <p><a href="../public/login_form.php">login</a></p>
+        <div id="lyvo-logo">
+            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+        </div>
 
-         </form>
+        <div id="left-panel">
 
-      </div>
+            <div id="hoja-livo"></div>
 
-   </body>
+            <div class="content">
+
+                <h1>Crear cuenta</h1>
+
+                <?php
+                  if (isset($error)) 
+                  {
+                     echo '<span class="msg msg-error">'.$error.'</span>';
+                  }
+                  else
+                  {
+                     echo '<span class="msg msg-confirm">Validación completa</span>';
+                  }
+               ?>
+
+                <p>Puede cerrar esta ventana o volver al <a href="../public/login_form.php">LOGIN</a></p>
+
+               </form>
+
+            </div>
+
+        </div>
+
+        <div id="right-panel">
+        </div>
+
+        <div id="hoja-livo-grande">
+        </div>
+
+        <div id="textos-inferiores">
+            <div id="copyright">
+                <p>Copyright 2023© All rights reserved</p>
+            </div>
+
+            <div id="botones-esquina">
+                <div id="politica-privacidad">
+                    <a href="#">Política de privacidad</a>
+                </div>
+
+                <div id="cookies">
+                    <a href="#">Aviso de cookies</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
 </html>

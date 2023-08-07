@@ -24,6 +24,11 @@
 
 <head>
 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyvo Welcome</title>
+
     <link rel="stylesheet" href="../assets/css/lyvo_style.css">
     <link rel="stylesheet" href="../assets/css/welcome.css">
 
@@ -46,11 +51,11 @@
 
                 <p>Por favor, elige el modo de acceso a la plataforma. Si no tienes usuario puedes crear uno nuevo o entrar como invitado.</p>
 
-                <button id="enter-button" onclick="location.href = 'login_form.php' ">TENGO CUENTA</button>
-                <button class="button-variant" onclick="location.href = 'register_form.php' ">CREAR CUENTA</button>
-                <button class="button-variant" id="invitado-button" onclick="location.href = 'avatar.php' ">ENTRAR COMO INVITADO</button>
+                <button class ="button-general margin-top-bottom-10px" id="enter-button" onclick="location.href = 'login_form.php' ">TENGO CUENTA</button>
+                <button class="button-general button-border margin-top-bottom-10px" onclick="location.href = 'register_form.php' ">CREAR CUENTA</button>
+                <button class="button-general button-border margin-top-50px" onclick="location.href = 'avatar.php' ">ENTRAR COMO INVITADO</button>
 
-                <p id="aviso-sin-registro" class="texto-bajo-boton">No necesitas registrarte</p>
+                <p id="aviso-sin-registro" class="texto-bajo-boton">No es necesario registro</p>
 
             </div>
 

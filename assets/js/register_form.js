@@ -1,89 +1,101 @@
-
 //inputs
+var nameInput;
+var surnameInput;
 var emailInput;
-var contraseñaInput;
-var nombreInput;
-var apellidoInput;
+var passInput;
 
 //iconos check
+var nameCheckIcon;
+var surnameCheckIcon;
 var emailCheckIcon;
-var contraseñaCheckIcon;
-var nombreCheckIcon;
-var inputCheckIcon;
+var passCheckIcon;
 
 //iconos contraseña
-var verContraseñaIcon;
-var ocultarContraseñaInput;
+var passShowIcon;
+var passHideIcon;
 
 window.onload = function () {
 
     //inicialización de variables guardando el elemento que corresponda.
 
     //inputs
+    nameInput = document.getElementById("name-input");
+    surnameInput = document.getElementById("surname-input");
     emailInput = document.getElementById("email-input");
-    contraseñaInput = document.getElementById("contraseña-input");
-    nombreInput = document.getElementById("nombre-input");
-    apellidoInput = document.getElementById("apellido-input");
-
+    passInput = document.getElementById("pass-input");
+    
     //iconos check
+    nameCheckIcon = document.getElementById("name-check-icon");
+    surnameCheckIcon = document.getElementById("surname-check-icon");
     emailCheckIcon = document.getElementById("email-check-icon");
-    contraseñaCheckIcon = document.getElementById("contraseña-check-icon");
-    nombreCheckIcon = document.getElementById("nombre-check-icon");
-    apellidoCheckIcon = document.getElementById("apellido-check-icon");
+    passCheckIcon = document.getElementById("pass-check-icon");
 
     //iconos contraseña
-    verContraseñaIcon = document.getElementById("eye-icon");
-    ocultarContraseñaInput = document.getElementById("eye-icon-slash");
+    passShowIcon = document.getElementById("show-pass-icon");
+    passHideIcon = document.getElementById("hide-pass-icon");
 
     //event listeners
-    emailInput.addEventListener('input' , setEmailIconVisibility);
-    contraseñaInput.addEventListener('input', setContraseñaIconVisibility)
-    nombreInput.addEventListener('input', setnombreIconVisibility)
-    apellidoInput.addEventListener('input', setApellidoIconVisibility)
+    nameInput.addEventListener('input', setNameIconVisibility)
+    surnameInput.addEventListener('input', setSurnameIconVisibility)
+    emailInput.addEventListener('input', setEmailIconVisibility);
+    passInput.addEventListener('input', setPassIconVisibility)
+
+    setNameIconVisibility();
+    setSurnameIconVisibility();
+    setEmailIconVisibility();
+    setPassIconVisibility();
+
 };
 
+function setNameIconVisibility(){
+    if(nameInput.value.length < 3){
+        nameCheckIcon.style.visibility = "hidden";
+    }else{
+        nameCheckIcon.style.visibility = "visible";
+    }
+}
+
+function setSurnameIconVisibility(){
+    if(surnameInput.value.length < 3){
+        surnameCheckIcon.style.visibility = "hidden";
+    }else{
+        surnameCheckIcon.style.visibility = "visible";
+    }
+}
 
 function setEmailIconVisibility(){
-    if(emailInput.value.length < 3){
+
+    if(emailInput.value.length < 3 || !emailInput.value.includes('@'))
+    {
         emailCheckIcon.style.visibility = "hidden";
-    }else{
+    }
+    else
+    {
         emailCheckIcon.style.visibility = "visible";
     }
 }
 
-function setContraseñaIconVisibility(){
-    if(contraseñaInput.value.length < 6){
-        contraseñaCheckIcon.style.visibility = "hidden";
+function setPassIconVisibility()
+{
+    if(passInput.value.length < 6){
+        passCheckIcon.style.visibility = "hidden";
     }else{
-        contraseñaCheckIcon.style.visibility = "visible";
+        passCheckIcon.style.visibility = "visible";
     }
 }
 
-function setnombreIconVisibility(){
-    if(nombreInput.value.length < 3){
-        nombreCheckIcon.style.visibility = "hidden";
-    }else{
-        nombreCheckIcon.style.visibility = "visible";
+function showPass()
+{
+    if(passInput.type == "password")
+    {
+        passInput.type = "text";
+        passHideIcon.style.visibility = "visible";
+        passShowIcon.style.visibility = "hidden";
     }
-}
-
-function setApellidoIconVisibility(){
-    if(apellidoInput.value.length < 3){
-        apellidoCheckIcon.style.visibility = "hidden";
-    }else{
-        apellidoCheckIcon.style.visibility = "visible";
-    }
-}
-
-function mostrarContrasena(){
-
-    if(contraseñaInput.type == "password"){
-        contraseñaInput.type = "text";
-        verContraseñaIcon.style.visibility = "visible";
-        ocultarContraseñaInput.style.visibility = "hidden";
-    }else{
-        contraseñaInput.type = "password";
-        verContraseñaIcon.style.visibility = "hidden";
-        ocultarContraseñaInput.style.visibility = "visible";
+    else
+    {
+        passInput.type = "password";
+        passHideIcon.style.visibility = "hidden";
+        passShowIcon.style.visibility = "visible";
     }
 }

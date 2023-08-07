@@ -42,49 +42,6 @@
 
 ?>
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>login form</title>
-
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-   </head>
-   <body>
-      
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>ENTRAR</h3>
-
-         <input type="email" name="email" required placeholder="E-mail">
-         <input type="password" name="password" required placeholder="Contraseña">
-
-         <?php
-            if(isset($error))
-            {
-               echo '<span class="error-msg">'.$error.'</span>';
-            }
-         ?>
-
-         <input type="submit" name="submit" value="ENTRAR" class="form-btn">
-         <p>¿Necesitas una cuenta? <a href="register_form.php">REGÍSTRATE</a></p>
-         <a href="avatar.php">Continuar sin usuario</a>
-         <br>
-         <a href="recoverPass_form_email.php">He olvidado mi contraseña</a>
-      </form>
-   
-   </div>
-   
-   </body>
-</html>
-
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -92,7 +49,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login form</title>
+    <title>Lyvo Login</title>
 
     <link rel="stylesheet" href="../assets/css/lyvo_style.css">
     <link rel="stylesheet" href="../assets/css/login_form.css">
@@ -125,7 +82,7 @@
                         <h2>E-mail</h2>
 
                         <div class="input-icon">
-                            <i class="fa fa-check icon" id="email-check-icon"></i>
+                            <i id="email-check-icon" class="fa fa-check icon-input" style="visibility:hidden;"> </i>
                             <input id="email-input" type="email" name="email" required>
                         </div>
 
@@ -133,34 +90,33 @@
 
                     <div class="content-label">
 
-                        <h2>Contraseña <a href="#" id="recuperar-contraseña">¿Has olvidado tu contraseña?</a></h2>
+                        <h2>Contraseña <a href="recoverPass_form_email.php" id="recover-pass">¿Has olvidado tu contraseña?</a></h2>
 
                         <div class="input-icon">
-                            <i class="fa fa-check icon" id="contraseña-check-icon"></i>
 
-                            <div id="eye-icon" onclick="mostrarContrasena()">
-                                <i class="fa fa-eye " id="ver-contraseña-icon"></i>
-                            </div>
+                        <div id="show-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:visible;">
+                            <i class="fa fa-eye-slash icon-input"></i>
+                        </div>
 
-                            <div id="eye-icon-slash" onclick="mostrarContrasena()">
-                                <i class="fa fa-eye-slash" id="ocultar-contraseña-icon"></i>
-                            </div>
+                        <div id="hide-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:hidden;">
+                            <i class="fa fa-eye icon-input"></i>
+                        </div>
 
-                            <input id="contraseña-input" type="password" name="password" required>
-
-                            <?php
-                                if (isset($error)) {
-                                    echo '<span class="error-msg">' . $error . '</span>';
-                                }
-                            ?>
+                            <input id="pass-input" type="password" name="password" required>
 
                         </div>
 
                     </div>
 
+                    <?php
+                        if (isset($error)) {
+                            echo '<span class="error-msg">' . $error . '</span>';
+                        }
+                    ?>
+
                     <label id="recordarme"><input type="checkbox"> <p>Recordarme</p> </label>
 
-                    <input id="entrar-button" type="submit" name="submit" value="ENTRAR" class="form-btn">
+                    <input type="submit" name="submit" value="ENTRAR" >
 
                     <p class="texto-bajo-boton">¿Necesitas una cuenta? <a href="register_form.php">REGISTRO</a></p>
 

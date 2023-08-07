@@ -1,24 +1,33 @@
+//inputs
 var emailInput;
-var contraseñaInput;
+var passInput;
 
+//iconos check
 var emailCheckIcon;
-var contraseñaCheckIcon;
 
-var verContraseñaIcon;
-var ocultarContraseñaInput;
+//iconos contraseña
+var passShowIcon;
+var passHideIcon;
 
 window.onload = function () 
 {
+    //inicialización de variables guardando el elemento que corresponda.
+
+    //inputs
     emailInput = document.getElementById("email-input");
-    contraseñaInput = document.getElementById("contraseña-input");
+    passInput = document.getElementById("pass-input");
 
+    //iconos check
     emailCheckIcon = document.getElementById("email-check-icon");
-    contraseñaCheckIcon = document.getElementById("contraseña-check-icon");
-    verContraseñaIcon = document.getElementById("eye-icon");
-    ocultarContraseñaInput = document.getElementById("eye-icon-slash");
 
-    emailInput.addEventListener('input' , setEmailIconVisibility);
-    contraseñaInput.addEventListener('input', setContraseñaIconVisibility)
+    //iconos contraseña
+    passShowIcon = document.getElementById("show-pass-icon");
+    passHideIcon = document.getElementById("hide-pass-icon");
+
+    //event listeners
+    emailInput.addEventListener('input', setEmailIconVisibility);
+
+    setEmailIconVisibility();
 };
 
 function setEmailIconVisibility()
@@ -33,23 +42,18 @@ function setEmailIconVisibility()
     }
 }
 
-function setContraseñaIconVisibility(){
-    if(contraseñaInput.value.length < 6){
-        contraseñaCheckIcon.style.visibility = "hidden";
-    }else{
-        contraseñaCheckIcon.style.visibility = "visible";
+function showPass()
+{
+    if(passInput.type == "password")
+    {
+        passInput.type = "text";
+        passHideIcon.style.visibility = "visible";
+        passShowIcon.style.visibility = "hidden";
     }
-}
-
-function mostrarContrasena(){
-
-    if(contraseñaInput.type == "password"){
-        contraseñaInput.type = "text";
-        verContraseñaIcon.style.visibility = "visible";
-        ocultarContraseñaInput.style.visibility = "hidden";
-    }else{
-        contraseñaInput.type = "password";
-        verContraseñaIcon.style.visibility = "hidden";
-        ocultarContraseñaInput.style.visibility = "visible";
+    else
+    {
+        passInput.type = "password";
+        passHideIcon.style.visibility = "hidden";
+        passShowIcon.style.visibility = "visible";
     }
 }

@@ -11,7 +11,7 @@
       {
          if (!isset($_POST['terms'])) 
          {
-            throw new Exception("Debes aceptar los términos y condiciones.");
+            throw new Exception("Debe aceptar los términos y condiciones.");
          }
 
          // Login.
@@ -28,58 +28,16 @@
 
 ?>
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>register form</title>
-
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-   </head>
-   <body>
-      
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>Crear cuenta</h3>
-
-         <input type="text" name="name" required placeholder="Nombre">
-         <input type="text" name="surname" required placeholder="Apellidos">
-         <input type="email" name="email" required placeholder="E-mail">
-         <input type="password" name="password" required placeholder="Contraseña">
-
-         <div>
-            <input type="checkbox" id="terms" name="terms">
-            <label for="terms">He leído y acepto los <a href="terms_and_conditions.php">Términos y Condiciones de uso</a></label>
-         </div>
-
-         <?php
-            if (isset($error)) 
-            {
-               echo '<span class="error-msg">'.$error.'</span>';
-            }
-         ?>
-
-         <input type="submit" name="submit" value="CREAR CUENTA" class="form-btn">
-
-         <p>¿Ya tienes una cuenta? <a href="login_form.php">ENTRAR</a></p>
-      </form>
-
-   </div>
-
-   </body>
-</html>
--->
-
 <!DOCTYPE html>
 <html>
 
 <head>
    
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lyvo Registro</title>
+
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
    <link rel="stylesheet" href="../assets/css/register_form.css">
 
@@ -111,10 +69,9 @@
                   <div class="content-label">
                      <h2>Nombre</h2>
 
-                     <div class="input-icono">
-                        <i class="fa fa-check icon-left" id="nombre-check-icon"></i>
-                        <input id="nombre-input" type="text" name="name" required>
-
+                     <div class="input-icon">
+                        <i class="fa fa-check icon-input" id="name-check-icon" style="visibility:hidden;"></i>
+                        <input id="name-input" type="text" name="name" required>
 
                      </div>
                   </div>
@@ -122,19 +79,17 @@
                   <div class="content-label">
                      <h2>Apellido</h2>
 
-                     <div class="input-icono">
-                        <i class="fa fa-check icon-left" id="apellido-check-icon"></i>
-                        <input id="apellido-input" type="text" name="surname" required>
+                     <div class="input-icon">
+                        <i class="fa fa-check icon-input" id="surname-check-icon" style="visibility:hidden;"></i>
+                        <input id="surname-input" type="text" name="surname" required>
                      </div>
                   </div>
-
-
 
                   <div class="content-label">
                      <h2>E-mail</h2>
 
-                     <div class="input-icono">
-                        <i class="fa fa-check icon" id="email-check-icon"></i>
+                     <div class="input-icon">
+                        <i class="fa fa-check icon-input" id="email-check-icon" style="visibility:hidden;"></i>
                         <input id="email-input" type="email" name="email" required>
 
                      </div>
@@ -143,18 +98,19 @@
                   <div class="content-label">
                      <h2>Contraseña</h2>
 
-                     <div class="input-icono">
-                        <i class="fa fa-check icon" id="contraseña-check-icon"></i>
+                     <div class="input-icon">
+                        <i class="fa fa-check icon-input icon-input-margin-right" id="pass-check-icon" style="visibility:hidden;"></i>
 
-                        <div id="eye-icon" onclick="mostrarContrasena()">
-                           <i class="fa fa-eye " id="ver-contraseña-icon"></i>
+                        <div id="show-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:visible;">
+                           <i class="fa fa-eye-slash icon-input"></i>
                         </div>
 
-                        <div id="eye-icon-slash" onclick="mostrarContrasena()">
-                           <i class="fa fa-eye-slash" id="ocultar-contraseña-icon"></i>
+                        <div id="hide-pass-icon" class="hover-pointer" onclick="showPass()" style="visibility:hidden;">
+                           <i class="fa fa-eye icon-input"></i>
                         </div>
 
-                        <input id="contraseña-input" type="password" name="password" required>
+                        <input id="pass-input" type="password" name="password" required>
+
                      </div>
 
                      <p id="caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>

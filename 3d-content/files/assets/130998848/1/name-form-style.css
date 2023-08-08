@@ -1,0 +1,192 @@
+html
+{
+    background-color: rgb(255, 255, 255);
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: scroll;
+}
+
+.name-form-container
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(255, 255, 255);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lyvo-logo
+{
+    position: absolute;
+    top: 0;
+    left: 40px;
+
+    width: 130px;
+}
+
+#lyvo-logo img { width: 100%; }
+
+.name-form 
+{
+    width: 360px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 40px 0;
+}
+
+.name-form h1
+{
+    margin: 0;
+    padding: 0;
+
+    color: rgb(0, 43, 73);
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.name-form h2
+{
+    margin: 0;
+    padding: 0;
+
+    color: rgb(0, 43, 73);
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.name-form p
+{
+    margin: 0;
+    padding: 0;
+}
+
+.name-form input[type=text]
+{
+    background-color: #e9f2ef;
+    border: 2px solid #87b4a4;
+
+    margin: 0;
+
+    padding: 0px 20px;
+    width: 360px;
+    height: 50px;
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    font-size:  15px;
+
+	font-family: "Montserrat", sans-serif;
+}
+
+.name-form input[type=text]:focus
+{
+    outline: 0;
+}
+
+.avatar-button-container
+{
+    /* width: 820px;
+    height: 120px;
+    transform: translateX(-25%); */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.avatar-button
+{
+    background-color: #e9f2ef;
+
+    width: 100px;
+    height: 120px;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.avatar-button img
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.name-form button
+{
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    width: 360px;
+    height: 50px;
+    border-radius: 12px;
+
+    background-color: #87b4a4;
+
+    color: white;
+    font-size:  20px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.name-form button:hover 
+{
+    background-color: #7da798;
+}
+
+@media only screen and (max-width: 700px)
+{
+    #lyvo-logo
+    {
+        display: none;
+    }
+
+    .name-form
+    {
+        width: 70vw;
+        height: auto;
+    }
+
+    .name-form input[type=text]
+    {
+        width: 100%;
+    }
+
+    .name-form button
+    {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 670px)
+{
+    #lyvo-logo
+    {
+        display: none;
+    }
+
+    .name-form-container
+    {
+        height: auto;
+    }
+}

@@ -8,8 +8,10 @@
    // Comprobar que el usuario tiene sesión iniciada.
    UserCheckSession($GLOBALS['Role_Client']);
 
-   // Si el usuario ya tiene historia clínica, enviar al 3D.
+   // Si el usuario entra en esta página, hay que mostrar la página de comenzar viaje.
+   $_SESSION['userMedicalInfoEnter'] = true;
 
+   // Si el usuario ya tiene historia clínica, enviar al 3D.
    if(isset($_SESSION['userData']->data->MedicalInformation)) 
    {
       LoadPage("public/3D_launcher.php");
@@ -31,7 +33,7 @@
       MedicalInformationSave($json);
 
       // Cargar
-      LoadPage("public/3D_launcher.php");
+      LoadPage("public/3d_launcher.php");
    }
 ?>
 

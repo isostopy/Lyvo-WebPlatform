@@ -8,7 +8,6 @@
    <title>Lyvo Recover</title>
 
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/login_form.css">
 
 </head>
 

@@ -21,6 +21,12 @@
    {
       $user_name = $_SESSION['userData']->data->first_name;
       $userRegistered = true;
+      
+      // El usuario puede estar registrado pero sin haber entrado en la información médica
+      if(isset($_SESSION['userMedicalInfoEnter']))
+      {
+         $userRegistered = false;
+      }
    }
 
    // Si no está registrado, cogemos el nombre de los datos proporcionados al crear el avatar.
@@ -29,6 +35,7 @@
       if(isset($_SESSION['nameSelected']))
       {
          $user_name = $_SESSION['nameSelected'];
+         $userRegistered = true;
       }
    }
 
@@ -54,6 +61,35 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
+   <script>
+      
+      function loadMetaverse()
+      {
+         // Obtenemos los datos del usuario.
+         var userData = <?php echo json_encode($userData); ?>;
+
+         for (var key in userData) {
+            localStorage.setItem(key, userData[key]);
+         }
+
+         var avatarId = localStorage.getItem("avatar-id");
+         var userName = localStorage.getItem("user-name");
+
+         // Redireccionamos al usuario a la otra página.
+         //window.location.href = "http://13.37.246.78/3d-content/";
+         window.location.href = "/Lyvo-WebPlatform/3d-content/";
+
+      }
+
+      var userRegistered = <?php echo $userRegistered ? 'true' : 'false'; ?>;
+
+      if(userRegistered)
+      {
+         loadMetaverse();
+      }
+
+   </script>
+
 </head>
 
 <body>
@@ -117,31 +153,6 @@
       var travelButton = document.getElementById('travel-button');
 
       travelButton.addEventListener('click', function() { loadMetaverse(); });
-
-      function loadMetaverse()
-      {
-         // Obtenemos los datos del usuario.
-         var userData = <?php echo json_encode($userData); ?>;
-
-         for (var key in userData) {
-            localStorage.setItem(key, userData[key]);
-         }
-
-         var avatarId = localStorage.getItem("avatar-id");
-         var userName = localStorage.getItem("user-name");
-
-         // Redireccionamos al usuario a la otra página.
-          window.location.href = "http://13.37.246.78/3d-content/";
-
-      }
-
-      var userRegistered = <?php echo $userRegistered; ?>;
-
-      // 
-      if(userRegistered)
-      {
-         loadMetaverse();
-      }
 
    </script>
 

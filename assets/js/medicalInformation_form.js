@@ -33,6 +33,8 @@ window.onload = function () {
 
     buttonNext.addEventListener('click', function(){showPageNext()})
     buttonBack.addEventListener('click', function(){showPagePrevious()})
+
+    showCurrentPage();
 };
 
 function showCurrentPage() 

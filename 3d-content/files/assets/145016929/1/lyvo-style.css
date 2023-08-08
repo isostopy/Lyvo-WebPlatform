@@ -1,0 +1,96 @@
+
+/* ---------------------------------------------------------------------- */
+
+/*  Quitar estilos  por defecto del buscador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------- */
+/* BUTTON */
+
+.button-general
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    transition-duration: 0.2s;
+    border: none;
+    background-color: #87b4a4;
+    color: white;
+}
+
+.button-general:hover
+{
+    cursor: pointer;
+    background-color: #72998b;
+}
+
+.button-variant
+{
+    background-color: #e9f2ef !important;
+    color: #002B49 !important;
+    font-weight: 600;
+    border: solid #87b4a4 2px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* FLEX */
+
+/* Convierte una div en un contenedor que ocupa toda la pantalla y centra su hijo en el centro. */
+.center-container
+{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ordena los hijos de esta div en columna. */
+.column
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Ordena los hijos de esta div en fila. */
+.row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Separa homogeneamente los elementos de la div. */
+.space-betweeen { justify-content: space-between; }
+/* Centra los elementos de la div. */
+.center { justify-content: center; }
+
+.stretch{ align-items: stretch; }
+
+
+/* ---------------------------------------------------------------------- */
+
+/* Hace que se ponga el dedito al hacer hover sobre una div. */
+.interactable :hover
+{
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Uso estas clases para debugear. */
+
+.red{background-color: red;}
+.green{background-color: green;}
+.blue{background-color: blue;}

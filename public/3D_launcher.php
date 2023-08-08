@@ -7,6 +7,8 @@
    $avatar = "avatar-1";
    $user_name = "Default name";
 
+   $userRegistered = false;
+
    // 1. AVATAR
    if(isset($_SESSION['avatarSelected']))
    {
@@ -18,6 +20,7 @@
    if(isset($_SESSION['userData'])) 
    {
       $user_name = $_SESSION['userData']->data->first_name;
+      $userRegistered = true;
    }
 
    // Si no está registrado, cogemos el nombre de los datos proporcionados al crear el avatar.
@@ -35,7 +38,6 @@
    );
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -128,12 +130,17 @@
          var avatarId = localStorage.getItem("avatar-id");
          var userName = localStorage.getItem("user-name");
 
-         // Ahora puedes usar estos valores en tu código JavaScript.
-         console.log(avatarId, userName);
-
          // Redireccionamos al usuario a la otra página.
-         // window.location.href = 'tu_otra_pagina.php';
+          window.location.href = "http://13.37.246.78/3d-content/";
 
+      }
+
+      var userRegistered = <?php echo $userRegistered; ?>;
+
+      // 
+      if(userRegistered)
+      {
+         loadMetaverse();
       }
 
    </script>

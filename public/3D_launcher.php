@@ -76,8 +76,8 @@
          var userName = localStorage.getItem("user-name");
 
          // Redireccionamos al usuario a la otra página.
-         //window.location.href = "http://13.37.246.78/3d-content/";
-         window.location.href = "/Lyvo-WebPlatform/3d-content/";
+         window.location.href = "http://13.37.246.78/3d-content/";
+         //window.location.href = "/Lyvo-WebPlatform/3d-content/";
 
       }
 

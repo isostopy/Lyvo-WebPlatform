@@ -59,8 +59,6 @@
         return $response;
     }
 
-
-
     // REGISTRO
     function Register($user_Name, $user_LastName, $user_Email, $user_Password)
     {

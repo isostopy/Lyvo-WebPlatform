@@ -78,38 +78,45 @@
 
                 <form action="" method="post">
 
-                    <div class="content-label">
+                    <div class="margin-bottom-30px">
 
-                        <h2>E-mail</h2>
+                        <div class="content-label">
 
-                        <div class="input-icon">
-                            <i id="email-check-icon" class="fa fa-check icon-input" style="visibility:hidden;"> </i>
-                            <input id="email-input" type="email" name="email" required>
+                            <h2>E-mail</h2>
+
+                            <div class="input-icon">
+                                <i id="email-check-icon" class="fa fa-check icon-input" style="visibility:hidden;"> </i>
+                                <input id="email-input" type="email" name="email" required>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="content-label">
 
-                    <div class="content-label">
+                            <h2>Contraseña <a href="recoverPass_form_email.php" id="recover-pass">¿Has olvidado tu contraseña?</a></h2>
 
-                        <h2>Contraseña <a href="recoverPass_form_email.php" id="recover-pass">¿Has olvidado tu contraseña?</a></h2>
+                            <div class="input-icon">
 
-                        <div class="input-icon">
+                            <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
+                                <i class="fa fa-eye-slash icon-input"></i>
+                            </div>
 
-                        <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
-                            <i class="fa fa-eye-slash icon-input"></i>
+                            <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
+                                <i class="fa fa-eye icon-input"></i>
+                            </div>
+                                <input id="pass-input" type="password" name="password" required>
+                            </div>
+
                         </div>
 
-                        <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
-                            <i class="fa fa-eye icon-input"></i>
-                        </div>
-                            <input id="pass-input" type="password" name="password" required>
-                        </div>
-
-                    </div>
-
-                    <label id="recordarme"><input type="checkbox"> <p>Recordarme</p> </label>
+                        <label class="input-label-circular">
+                            <input class="input-field-label margin-right-5px" type="checkbox"> 
+                            <p class="radio-text">Recordarme</p> 
+                        </label>
 
                     <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
+
+                    </div>
 
                     <input type="submit" name="submit" value="ENTRAR" >
 

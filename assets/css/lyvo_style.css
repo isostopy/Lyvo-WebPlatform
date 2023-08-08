@@ -50,10 +50,23 @@ h2{
     flex-wrap: wrap;
 }
 
+.content-column{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .content-label h2{
     display: flex;
     justify-content: space-between;
 }
+
+.content-label-column{
+    display: flex;
+    flex-direction: column;
+}
+
 
 /* Logo lyvo esquina superior izquierda*/
 
@@ -240,7 +253,7 @@ h2{
     z-index: -1;
 }
 
-#pregunta-radio-group{
+.pregunta-radio-group{
     display: flex;
     flex-direction: column;
 }
@@ -305,43 +318,13 @@ p{
     background-color: #a1cebe;
 }
 
-.margin-top-bottom-10px{
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-}
-
-.margin-top-50px{
-
-    margin-top: 50px;
-
-}
-
-.margin-bottom-10px{
-
-    margin-bottom: 10px;
-
-}
-
-.margin-bottom-20px{
-
-    margin-bottom: 20px;
-
-}
-
-.margin-bottom-30px{
-
-    margin-bottom: 30px;
-
-}
-
-.margin-bottom-50px{
-
-    margin-bottom: 50px;
-
-}
-
+.margin-top-bottom-10px{ margin-top: 10px; margin-bottom: 10px; }
+.margin-top-50px{ margin-top: 50px; }
+.margin-bottom-10px{  margin-bottom: 10px; }
+.margin-bottom-20px{ margin-bottom: 20px; }
+.margin-bottom-30px{ margin-bottom: 30px; }
+.margin-bottom-50px{ margin-bottom: 50px; }
+.margin-right-5px{ margin-right: 5px; }
 
 .button-text {
     border: none;
@@ -371,7 +354,6 @@ input[type=text], .content input[type=password], .content input[type=email]{
     font-family: "Montserrat", sans-serif;
 
     padding: 0.5em;
-    /*margin-top: -2em;*/
 }
 
 .content input[type=text]:focus, .content input[type=password]:focus {
@@ -402,16 +384,14 @@ a:hover{
     color: #72998b;
 }
 
-label{
-    font-family: "Montserrat", sans-serif;
-    height: 25px;
+.input-label-circular {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
-label p{
+.input-field-label, .radio-text {
     display: inline-block;
-    position: relative;
-    bottom: 21px;
-    padding-left: 1.5em;
 }
 
 .msg{

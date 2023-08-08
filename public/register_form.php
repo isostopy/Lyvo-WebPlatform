@@ -60,69 +60,75 @@
 
          <div class="content">
 
+            <h1>Crear cuenta</h1>
+
             <form action="" method="post">
 
-               <h1>Crear cuenta</h1>
+               <div class="margin-bottom-30px">
 
-               <div class="content-main">
+                  <div class="content-main">
 
-                  <div class="content-label">
-                     <h2>Nombre</h2>
+                     <div class="content-label">
+                        <h2>Nombre</h2>
 
-                     <div class="input-icon">
-                        <i class="fa fa-check icon-input" id="name-check-icon" style="visibility:hidden;"></i>
-                        <input id="name-input" type="text" name="name" required>
+                        <div class="input-icon">
+                           <i class="fa fa-check icon-input" id="name-check-icon" style="visibility:hidden;"></i>
+                           <input id="name-input" type="text" name="name" required>
 
+                        </div>
                      </div>
-                  </div>
 
-                  <div class="content-label">
-                     <h2>Apellido</h2>
+                     <div class="content-label">
+                        <h2>Apellido</h2>
 
-                     <div class="input-icon">
-                        <i class="fa fa-check icon-input" id="surname-check-icon" style="visibility:hidden;"></i>
-                        <input id="surname-input" type="text" name="surname" required>
+                        <div class="input-icon">
+                           <i class="fa fa-check icon-input" id="surname-check-icon" style="visibility:hidden;"></i>
+                           <input id="surname-input" type="text" name="surname" required>
+                        </div>
                      </div>
-                  </div>
 
-                  <div class="content-label">
-                     <h2>E-mail</h2>
+                     <div class="content-label">
+                        <h2>E-mail</h2>
 
-                     <div class="input-icon">
-                        <i class="fa fa-check icon-input" id="email-check-icon" style="visibility:hidden;"></i>
-                        <input id="email-input" type="email" name="email" required>
+                        <div class="input-icon">
+                           <i class="fa fa-check icon-input" id="email-check-icon" style="visibility:hidden;"></i>
+                           <input id="email-input" type="email" name="email" required>
 
+                        </div>
                      </div>
-                  </div>
 
-                  <div class="content-label">
-                     <h2>Contraseña</h2>
+                     <div class="content-label">
+                        <h2>Contraseña</h2>
 
-                     <div class="input-icon">
-                        <i class="fa fa-check icon-input icon-input-margin-right" id="pass-check-icon" style="visibility:hidden;"></i>
+                        <div class="input-icon">
+                           <i class="fa fa-check icon-input icon-input-margin-right" id="pass-check-icon" style="visibility:hidden;"></i>
 
-                        <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
-                           <i class="fa fa-eye-slash icon-input"></i>
+                           <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
+                              <i class="fa fa-eye-slash icon-input"></i>
+                           </div>
+
+                           <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
+                              <i class="fa fa-eye icon-input"></i>
+                           </div>
+
+                           <input id="pass-input" type="password" name="password" required>
+
                         </div>
 
-                        <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
-                           <i class="fa fa-eye icon-input"></i>
-                        </div>
-
-                        <input id="pass-input" type="password" name="password" required>
+                        <p class="caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>
 
                      </div>
-
-                     <p class="caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>
-
                   </div>
+
+                  <label class="input-label-circular">
+                     <input class="input-field-label margin-right-5px" type="checkbox" id="terms" name="terms">
+                     <p class="radio-text">He leído y acepto los <a href="terms_and_conditions.php">Términos y Condiciones de uso</a></p>
+                  </label>
+
+
+                  <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
+
                </div>
-
-               <input type="checkbox" id="terms" name="terms">
-               <label id="terminos" for="terms"><p>He leído y acepto los <a href="terms_and_conditions.php">Términos y Condiciones de uso</a></p></label>
-
-
-               <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
 
                <input id="entrar-button" type="submit" name="submit" value="CREAR CUENTA" class="form-btn">
 

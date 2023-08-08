@@ -13,7 +13,6 @@ var pagesMarkers = [];
 //control
 var currentPage = 0;
 
-
 window.onload = function () {
 
     //inicialización de variables guardando el elemento que corresponda.
@@ -34,16 +33,6 @@ window.onload = function () {
 
     buttonNext.addEventListener('click', function(){showPageNext()})
     buttonBack.addEventListener('click', function(){showPagePrevious()})
-
-    //inputs
-    nombreInput = document.getElementById("nombre-input");
-    apellidoInput = document.getElementById("apellido-input");
-
-    //iconos check
-    nombreCheckIcon = document.getElementById("nombre-check-icon");
-    apellidoCheckIcon = document.getElementById("apellido-check-icon");
-
-    showCurrentPage();
 };
 
 function showCurrentPage() 

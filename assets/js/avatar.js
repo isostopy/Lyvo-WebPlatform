@@ -1,6 +1,6 @@
 //control
 var avatars = [];
-const avatarsId = ["avatar_1","avatar_2","avatar_3","avatar_4","avatar_5","avatar_6"];
+const avatarsId = ["avatar-1","avatar-2","avatar-3","avatar-4","avatar-5","avatar-6"];
 var selectedAvatar;
 
 var colorBase = "#e9f2ef";
@@ -19,7 +19,7 @@ window.onload = function () {
     avatars[5] = document.getElementById(avatarsId[5]);
 
     //input
-    submit = document.getElementById("submit-avatar");
+    submitValue = document.getElementById("avatar-selected");
 
     //event listeners
     avatars[0].addEventListener('click', function() { selectAvatar(avatarsId[0]); });
@@ -35,11 +35,12 @@ window.onload = function () {
 };
 
 function selectAvatar(id) {
-    
-    document.getElementById('button-avatar-submit').name = id;
+
+    submitValue.value = id;
     selectedAvatar = id;
 
     highlightSelected(id);
+
 }
 
 function highlightSelected(value)

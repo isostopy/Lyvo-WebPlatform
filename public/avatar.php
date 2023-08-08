@@ -47,11 +47,11 @@
    // -------------------------------------------------------------------------------------
    if($_POST)
    {
-      // Obtener el valor del avatar seleccionado
-      $avatarSelected = array_keys($_POST)[0];
-
       // Almacenamos la identificación del avatar en la sesión para utilizarlo después.
-      $_SESSION['avatarSelected'] = $avatarSelected;
+      $_SESSION['avatarSelected'] = $_POST['avatar-selected'];
+
+      // Almacenamos el nombre del usuario.
+      $_SESSION['nameSelected'] = $_POST['name-input'];
 
       // Si el usuario ha hecho login, guardar en el CMS el avatar seleccionado.
       if($userRegistered)
@@ -103,18 +103,18 @@
 
                <h1>¡Bienvenido!</h1>
 
-               <?php
-
-                  // Mostrar campo para añadir nombre si el usuario no está registrado
-
-                  if(!isset($_SESSION['userData']))
-                  {
-                     echo '<div class="content-label"> <h2>Nombre</h2><div class="input-icono"> </i><input class="input-field" id="name-input" type="text"> </div> </div>';
-                  }
-
-               ?>
-
                   <form action="" method="post">
+
+                     <?php
+
+                        // Mostrar campo para añadir nombre si el usuario no está registrado
+
+                        if(!isset($_SESSION['userData']))
+                        {
+                           echo '<div class="content-label"> <h2>Nombre</h2><div class="input-icono"><input class="input-field" name="name-input" type="text"> </div> </div>';
+                        }
+
+                     ?>
 
                      <div class="content-label">
                         
@@ -138,18 +138,20 @@
 
                         <div class="avatar-button-container">
 
-                           <div class="avatar-button" id="avatar_1"> <img src="../assets/images/t_icon_man_1.png"> </div>
-                           <div class="avatar-button" id="avatar_2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
-                           <div class="avatar-button" id="avatar_3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
-                           <div class="avatar-button" id="avatar_4"> <img src="../assets/images/t_icon_man_3.png"> </div>
-                           <div class="avatar-button" id="avatar_5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
-                           <div class="avatar-button" id="avatar_6"> <img src="../assets/images/t_icon_man_2.png"> </div>
+                           <div class="avatar-button" id="avatar-1"> <img src="../assets/images/t_icon_man_1.png"> </div>
+                           <div class="avatar-button" id="avatar-2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
+                           <div class="avatar-button" id="avatar-3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
+                           <div class="avatar-button" id="avatar-4"> <img src="../assets/images/t_icon_man_3.png"> </div>
+                           <div class="avatar-button" id="avatar-5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
+                           <div class="avatar-button" id="avatar-6"> <img src="../assets/images/t_icon_man_2.png"> </div>
+
+                           <input type="hidden" value="avatar-1" name='avatar-selected' id='avatar-selected'>
 
                         </div>
 
                      </div>
 
-                     <input type="submit" name="avatar1" value="ENTRAR" class="button-general" id="button-avatar-submit">
+                     <input type="submit" value="ENTRAR" class="button-general" id="button-avatar-submit">
 
                   </form>
 

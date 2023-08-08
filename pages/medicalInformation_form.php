@@ -48,7 +48,7 @@
 
       $message = "Información almacenada con éxito.";
 
-      LoadPage("public/3D_launcher.php");
+      LoadPage("public/3d_launcher.php");
    }
 
    /*

@@ -72,7 +72,7 @@
       }
 
       // Si el usuario no está registrado pasamos directamente a la página de Lyvo.
-      LoadPage("public/3D_launcher.php");
+      LoadPage("public/3d_launcher.php");
    }
 ?>
 

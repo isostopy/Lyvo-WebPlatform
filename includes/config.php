@@ -68,7 +68,7 @@
     $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
 */
 
-    $URL_Base = "lyvoweb.isostopyserver.net";
+    $URL_Base = "https://lyvoweb.isostopyserver.net";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
 
     // Admin token
@@ -81,7 +81,7 @@
     $URL_DirectusUsersMe = "http://15.188.179.241:8055/users/me";
     $URL_DirectusRecoverPass_Request = "http://15.188.179.241:8055/auth/password/request";
     $URL_DirectusRecoverPass_Reset = "http://15.188.179.241:8055/auth/password/reset";
-    $URL_RecoverPass = "lyvoweb.isostopyserver.net/public/recoverPass_form_newpass.php";
+    $URL_RecoverPass = "https://lyvoweb.isostopyserver.net/public/recoverPass_form_newpass.php";
 
     // Directus rolecode
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';

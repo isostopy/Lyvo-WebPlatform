@@ -48,7 +48,9 @@
    if($_POST)
    {
       // Almacenamos la identificación del avatar en la sesión para utilizarlo después.
-      $_SESSION['avatarSelected'] = $_POST['avatar-selected'];
+      $avatarSelected = $_POST['avatar-selected'];
+
+      $_SESSION['avatarSelected'] = $avatarSelected;
 
       // Almacenamos el nombre del usuario.
       $_SESSION['nameSelected'] = $_POST['name-input'];

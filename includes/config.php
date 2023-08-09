@@ -50,6 +50,7 @@
 
     // RESOLVER CON IPs
 
+    // Base urls
     $URL_Base = "http://15.188.43.110";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
 

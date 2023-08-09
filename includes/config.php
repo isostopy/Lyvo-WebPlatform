@@ -50,7 +50,7 @@
 
     // RESOLVER CON IPs
 
-    $URL_Base = "http://13.37.246.78";
+    $URL_Base = "http://15.188.43.110";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
 
     // Admin token
@@ -63,7 +63,7 @@
     $URL_DirectusUsersMe = "http://15.188.179.241:8055/users/me";
     $URL_DirectusRecoverPass_Request = "http://15.188.179.241:8055/auth/password/request";
     $URL_DirectusRecoverPass_Reset = "http://15.188.179.241:8055/auth/password/reset";
-    $URL_RecoverPass = "http://13.37.246.78/public/recoverPass_form_newpass.php";
+    $URL_RecoverPass = "http://15.188.43.110/public/recoverPass_form_newpass.php";
 
     // Directus rolecode
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';

@@ -60,7 +60,6 @@
       "avatar-id" => $avatar,
       "user-name" => $user_name,
    );
-
 ?>
 
 

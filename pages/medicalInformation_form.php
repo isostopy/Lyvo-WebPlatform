@@ -267,15 +267,15 @@
                            <h2>Alcohol</h2>
 
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="none" name="medical-info-alcohol" type="radio" <?php echo (isset($medicalData->alcohol) && $medicalData->alcohol=='masculino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="none" name="medical-info-alcohol" type="radio" <?php echo (isset($medicalData->alcohol) && $medicalData->alcohol=='none')?'checked':'' ?>>
                               <p class="radio-text">Nulo</p>
                            </label>
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="medium" name="medical-info-alcohol" type="radio" <?php echo (isset($medicalData->alcohol) && $medicalData->alcohol=='femenino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="medium" name="medical-info-alcohol" type="radio" <?php echo (isset($medicalData->alcohol) && $medicalData->alcohol=='medium')?'checked':'' ?>>
                               <p class="radio-text">Ocasional</p>
                            </label>
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="high" name="medical-info-alcohol" type="radio" <?php echo (isset($medicalData->alcohol) && $medicalData->alcohol=='femenino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="high" name="medical-info-alcohol" type="radio" <?php echo (isset($medicalData->alcohol) && $medicalData->alcohol=='high')?'checked':'' ?>>
                               <p class="radio-text">Alto</p>
                            </label>
 
@@ -286,15 +286,15 @@
                            <h2>Tabaco</h2>
 
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="none" name="medical-info-tobacco" type="radio" <?php echo (isset($medicalData->tobacco) && $medicalData->tobacco=='masculino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="none" name="medical-info-tobacco" type="radio" <?php echo (isset($medicalData->tobacco) && $medicalData->tobacco=='none')?'checked':'' ?>>
                               <p class="radio-text">Nulo</p>
                            </label>
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="medium" name="medical-info-tobacco" type="radio" <?php echo (isset($medicalData->tobacco) && $medicalData->tobacco=='femenino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="medium" name="medical-info-tobacco" type="radio" <?php echo (isset($medicalData->tobacco) && $medicalData->tobacco=='medium')?'checked':'' ?>>
                               <p class="radio-text">Ocasional</p>
                            </label>
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="high" name="medical-info-tobacco" type="radio" <?php echo (isset($medicalData->tobacco) && $medicalData->tobacco=='femenino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="high" name="medical-info-tobacco" type="radio" <?php echo (isset($medicalData->tobacco) && $medicalData->tobacco=='high')?'checked':'' ?>>
                               <p class="radio-text">Alto</p>
                            </label>
 
@@ -305,15 +305,15 @@
                            <h2>Drogas</h2>
 
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="none" name="medical-info-drugs" type="radio" <?php echo (isset($medicalData->drugs) && $medicalData->drugs=='masculino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="none" name="medical-info-drugs" type="radio" <?php echo (isset($medicalData->drugs) && $medicalData->drugs=='none')?'checked':'' ?>>
                               <p class="radio-text">Nulo</p>
                            </label>
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="medium" name="medical-info-drugs" type="radio" <?php echo (isset($medicalData->drugs) && $medicalData->drugs=='femenino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="medium" name="medical-info-drugs" type="radio" <?php echo (isset($medicalData->drugs) && $medicalData->drugs=='medium')?'checked':'' ?>>
                               <p class="radio-text">Ocasional</p>
                            </label>
                            <label class="input-label-circular">
-                              <input class="input-field-label margin-right-5px" value="high" name="medical-info-drugs" type="radio" <?php echo (isset($medicalData->drugs) && $medicalData->drugs=='femenino')?'checked':'' ?>>
+                              <input class="input-field-label margin-right-5px" value="high" name="medical-info-drugs" type="radio" <?php echo (isset($medicalData->drugs) && $medicalData->drugs=='high')?'checked':'' ?>>
                               <p class="radio-text">Alto</p>
                            </label>
 

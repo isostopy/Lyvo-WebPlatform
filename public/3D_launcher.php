@@ -7,7 +7,7 @@
    $avatar = "avatar-1";
    $user_name = "Default name";
 
-   $userRegistered = false;
+   $showTravelScreen = false;
 
    // 1. AVATAR
    if(isset($_SESSION['avatarSelected']))
@@ -20,25 +20,30 @@
    if(isset($_SESSION['userData'])) 
    {
       $user_name = $_SESSION['userData']->data->first_name;
-      $userRegistered = true;
-      
-      // El usuario puede estar registrado pero sin haber entrado en la información médica
-      if(isset($_SESSION['userMedicalInfoEnter']))
-      {
-         $userRegistered = false;
-      }
    }
-
    // Si no está registrado, cogemos el nombre de los datos proporcionados al crear el avatar.
    else
    {
       if(isset($_SESSION['nameSelected']))
       {
          $user_name = $_SESSION['nameSelected'];
-         $userRegistered = true;
       }
    }
 
+   // Comprobamos si hay que mostrar o no la página de "Todo listo".
+   if(isset($_SESSION['medicalInfoFirstTime']))
+   {
+      if($_SESSION['medicalInfoFirstTime'])
+      {
+         $showTravelScreen = true;
+
+         // Una vez utilizado el valor lo ponemos a negativo para evitar
+         // que si volvemos del metaverso durante la misma sesión, vuelva a saltar.
+         $_SESSION['medicalInfoFirstTime'] = false;
+      }
+   }
+
+   // PREPARAR INFORMACIÓN
    $userData = array(
       "avatar-id" => $avatar,
       "user-name" => $user_name,
@@ -54,7 +59,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyvo Login</title>
+    <title>Lyvo 3D</title>
 
     <link rel="stylesheet" href="../assets/css/lyvo_style.css">
     <link rel="stylesheet" href="../assets/css/login_form.css">
@@ -81,9 +86,9 @@
 
       }
 
-      var userRegistered = <?php echo $userRegistered ? 'true' : 'false'; ?>;
+      var travelScreen = <?php echo $showTravelScreen ? 'true' : 'false'; ?>;
 
-      if(userRegistered)
+      if(!travelScreen)
       {
          loadMetaverse();
       }

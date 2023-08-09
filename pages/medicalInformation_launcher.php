@@ -8,18 +8,23 @@
    // Comprobar que el usuario tiene sesión iniciada.
    UserCheckSession($GLOBALS['Role_Client']);
 
-   // Si el usuario entra en esta página, hay que mostrar la página de comenzar viaje.
-   $_SESSION['userMedicalInfoEnter'] = true;
-
-   // Si el usuario ya tiene historia clínica, enviar al 3D.
+   // Si el usuario ya tiene historia clínica, enviar al 3D, aunque no se debería
+   // entrar en esta página si el usuario ya tiene historia clínica completada o saltada.
+   // El bypass se debería haber realizado en el Login, el siguiente código es por seguridad.
    if(isset($_SESSION['userData']->data->MedicalInformation)) 
    {
-      LoadPage("public/3D_launcher.php");
+      LoadPage("public/3d_launcher.php");
+      $_SESSION['medicalInfoFirstTime'] = false;
    }
 
+   // Si el usuario entra en esta página es porque es su primera sesión. Guardamos valor para
+   // más adelante saltar la página de "Todo listo".
+   $_SESSION['medicalInfoFirstTime'] = true;
+
+
+   
    // Si no tiene historia clínica, dar la opción de rechazar o rellenar la información.
    // Si rechaza la información hay que guardar algo para que la próxima vez salte esto.
-
    if(isset($_POST['skip'])) 
    {
       $data = array(
@@ -42,6 +47,11 @@
 
 <head>
 
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lyvo Historia</title>
+
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
 
 </head>
@@ -61,7 +71,7 @@
 
             <h1>Vamos a completar tu <br> historia clínica</h1>
 
-            <p class="margin-bottom-20px">Queremos conocerte mejor para poder darte el mejor servicio.</p>
+            <p class="margin-bottom-20px">Queremos conocerte mejor para poderte dar el mejor servicio.</p>
             <p class="margin-bottom-30px">Si rellenas tu historia clínica, podrás conectar con los mejores profesionales e intercambiar información de manera sencilla y totalmente confidencial.</p>
 
             <button class="button-general" id="enter-button" onclick="location.href = 'medicalInformation_form.php' ">EMPEZAR</button>

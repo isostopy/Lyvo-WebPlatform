@@ -421,8 +421,10 @@ a:hover{
     margin-bottom: 10px;
 }
 
+
 /* Estilos para tablet (estos se añaden o remplazan a los estilos previos) */
 
+/*
 @media (min-width:800px) {
 
     #lyvo-logo {
@@ -456,9 +458,11 @@ a:hover{
     }
 
 }
+*/
 
 /* Estilos para monitor (estos se añaden o remplazan a los estilos previos) */
 
+/*
 @media (min-width:1350px) {
 
     #lyvo-logo {
@@ -509,3 +513,4 @@ a:hover{
     }
 
 }
+*/

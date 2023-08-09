@@ -25,14 +25,34 @@
             // Obtener información del Usuario.
             UserGetData($token);
 
-            // Redirigir al usuario o mostrar alguna otra página aquí
+            // Redirigir al usuario según su información.
+
+
+            // 1. Comprobamos el tipo de usuario.
             if (isset($_SESSION['userData']->data->role)) 
             {
                 $userRole = $_SESSION['userData']->data->role;
-
-                // Comprobar qué es lo que tiene el usuario, si ya tiene avatar, historia clínica, etc. y enviar ahí.
-                LoadPageByUserRole($userRole);
+                
+                // Ahora no cargamos nada porque no se está utilizando.
+                // LoadPageByUserRole($userRole);
             }
+
+            // 2. Comprobamos si tiene avatar.
+            if (!isset($_SESSION['userData']->data->AvatarInformation)) 
+            {
+                LoadPage("public/avatar.php");
+            }
+            // 3. Comprobamos si tiene historia médica.
+            else if(!isset($_SESSION['userData']->data->MedicalInformation))
+            {
+                LoadPage("pages/medicalInformation_launcher.php");
+            }
+            // 4. Si tiene todo, vamos al 3d launcher.
+            else
+            {
+                LoadPage("public/3d_launcher.php");
+            }
+
         }
         catch (Exception $e)
         {

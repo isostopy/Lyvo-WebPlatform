@@ -23,7 +23,9 @@
     // al ser el elemento principal, lo va a hacer desde la raiz.
 
 
-    /*
+
+    // RESOLVER A LOCALHOST
+
     $URL_Base = "http://localhost/Lyvo-WebPlatform";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo/";
 
@@ -43,10 +45,12 @@
     $Role_Aministrator = '3f543429-02b7-420e-b5d7-14f1b2d8523f';
     $Role_Client = 'c46bd43c-1030-45c2-b0b2-d8abb74b5208';
     $Role_Doctor = '297aff85-3332-4b96-8b1b-e7a49e607a0f';
-*/
+
 
 
 /*
+    // RESOLVER CON IPs
+
     $URL_Base = "http://13.37.246.78";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
 
@@ -68,6 +72,9 @@
     $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
 */
 
+/*
+    // Resolver a URLs
+
     $URL_Base = "https://lyvoweb.isostopyserver.net";
     $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
 
@@ -87,6 +94,6 @@
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
     $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
-
+*/
 
 ?>

@@ -199,7 +199,7 @@
         session_destroy();
 
         // Redirigir al usuario a la página de inicio de sesión.
-        LoadPage("public/login_form.php");
+        LoadPage("public/welcome.php");
     }
 
 
@@ -285,17 +285,17 @@
     // COMPROBAR LA SESIÓN Y EL USUARIO
     function UserCheckSession($role)
     {
-        // Si no hay una sesión iniciada, cargar Login.
+        // Si no hay una sesión iniciada, cargar welcome.
         if(!isset($_SESSION['userData']->data->role))
         {
-            LoadPage("public/login_form.php");
+            LoadPage("public/welcome.php");
         }
         // Si hay abierta una sesión, comprobar que el rol no coincide.
         else
         {
             if($_SESSION['userData']->data->role !== $role)
             {
-                LoadPage("public/login_form.php");
+                LoadPage("public/welcome.php");
             }
         } 
     }

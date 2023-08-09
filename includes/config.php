@@ -50,6 +50,7 @@
 
     // RESOLVER CON IPs
 
+    /*
     // Base urls
     $URL_Base = "http://15.188.43.110";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
@@ -70,8 +71,8 @@
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
     $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
+    */
 
-/*
     // Resolver a URLs
 
     $URL_Base = "https://lyvoweb.isostopyserver.net";
@@ -93,6 +94,5 @@
     $Role_Aministrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
     $Role_Doctor = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
-*/
 
 ?>

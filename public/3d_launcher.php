@@ -14,6 +14,18 @@
    {
       $avatar = $_SESSION['avatarSelected'];
    }
+   else
+   {
+      // Si no tenemos avatar seleccionado, porque el usuario vuelve directamente del login,
+      // es decir, lo seleccionó en su momento y el programa salta.
+      if(isset($_SESSION['userData']->data->AvatarInformation->type))
+      {
+         $avatar = $_SESSION['userData']->data->AvatarInformation->type;
+      }
+   }
+
+   // Si no se da ninguna de las condiciones anteriores, ponemos el avatar por defecto.
+
 
    // 2. NOMBRE DEL USUARIO
    // Si el usuario está registrado cogemos su nombre de sus datos.

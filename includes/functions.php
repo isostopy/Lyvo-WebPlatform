@@ -162,8 +162,6 @@
       }
     }
 
-
-
     // LOGOUT
     function Logout()
     {
@@ -198,9 +196,6 @@
 
         // Finalmente, destruir la sesión.
         session_destroy();
-
-        // Redirigir al usuario a la página de inicio de sesión.
-        LoadPage("public/welcome.php");
     }
 
 
@@ -248,6 +243,12 @@
     }
 
 
+    // OBTENER DIRECCIÓN ABSOLUTA
+    function GetURL($endUrl)
+    {
+        return $GLOBALS[$endUrl]."/";
+    }
+
 
     // CARGAR PÁGINA
     function LoadPage($page)
@@ -255,7 +256,6 @@
         header("Location: ".$GLOBALS['URL_Base']."/".$page);
         exit();
     }
-
 
 
     // ABRIR ESCENARIO 3D

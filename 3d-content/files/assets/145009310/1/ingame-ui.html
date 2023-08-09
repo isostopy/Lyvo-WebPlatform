@@ -1,0 +1,155 @@
+
+<!-- Boton de abrir el menu. -->
+<div class="interactable">
+    <img id="ingame-menu-open" class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_settings.png">
+</div>
+
+<!-- Menu. -->
+<div class="center-container">
+    <div id="ingame-menu">
+
+        <!-- Boton de cerrar -->
+        <div class="interactable">
+            <img id="ingame-menu-close" src="https://pruebas.isostopy.com/Images/UI/boton_close.png">
+        </div>
+
+
+        <!-- Panel de opciones. -->
+        <div id="ingame-menu-options" class="ingame-menu-options-container">
+
+            <div id="ingame-menu-button-profile" class="ingame-menu-header interactable">
+                <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_profile.png">
+                <h1> PERFIL DE USUARIO </h1>
+            </div>
+
+            <div id="ingame-menu-button-control" class="ingame-menu-header interactable">
+                <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_help.png">
+                <h1> CONTROLES </h1>
+            </div>
+
+            <div id="ingame-menu-button-history" class="ingame-menu-header interactable">
+                <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_history.png">
+                <h1> HISTORIA CLÍNICA </h1>
+            </div>
+
+            <!-- Boton de log out. -->
+            <a href="https://15.188.43.110/pages/logout.php">
+                <div id="ingame-menu-exit" class="ingame-menu-header interactable">
+                    <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_exit.png">
+                    <h1> SALIR </h1>
+                </div>
+            </a>
+        </div>
+
+        <!-- Panel de Perfil de usuario. -->
+        <div id="ingame-menu-profile" class="center-container"">
+            <div class="ingame-menu-content row space-betweeen">
+
+                <!-- Columna de texto. -->
+                <div class="ingame-menu-column column space-betweeen">
+
+                    <!-- Parte de arriba: titulo + nombre. -->
+                    <div class="ingame-menu-info">
+                        <div class="ingame-menu-header">
+                            <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_profile.png">
+                            <h1> PERFIL DE USUARIO </h1>
+                        </div>
+
+                        <div class="space" style="height:20px;"></div>
+
+                        <p><b>Nombre:</b> usuario</p>
+                        <div class="space" style="height:5px;"></div>
+                        <p><b>E-mail:</b> usuario@gmail.com</p>
+                    </div>
+
+                    <!-- Parte de abajo: botones. -->
+                    <div class="column" style="width:100%;">
+                        <a class="button-general" href="https://15.188.43.110/public/avatar.php?fromMetaverse=true">
+                            <button class="button-general">
+                                EDITAR AVATAR
+                            </button>
+                        </a>
+                        <!-- <div class="space" style="height:10px;"></div>
+                        <button class="button-general button-variant">
+                            EDITAR AVATAR
+                        </button> -->
+                    </div>
+                </div>
+
+                <div class="space" style="width:50px;"></div>
+
+                <!-- Columna de imagen. -->
+                <img class="ingame-menu-column" src="https://pruebas.isostopy.com/Images/Test.jpg">
+
+            </div>
+        </div>
+
+        <!-- Panel de Controles. -->
+        <div id="ingame-menu-control" class="center-container">
+            <div class="ingame-menu-content column">
+
+                <div class="ingame-menu-header">
+                    <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_help.png">
+                    <h1> CONTROLES </h1>
+                </div>
+
+                <img class="ingame-menu-column" src="https://pruebas.isostopy.com/Images/UI/t_ui_controles.png"
+                    style="object-fit: contain">
+
+            </div>
+        </div>
+
+        <!-- Panel de Historia clinica. -->
+        <div id="ingame-menu-history" class="center-container">
+            <div class="ingame-menu-content row space-betweeen">
+
+                <!-- Columna de texto. -->
+                <div class="ingame-menu-column column space-betweeen">
+
+                    <!-- Titulo. -->
+                    <div class="ingame-menu-header">
+                        <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_history.png">
+                        <h1> HISTORIA CLÍNICA </h1>
+                    </div>
+
+                    <!-- Texto. -->
+                    <p>
+                        Utiliza el código QR para compartir tu historia clínica de forma rápida y segura.
+                        <br><br>
+                        También puedes consultarla o editarla desde aquí.
+                    </p>
+
+                    <!-- Botones. -->
+                    <div class="column" style="width:100%;">
+                        <a class="button-general" href="https://15.188.43.110/pages/medicalInformation_form.php?fromMetaverse=true">
+                            <button class="button-general">
+                                MODIFICAR HISTORIA
+                            </button>
+                        </a>
+                        <!-- <div class="space" style="height:10px;"></div>
+                        <button class="button-general button-variant">
+                            EDITAR AVATAR
+                        </button> -->
+                    </div>
+                </div>
+
+                <div class="space" style="width:50px;"></div>
+
+                <!-- Columna de imagen. -->
+                <img class="ingame-menu-column" src="https://pruebas.isostopy.com/Images/Test.jpg">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Botones de abajo. -->
+<div id="ingame-buttongroup" class="row end">
+    <div id="ingame-button-quality" class="interactable">
+        <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_settings.png">
+    </div>
+    <div id="ingame-button-mute" class="interactable">
+        <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_micon.png">
+    </div>
+</div>

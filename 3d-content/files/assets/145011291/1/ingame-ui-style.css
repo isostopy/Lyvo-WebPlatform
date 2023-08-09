@@ -1,14 +1,35 @@
 
 /* ---------------------------------------------------------------------- */
-/* BACKGROUND */
+/* UI */
 
+/* Iconos que aparecen en el menu. */
+.ingame-icon
+{
+    width: 30px;
+}
+
+/* Boton de abrir el menu. */
 #ingame-menu-open
 {
-    position: absolute;
+    position: fixed;
 
     right: 30px;
     top: 30px;
 }
+
+/* Grupo de botones de abajo. */
+#ingame-buttongroup
+{
+    position:fixed;
+    bottom: 30px;
+    width: 100vw;
+    padding: 0 30px;
+
+    gap: 15px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* MENU BACKGROUND */
 
 #ingame-menu
 {
@@ -33,25 +54,7 @@
 
 
 /* ---------------------------------------------------------------------- */
-/* OPTIONS */
-
-.ingame-menu-options-container
-{
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-
-    gap: 35px;
-    padding-left: 90px;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* GENERAL */
+/* MENU GENERAL */
 
 /* Para los titulos que aparecen al lado de un icono. */
 .ingame-menu-header
@@ -73,12 +76,6 @@
 
     font-weight: bold;
     font-size: 25px;
-}
-
-/* Iconos que aparecen en el menu. */
-.ingame-menu-icon
-{
-    width: 30px;
 }
 
 /* La div que contiene cada uno de los subpaneles del menu. */
@@ -103,4 +100,22 @@
 .ingame-menu-content p
 {
     font-size: small;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* MENU OPTIONS */
+
+.ingame-menu-options-container
+{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 35px;
+    padding-left: 90px;
 }

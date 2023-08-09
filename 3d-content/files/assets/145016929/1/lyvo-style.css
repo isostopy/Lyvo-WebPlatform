@@ -6,6 +6,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    text-decoration: none;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -71,21 +73,20 @@
     align-items: flex-start;
 }
 
-/* Separa homogeneamente los elementos de la div. */
-.space-betweeen { justify-content: space-between; }
 /* Centra los elementos de la div. */
 .center { justify-content: center; }
-
+/* Coloca los elemtnos de la div al final. */
+.end { justify-content: end; }
+/* Separa homogeneamente los elementos de la div. */
+.space-betweeen { justify-content: space-between; }
+/* Estira los elementos para ocupen todo el espacio en el eje perpendicular a flex-direction. */
 .stretch{ align-items: stretch; }
 
 
 /* ---------------------------------------------------------------------- */
 
-/* Hace que se ponga el dedito al hacer hover sobre una div. */
-.interactable :hover
-{
-    cursor: pointer;
-}
+/* Hace que se ponga el dedito al poner el raton sobre una div. */
+.interactable :hover { cursor: pointer; }
 
 
 /* ---------------------------------------------------------------------- */

@@ -167,17 +167,18 @@
     // LOGOUT
     function Logout()
     {
-        // Cerrar sesión en Directus. Invalidar refresh token.
+        // 1. Cerrar sesión en Directus si tenemos token de refresco. Invalidar refresh token.
+        if(isset($_SESSION['userAccessToken']->refresh_token))
+        {
+            $headers = array('Content-Type: application/json');
+            $credentials = array('refresh_token' => $_SESSION['userAccessToken']->refresh_token);
+            $jsonCredentials = json_encode($credentials);
+    
+            // Enviar la solicitud.
+            $responseLogin = HttpRequest('POST', $GLOBALS['URL_DirectusLogout'], $headers, $jsonCredentials);
+        }
 
-        $headers = array('Content-Type: application/json');
-        $credentials = array('refresh_token' => $_SESSION['userAccessToken']->refresh_token);
-        $jsonCredentials = json_encode($credentials);
-
-        // Enviar la solicitud.
-        $responseLogin = HttpRequest('POST', $GLOBALS['URL_DirectusLogout'], $headers, $jsonCredentials);
-
-
-        // Cerrar sesión en el servidor.
+        // 2. Cerrar sesión en el servidor.
 
         // Iniciar la sesión. No importa si ya está iniciada.
         session_start();

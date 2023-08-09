@@ -19,29 +19,32 @@
    if(isset($_POST['submitInfo']))
    {
       $medicalInformation = array(
-         'name' => $_POST['medical-info-name'],
-         'surname' => $_POST['medical-info-surname'],
-         'sex' => $_POST['medical-info-sex'],
-         'birthdate' => $_POST['medical-info-birthdate'],
-         'phone' => $_POST['medical-info-phone'],
-         'address1' => $_POST['medical-info-address1'],
-         'address2' => $_POST['medical-info-address2'],
-         'nationality' => $_POST['medical-info-nationality'],
-         'work' => $_POST['medical-info-work'],
-         'marital' => $_POST['medical-info-marital'],
-         'diet' => $_POST['medical-info-diet'],
-         'sport' => $_POST['medical-info-sport'],
-         'sleep' => $_POST['medical-info-sleep'],
-         'diseases' => $_POST['medical-info-diseases'],
-         'allergies' => $_POST['medical-info-allergies'],
-         'surgeries' => $_POST['medical-info-surgeries'],
-         'relatives' => $_POST['medical-info-relatives'],
-         'notes' => $_POST['medical-info-notes']
+
+         "first_name" => $_POST['medical-info-name'],
+         "last_name" => $_POST['medical-info-surname'],
+         
+         "MedicalInformation" => array(
+
+            'sex' => $_POST['medical-info-sex'],
+            'birthdate' => $_POST['medical-info-birthdate'],
+            'phone' => $_POST['medical-info-phone'],
+            'address1' => $_POST['medical-info-address1'],
+            'address2' => $_POST['medical-info-address2'],
+            'nationality' => $_POST['medical-info-nationality'],
+            'work' => $_POST['medical-info-work'],
+            'marital' => $_POST['medical-info-marital'],
+            'diet' => $_POST['medical-info-diet'],
+            'sport' => $_POST['medical-info-sport'],
+            'sleep' => $_POST['medical-info-sleep'],
+            'diseases' => $_POST['medical-info-diseases'],
+            'allergies' => $_POST['medical-info-allergies'],
+            'surgeries' => $_POST['medical-info-surgeries'],
+            'relatives' => $_POST['medical-info-relatives'],
+            'notes' => $_POST['medical-info-notes']
+         )
       );
 
-      $finalArray = array('MedicalInformation' => $medicalInformation);
-
-      $jsonBody = json_encode($finalArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+      $jsonBody = json_encode($medicalInformation, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
       // Enviar información.
       MedicalInformationSave($jsonBody);
@@ -50,14 +53,6 @@
 
       LoadPage("public/3d_launcher.php");
    }
-
-   /*
-   if(isset($_POST['continue']))
-   {
-      // Cargar
-      
-   }
-   */
 ?>
 
 

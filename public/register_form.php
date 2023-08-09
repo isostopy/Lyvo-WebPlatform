@@ -9,11 +9,23 @@
    {
       try
       {
+         $pass = $_POST['password'];
+
+         // Comprobar contraseña
+         if (isset($_POST['password'])) 
+         {
+            if(strlen($pass)<6)
+            {
+               throw new Exception("La contraseña debe tener menos 6 caracteres");
+            }           
+         }
+
+         // Comprobar términos y condiciones.
          if (!isset($_POST['terms'])) 
          {
             throw new Exception("Debe aceptar los términos y condiciones.");
          }
-
+      
          // Login.
          Register($_POST['name'], $_POST['surname'],$_POST['email'],$_POST['password']);
 
@@ -27,6 +39,7 @@
    };
 
 ?>
+
 
 <!DOCTYPE html>
 <html>

@@ -25,36 +25,6 @@
 
 ?>
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>register form</title>
-
-      <link rel="stylesheet" href="../assets/css/style.css">
-
-   </head>
-   <body>
-      
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>NUEVA CONTRASEÑA</h3>
-
-         <input type="password" name="newpass" required placeholder="Contraseña">
-
-         <input type="submit" name="submit" value="CAMBIAR" class="form-btn">
-
-      </form>
-
-   </div>
-
-   </body>
-</html>
--->
 
 <!DOCTYPE html>
 <html>

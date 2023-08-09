@@ -72,6 +72,7 @@
       {
          // Obtenemos los datos del usuario.
          var userData = <?php echo json_encode($userData); ?>;
+         var url3d = <?php echo json_encode($URL_Lyvo3D); ?>;
 
          for (var key in userData) {
             localStorage.setItem(key, userData[key]);
@@ -79,13 +80,9 @@
 
          var avatarId = localStorage.getItem("avatar-id");
          var userName = localStorage.getItem("user-name");
-
-         console.log(avatarId);
-
+   
          // Redireccionamos al usuario a la otra página.
-         window.location.href = "http://13.37.246.78/3d-content/";
-         //window.location.href = "/Lyvo-WebPlatform/3d-content/";
-
+         window.location.href = url3d;
       }
 
       var travelScreen = <?php echo $showTravelScreen ? 'true' : 'false'; ?>;

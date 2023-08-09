@@ -28,7 +28,7 @@
 
     /*
     $URL_Base = "http://localhost/Lyvo-WebPlatform";
-    $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo/";
+    $URL_Lyvo3D = $URL_Base."/3d-content/";
 
     // Admin token
     $DirectusToken = "-re8CEHHBLjQEV7fxIZL4v5BUIWKNBty";
@@ -48,11 +48,10 @@
     $Role_Doctor = '297aff85-3332-4b96-8b1b-e7a49e607a0f';
     */
 
-
     // RESOLVER CON IPs
 
     $URL_Base = "http://13.37.246.78";
-    $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
+    $URL_Lyvo3D = $URL_Base."/3d-content/";
 
     // Admin token
     $DirectusToken = "-VGG3ck0ijSH0t5yj5bgObjUxXe7WmKt";
@@ -75,7 +74,7 @@
     // Resolver a URLs
 
     $URL_Base = "https://lyvoweb.isostopyserver.net";
-    $URL_Lyvo3D = "https://pruebas.isostopy.com/Lyvo";
+    $URL_Lyvo3D = $URL_Base."/3d-content/";
 
     // Admin token
     $DirectusToken = "-VGG3ck0ijSH0t5yj5bgObjUxXe7WmKt";

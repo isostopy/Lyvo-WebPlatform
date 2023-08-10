@@ -84,8 +84,8 @@
                <p class="margin-bottom-20px"><?php echo isset($medicalData->phone) ? $medicalData->phone : 'No consta'; ?></p>
 
                <h2>Dirección</h2>
-               <p class="margin-bottom-10px"><?php echo isset($medicalData->adress1) ? $medicalData->adress1 : 'No consta'; ?></p>
-               <p class="margin-bottom-20px"><?php echo isset($medicalData->adress2) ? $medicalData->adress2 : 'No consta'; ?></p>
+               <p class="margin-bottom-10px"><?php echo isset($medicalData->address1) ? $medicalData->address1 : 'No consta'; ?></p>
+               <p class="margin-bottom-20px"><?php echo isset($medicalData->address1) ? $medicalData->address1 : 'No consta'; ?></p>
 
                <h2>Nacionalidad</h2>
                <p class="margin-bottom-20px"><?php echo isset($medicalData->nationality) ? $medicalData->nationality : 'No consta'; ?></p>

@@ -13,21 +13,21 @@
 ?>
 
 <!DOCTYPE html>
-<head>
+<html>
+    <head>
 
-   <script>
-      
-        // Limpiar el almacenamiento local.
-        localStorage.clear();
+    <script>
+        
+            // Limpiar el almacenamiento local.
+            localStorage.clear();
 
-        // Cargar la página.
-        var urlwelcome = <?php echo json_encode($welcomePage); ?>;
+            // Cargar la página.
+            var urlwelcome = <?php echo json_encode($welcomePage); ?>;
 
-        // Redireccionamos al usuario a la otra página.
-        window.location.href = urlwelcome;
+            // Redireccionamos al usuario a la otra página.
+            window.location.href = urlwelcome;
 
-   </script>
+    </script>
 
-</head>
-
+    </head>
 </html>

@@ -15,7 +15,6 @@
       {
          $error = $e->getMessage();
       }
-      
    }
 ?>
 

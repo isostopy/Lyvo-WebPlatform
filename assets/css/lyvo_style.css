@@ -133,7 +133,7 @@ h2{
 /* Elementos Recurentes */
 
 #hoja-livo{
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     width: 70%;
@@ -481,7 +481,7 @@ a:hover{
     }
 
     #right-panel {
-        position: absolute;
+        position: fixed;
         right: 0;
         width: 40%;
         height: 100%;
@@ -495,7 +495,7 @@ a:hover{
     }
 
     #hoja-livo-grande {
-        position: absolute;
+        position: fixed;
         width: 48%;
         height: 75%;
         bottom: 0;

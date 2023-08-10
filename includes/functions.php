@@ -242,6 +242,56 @@
       $_SESSION['userData'] = $obj;
     }
 
+    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE TODOS
+    function UserGetData_FilterAllUsers($user_id)
+    {
+        // Preparar los datos.
+        $headers = array('Content-Type: application/json','Authorization: Bearer '.$GLOBALS['DirectusToken']);
+
+        // Enviar la solicitud.
+        $responseUsers = HttpRequest('GET', $GLOBALS['URL_DirectusUsers'], $headers, null);
+        $obj = json_decode($responseUsers);
+
+        // Comprobamos que la respuesta tiene datos válidos.
+        if (!isset($obj->data)) 
+        {
+            throw new Exception("Se ha producido un error al obtener la información.");
+        }
+
+        // Obtenemos la información específica del usuario
+        $userInfo = GetUserById($obj, $user_id);
+
+        // Comprobamos que el usuario tiene información válida
+        if (!isset($userInfo->MedicalInformation)) 
+        {
+            throw new Exception("El usuario no tiene información médica registrada.");
+        }
+        else
+        {
+            // El usuario tiene información médica pero corresponde con información "saltada".
+            if($userInfo->MedicalInformation == "skipped")
+            {
+                throw new Exception("El usuario no tiene información médica registrada.");
+            }   
+        }
+
+        return $userInfo;
+    }
+
+    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE UN STDCLASS CON TODOS LOS USUARIOS
+    function GetUserById($stdClass, $id) 
+    {
+        foreach ($stdClass->data as $user) 
+        {
+            if ($user->id == $id) 
+            {
+                return $user;
+            }
+        }
+    
+        return null;
+    }
+
 
     // OBTENER DIRECCIÓN ABSOLUTA
     function GetURL($endUrl)

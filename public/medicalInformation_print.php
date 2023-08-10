@@ -103,7 +103,7 @@
                <p class="margin-bottom-20px"><?php echo isset($medicalData->sport) ? $medicalData->sport : 'No consta'; ?></p>
 
                <h2>Sueño</h2>
-               <p class="margin-bottom-20px"><?php echo isset($medicalData->sex) ? $medicalData->sex : 'No consta'; ?></p>
+               <p class="margin-bottom-20px"><?php echo isset($medicalData->sleep) ? $medicalData->sleep : 'No consta'; ?></p>
                
                <h2>Alcohol</h2>
                <p class="margin-bottom-20px"><?php echo isset($medicalData->alcohol) ? $medicalData->alcohol : 'No consta'; ?></p>

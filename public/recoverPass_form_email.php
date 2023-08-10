@@ -75,7 +75,7 @@
 
                   <input type="submit" name="submit" value="RECUPERAR" >
 
-                  <p class="texto-bajo-boton">¿Necesitas regresar al login? <a href="LOGIN_form.php">LOGIN</a></p>
+                  <p class="texto-bajo-boton">¿Necesitas regresar al login? <a href="login_form.php">LOGIN</a></p>
 
                </form>
 

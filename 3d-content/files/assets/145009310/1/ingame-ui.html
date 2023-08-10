@@ -1,12 +1,12 @@
 
 <!-- Boton de abrir el menu. -->
-<div class="interactable">
+<div class="interactable raycastblocker">
     <img id="ingame-menu-open" class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_settings.png">
 </div>
 
 <!-- Menu. -->
 <div class="center-container">
-    <div id="ingame-menu">
+    <div id="ingame-menu" class="raycastblocker">
 
         <!-- Boton de cerrar -->
         <div class="interactable">
@@ -30,6 +30,11 @@
             <div id="ingame-menu-button-history" class="ingame-menu-header interactable">
                 <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_history.png">
                 <h1> HISTORIA CLÍNICA </h1>
+            </div>
+
+            <div id="ingame-menu-button-pets" class="ingame-menu-header interactable">
+                <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_pets.png">
+                <h1> LYVO PETS </h1>
             </div>
 
             <!-- Boton de log out. -->
@@ -136,7 +141,7 @@
                 <div class="space" style="width:50px;"></div>
 
                 <!-- Columna de imagen. -->
-                <img class="ingame-menu-column" src="https://pruebas.isostopy.com/Images/Test.jpg">
+                <img id="ingame-menu-history-qr" class="ingame-menu-column" src="https://pruebas.isostopy.com/Images/Test.jpg">
 
             </div>
         </div>
@@ -145,9 +150,9 @@
 </div>
 
 <!-- Botones de abajo. -->
-<div id="ingame-buttongroup" class="row end">
+<div id="ingame-buttongroup" class="row end raycastblocker">
     <div id="ingame-button-quality" class="interactable">
-        <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_settings.png">
+        <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_hd.png">
     </div>
     <div id="ingame-button-mute" class="interactable">
         <img class="ingame-icon" src="https://pruebas.isostopy.com/Images/UI/boton_micon.png">

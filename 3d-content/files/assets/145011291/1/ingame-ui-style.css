@@ -92,7 +92,7 @@
     height: 100%;
     width: 100%;
 
-    object-fit: cover;
+    object-fit:contain;
     border-radius: 20px;
 }
 
@@ -118,4 +118,18 @@
 
     gap: 35px;
     padding-left: 90px;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* HISTORY */
+
+#ingame-menu-profile-img
+{
+    background-color: rgb(240, 240, 240);
+}
+
+#ingame-menu-history-qr *
+{
+    height: 100%;
 }

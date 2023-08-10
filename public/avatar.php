@@ -108,7 +108,7 @@
 
             <div class="content">
 
-               <h1>¡Bienvenido!</h1>
+               <h1>Selección de avatar</h1>
 
                   <form action="" method="post">
 

@@ -5,7 +5,8 @@
 
    // Recopilar toda la información necesaria para enviar al 3D.
    $avatar = "avatar-1";
-   $user_name = "Default name";
+   $user_name = "No registrado";
+   $email = "No registrado";
 
    $showTravelScreen = false;
 
@@ -21,6 +22,7 @@
       if(isset($_SESSION['userData']->data->AvatarInformation->type))
       {
          $avatar = $_SESSION['userData']->data->AvatarInformation->type;
+         $email = $_SESSION['userData']->data->email;
       }
    }
 
@@ -59,6 +61,7 @@
    $userData = array(
       "avatar-id" => $avatar,
       "user-name" => $user_name,
+      "email" => $email
    );
 ?>
 
@@ -91,6 +94,7 @@
 
          var avatarId = localStorage.getItem("avatar-id");
          var userName = localStorage.getItem("user-name");
+         var userName = localStorage.getItem("email");
    
          // Redireccionamos al usuario a la otra página.
          window.location.href = url3d;

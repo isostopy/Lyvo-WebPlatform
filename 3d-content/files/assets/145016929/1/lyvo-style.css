@@ -11,7 +11,7 @@
 }
 
 /* ---------------------------------------------------------------------- */
-/* BUTTON */
+/* BUTTONS */
 
 .button-general
 {
@@ -33,13 +33,21 @@
     background-color: #72998b;
 }
 
-.button-variant
-{
-    background-color: #e9f2ef !important;
-    color: #002B49 !important;
+.button-border{
+
     font-weight: 600;
     border: solid #87b4a4 2px;
+    background-color: #e9f2ef;
+
+    color: #002B49;
+    font-style: normal;
 }
+
+.button-border:hover{
+    cursor: pointer;
+    background-color: #a1cebe;
+}
+
 
 /* ---------------------------------------------------------------------- */
 /* FLEX */

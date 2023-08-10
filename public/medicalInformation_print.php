@@ -66,7 +66,7 @@
 
             ?>
             
-            <div id="medicalInformation" style="<?php echo $mostrarElemento ? 'display: block;' : 'display: none;'; ?>">
+            <div id="medicalInformation" style="<?php echo $showMedicalData ? 'display: block;' : 'display: none;'; ?>">
 
                <h2>Nombre</h2>
                <p class="margin-bottom-20px"><?php echo isset($userInformation->first_name) ? $userInformation->first_name : 'No consta'; ?></p>

@@ -85,7 +85,7 @@
 
                <h2>Dirección</h2>
                <p class="margin-bottom-10px"><?php echo isset($medicalData->address1) ? $medicalData->address1 : 'No consta'; ?></p>
-               <p class="margin-bottom-20px"><?php echo isset($medicalData->address1) ? $medicalData->address1 : 'No consta'; ?></p>
+               <p class="margin-bottom-20px"><?php echo isset($medicalData->address2) ? $medicalData->address2 : 'No consta'; ?></p>
 
                <h2>Nacionalidad</h2>
                <p class="margin-bottom-20px"><?php echo isset($medicalData->nationality) ? $medicalData->nationality : 'No consta'; ?></p>

@@ -5,8 +5,8 @@
 </div>
 
 <!-- Menu. -->
-<div class="center-container">
-    <div id="ingame-menu" class="raycastblocker">
+<div id="ingame-menu-parent" class="center-container" style="width:100vw; height:100vh;">
+    <div class="raycastblocker ingame-menu">
 
         <!-- Boton de cerrar -->
         <div class="interactable">
@@ -153,10 +153,14 @@
 
 <!-- Botones de abajo. -->
 <div id="ingame-buttongroup" class="row end raycastblocker">
+    <div id="ingame-button-travel" class="interactable">
+        <img class="ingame-icon" src="../assets/images/ui/boton_map.png">
+    </div>
     <div id="ingame-button-quality" class="interactable">
         <img class="ingame-icon" src="../assets/images/ui/boton_hd.png">
     </div>
     <div id="ingame-button-mute" class="interactable">
         <img class="ingame-icon" src="../assets/images/ui/boton_micon.png">
     </div>
+    
 </div>

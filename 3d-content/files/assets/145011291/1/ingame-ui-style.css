@@ -31,7 +31,7 @@
 /* ---------------------------------------------------------------------- */
 /* MENU BACKGROUND */
 
-#ingame-menu
+.ingame-menu
 {
     position: absolute;
 
@@ -42,7 +42,7 @@
     background-color: white;
 }
 
-#ingame-menu-close
+#ingame-menu-close, #ingame-travel-close
 {
     position: absolute;
 
@@ -140,13 +140,18 @@
 
 @media (max-width: 768px)
 {
-    #ingame-menu
+    .ingame-menu
     {
         height: 70vh;
         width: 85vw;
     }
 
     .ingame-menu-content
+    {
+        padding: 0 5%;
+    }
+
+    .ingame-menu-options-container
     {
         padding: 0 5%;
     }

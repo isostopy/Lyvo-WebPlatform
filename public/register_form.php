@@ -50,7 +50,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Lyvo Registro</title>
-
+   <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
    <link rel="stylesheet" href="../assets/css/register_form.css">
 
@@ -135,7 +135,7 @@
 
                   <label class="input-label-circular">
                      <input class="input-field-label margin-right-5px" type="checkbox" id="terms" name="terms">
-                     <p class="radio-text">He leído y acepto los <a href="terms_and_conditions.php">Términos y Condiciones de uso</a></p>
+                     <p class="radio-text">He leído y acepto los <a href="../public/privacy.html">Términos y Condiciones de uso</a></p>
                   </label>
 
 
@@ -160,11 +160,11 @@
 
          <div id="botones-esquina">
             <div id="politica-privacidad">
-               <a href="#">Política de privacidad</a>
+               <a href="../public/terms.html">Política de privacidad</a>
             </div>
 
             <div id="cookies">
-               <a href="#">Aviso de cookies</a>
+               <a href="../public/terms.html">Aviso de cookies</a>
             </div>
          </div>
       </div>

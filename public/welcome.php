@@ -28,6 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyvo Welcome</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
     <link rel="stylesheet" href="../assets/css/lyvo_style.css">
 
@@ -72,11 +73,11 @@
 
             <div id="botones-esquina">
                 <div id="politica-privacidad">
-                    <a href="#">Política de privacidad</a>
+                    <a href="../public/privacy.html">Política de privacidad</a>
                 </div>
 
                 <div id="cookies">
-                    <a href="#">Aviso de cookies</a>
+                    <a href="../public/privacy.html">Aviso de cookies</a>
                 </div>
             </div>
         </div>

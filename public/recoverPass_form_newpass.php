@@ -1,9 +1,10 @@
 <?php
 
    // Funcionalidades comunes.
-   require '../includes/functions.php';
+   require_once '../includes/functions.php';
+   
    // Datos.
-   require '../includes/config.php';
+   require_once '../includes/config.php';
 
    $paramToken = isset($_GET['token']) ? $_GET['token'] : null;
 

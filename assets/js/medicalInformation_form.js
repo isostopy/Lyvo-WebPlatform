@@ -1,3 +1,9 @@
+// ****************************************************************
+//   SISTEMA DE CONTROL PARA EL PANEL DE INFORMACIÓN MÉDICA
+//   Scrip para controlar el sistema de tarjetas y paneles
+//   del sistema de información médica.
+// ****************************************************************
+
 //buttons
 var buttonNext;
 var buttonBack;

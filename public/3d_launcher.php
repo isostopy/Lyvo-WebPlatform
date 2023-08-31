@@ -1,7 +1,7 @@
 <?php
 
    // Requerimos la configuración para iniciar sesión.
-   require '../includes/config.php';
+   require_once '../includes/config.php';
 
    // Recopilar toda la información necesaria para enviar al 3D.
    $avatar = "avatar-1";

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="miFormulario" action="testAJAX.php" method="post">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+    
+        <input type="hidden" name="submit" value="1">
+
+        <input type="submit" name="submit" value="Enviar">
+
+    </form>
+
+    <script>
+
+        document.getElementById('miFormulario').addEventListener('submit', function(event) 
+        {
+            event.preventDefault(); // Evita el comportamiento predeterminado del formulario (recargar la página)
+    
+            // Recoge los datos del formulario
+            let formData = new FormData(event.target);
+    
+            // Realiza la petición AJAX al servidor
+            fetch(event.target.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario.');
+            });
+        });
+        
+    </script>
+
+</body>
+</html>

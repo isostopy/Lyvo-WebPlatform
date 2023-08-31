@@ -1,9 +1,13 @@
 <?php
 
    // Funcionalidades comunes.
-   require '../includes/functions.php';
+   require_once '../includes/functions.php';
+
    // Datos.
-   require '../includes/config.php';
+   require_once '../includes/config.php';
+   
+   // Messages.
+   require_once '../includes/messages.php';
 
    if(isset($_POST['submit']))
    {
@@ -16,14 +20,14 @@
          {
             if(strlen($pass)<6)
             {
-               throw new Exception("La contraseña debe tener menos 6 caracteres");
+               throw new Exception(Message_Error_PassRequirements());
             }           
          }
 
          // Comprobar términos y condiciones.
          if (!isset($_POST['terms'])) 
          {
-            throw new Exception("Debe aceptar los términos y condiciones.");
+            throw new Exception(Message_Error_TermsCondNo());
          }
       
          // Login.
@@ -183,10 +187,10 @@
 
       passDisplay_Load('pass-input','show-pass-icon','hide-pass-icon');
       
-      fieldChecker_Load('name-input', 'name-check-icon', null, 6);
-      fieldChecker_Load('surname-input', 'surname-check-icon', null, 6);
-      fieldChecker_Load('email-input', 'email-check-icon', '@', 6);    
-      fieldChecker_Load('pass-input', 'pass-check-icon', null, 6);
+      fieldChecker_Load('name-input', 'name-check-icon', undefined, 1);
+      fieldChecker_Load('surname-input', 'surname-check-icon', undefined, 1);
+      fieldChecker_Load('email-input', 'email-check-icon', ['@','.'], 6);    
+      fieldChecker_Load('pass-input', 'pass-check-icon', undefined, 6);
    
     </script>
 

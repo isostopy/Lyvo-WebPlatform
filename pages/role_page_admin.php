@@ -2,21 +2,11 @@
 
    // Datos.
    require_once '../includes/config.php';
-
    // Funcionalidades comunes.
    require_once '../includes/functions.php';
-
-   // Mensajes de error.
-   require_once '../includes/error_messages.php';
-
-   // -------------------------------------------------------------------------------------
-
-   // Si el usuario ya está en la sesión,
-   if(isset($_SESSION['userData'])) 
-   {
-      LoadPage("public/login_form.php");
-   }
-
+   
+   // Comprobar que el usuario tiene sesión iniciada.
+   UserCheckSession();
 ?>
 
 <!DOCTYPE html>
@@ -47,16 +37,13 @@
 
             <div class="content">
 
-                <h1>¡Bienvenido!</h1>
+               <h1>Ventana de administración</h1>
 
-                <p>Por favor, elige el modo de acceso a la plataforma. Si no tienes usuario puedes crear uno nuevo o entrar como invitado.</p>
+               <p>Por favor, elige el modo de gestión.</p>
 
-                <button class ="button-general margin-top-bottom-10px" id="enter-button" onclick="location.href = 'login_form.php' ">TENGO CUENTA</button>
-                <button class="button-general button-border margin-top-bottom-10px" onclick="location.href = 'register_form.php' ">CREAR CUENTA</button>
-                <button class="button-general button-border margin-top-50px" onclick="location.href = 'avatar.php' ">ENTRAR COMO INVITADO</button>
-
-                <p class="caracteres-minimos">No es necesario registro</p>
-
+               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_users.php' ">GESTIÓN DE USUARIOS</button>
+               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_spaces.php' ">GESTIÓN DE ESPACIOS</button>
+               
             </div>
 
         </div>

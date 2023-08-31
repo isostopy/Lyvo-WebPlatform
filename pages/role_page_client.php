@@ -1,15 +1,15 @@
 <?php
 
    // Datos.
-   require '../includes/config.php';
+   require_once '../includes/config.php';
    // Funcionalidades comunes.
-   require '../includes/functions.php';
+   require_once '../includes/functions.php';
    
    // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession($GLOBALS['Role_Client']);
+   UserCheckSession();
 
-   // Enviar al usuario a la selección de avatar.
-   LoadPage("public/avatar.php");
+   // Reconducir al usuario según sus datos.
+   LoadPageByUserData();
 
 ?>
 
@@ -21,6 +21,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Lyvo Cliente</title>
       <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
+      
       <!-- custom css file link  -->
       <link rel="stylesheet" href="../assets/css/style.css">
 

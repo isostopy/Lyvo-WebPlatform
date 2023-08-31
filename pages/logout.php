@@ -1,15 +1,13 @@
 <?php
 
     // Datos.
-    require '../includes/config.php';
+    require_once '../includes/config.php';
     // Funcionalidades comunes.
-    require '../includes/functions.php';
+    require_once '../includes/functions.php';
 
     // Eliminamos la información del servidor.
     Logout();
-
-    // Eliminamos la información del local storage.
-    $welcomePage = GetURL("public/welcome.php");
+    
 ?>
 
 <!DOCTYPE html>
@@ -18,16 +16,12 @@
 
     <script>
         
-            // Limpiar el almacenamiento local.
-            localStorage.clear();
-
-            // Cargar la página.
-            var urlwelcome = <?php echo json_encode($welcomePage); ?>;
-
-            // Redireccionamos al usuario a la otra página.
-            window.location.href = urlwelcome;
+        // Limpiar el almacenamiento local.
+        localStorage.clear();
 
     </script>
+
+    <?php LoadPage('public/welcome.php'); ?>
 
     </head>
 </html>

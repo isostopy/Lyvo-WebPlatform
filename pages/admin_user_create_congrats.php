@@ -1,23 +1,3 @@
-<?php
-
-   // Funcionalidades comunes.
-   require_once '../includes/functions.php';
-
-   if (isset($_GET['user'])) 
-   {
-        $userId = $_GET['user'];
-
-        try
-        {
-            UserValidate($userId);
-        }
-        catch (Exception $e)
-        {
-            $error = $e->getMessage();
-        }
-   }
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +8,6 @@
    <title>Lyvo Register</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/login_form.css">
 
 </head>
 
@@ -47,22 +26,9 @@
 
                 <h1>Crear cuenta</h1>
 
-                <?php
+                <p class="margin-bottom-50px">¡Usuario creado! El usuario se ha creado con éxito.</p>
 
-                    // Mensajes.
-                    require_once '../includes/messages.php';
-                
-                    if (isset($error)) 
-                    {
-                        echo '<span class="msg msg-error">'.$error.'</span>';
-                    }
-                    else
-                    {
-                        echo '<span class="msg msg-confirm">'.Message_Ok_Validation().'</span>';
-                    }
-                ?>
-
-                <p>Puede cerrar esta ventana o volver al <a href="../public/login_form.php">LOGIN</a></p>
+                <p>Volver a <a href="../pages/admin_users.php">ADMINISTRACIÓN DE USUARIOS</a></p>
 
                </form>
 

@@ -1,3 +1,9 @@
+// ****************************************************************
+//   SISTEMA DE CONTROL DE LA SELECCIÓN DE AVATARES.
+//   Este script sirve para controlar la selección de Avatares
+//   Mediante cajas en HTML
+// ****************************************************************
+
 //control
 var avatars = [];
 const avatarsId = ["avatar-1","avatar-2","avatar-3","avatar-4","avatar-5","avatar-6"];

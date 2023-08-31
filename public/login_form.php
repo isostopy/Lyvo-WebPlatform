@@ -1,14 +1,15 @@
 <?php
 
    // Datos.
-   require '../includes/config.php';
+   require_once '../includes/config.php';
 
    // Funcionalidades comunes.
-   require '../includes/functions.php';
+   require_once '../includes/functions.php';
 
-   // Mensajes de error.
-   require '../includes/error_messages.php';
+   // Mensajes.
+   require_once '../includes/messages.php';
 
+   
    // -------------------------------------------------------------------------------------
    if(isset($_POST['submit']))
    {
@@ -17,42 +18,23 @@
             $email = $_POST['email'];
 
             // Login.
-            $token = Authenticate($email, $_POST['password']);
-
-            // Verificar si $token está definido
-            if (!$token) { throw new Exception("No se ha podido realizar el Login."); }
+            Authenticate($email, $_POST['password']);
 
             // Obtener información del Usuario.
-            UserGetData($token);
+            UserGetData();
 
-            // Redirigir al usuario según su información.
-
-
-            // 1. Comprobamos el tipo de usuario.
+            // Redirigir al usuario según su rol.
             if (isset($_SESSION['userData']->data->role)) 
             {
                 $userRole = $_SESSION['userData']->data->role;
                 
-                // Ahora no cargamos nada porque no se está utilizando.
-                // LoadPageByUserRole($userRole);
+                LoadPageByUserRole($userRole);
             }
-
-            // 2. Comprobamos si tiene avatar.
-            if (!isset($_SESSION['userData']->data->AvatarInformation)) 
-            {
-                LoadPage("public/avatar.php");
-            }
-            // 3. Comprobamos si tiene historia médica.
-            else if(!isset($_SESSION['userData']->data->MedicalInformation))
-            {
-                LoadPage("pages/medicalInformation_launcher.php");
-            }
-            // 4. Si tiene todo, vamos al 3d launcher.
             else
             {
-                LoadPage("public/3d_launcher.php");
+                // Si el usuario no tiene rol, lanzamos un error.
+                throw new Exception(Message_Error_UserRole());
             }
-
         }
         catch (Exception $e)
         {
@@ -134,7 +116,7 @@
                             <p class="radio-text">Recordarme</p> 
                         </label>
 
-                    <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
+                        <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
 
                     </div>
 
@@ -174,9 +156,9 @@
 
     <script>
 
-        fieldChecker_Load('email-input', 'email-check-icon', '@', 6);
+        fieldChecker_Load('email-input', 'email-check-icon', ['@','.'], 6);
         passDisplay_Load('pass-input','show-pass-icon','hide-pass-icon');
-        
+    
     </script>
 
 </body>

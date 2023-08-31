@@ -21,7 +21,6 @@ h2{
     justify-content: start;
     align-items: start;
     min-height: 100vh;
-
 }
 
 #left-panel {
@@ -320,6 +319,7 @@ p{
 
 .margin-top-bottom-10px{ margin-top: 10px; margin-bottom: 10px; }
 .margin-top-50px{ margin-top: 50px; }
+.margin-bottom-5px{  margin-bottom: 5px; }
 .margin-bottom-10px{  margin-bottom: 10px; }
 .margin-bottom-20px{ margin-bottom: 20px; }
 .margin-bottom-30px{ margin-bottom: 30px; }
@@ -345,6 +345,18 @@ p{
 }
 
 input[type=text], .content input[type=password], .content input[type=email]{
+    
+    background-color: #e9f2ef;
+    border: 2px solid #87b4a4;
+    width: 100%;
+    border-radius: 11px;
+    font-size: 0.75em;
+    font-family: "Montserrat", sans-serif;
+
+    padding: 0.5em;
+}
+
+select{
     
     background-color: #e9f2ef;
     border: 2px solid #87b4a4;

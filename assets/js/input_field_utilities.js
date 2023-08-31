@@ -1,18 +1,29 @@
+// ****************************************************************
+//   SISTEMA DE UTILIDADES PARA LOS INPUT FIELDS
+//   Este script dispone de funcionalidades para los campos
+//   input para mostrar iconos, etc.
+// ****************************************************************
+
 // Field checker
-function fieldChecker_Load(idInput, idIcon, condCharacters, condLength) 
+function fieldChecker_Load(idInput, idIcon, condCharacters = null, condLength) 
 {
     const input = document.getElementById(idInput);
     const icon = document.getElementById(idIcon);
-    const characters = condCharacters;
-    const length = condLength;
+    const characters = condCharacters 
+        ? (Array.isArray(condCharacters) ? condCharacters : [condCharacters]) 
+        : null;
 
-    input.addEventListener('input', () => setVisibility(input, icon, characters, length));
-    setVisibility(input, icon, characters, length);
+    input.addEventListener('input', () => setVisibility(input, icon, characters, condLength));
+    setVisibility(input, icon, characters, condLength);
 }
 
 function setVisibility(input, icon, characters, length) 
 {
-    if ((length && input.value.length < length) || (characters && !input.value.includes(characters))) 
+    const containsAllCharacters = characters 
+        ? characters.every(char => input.value.includes(char)) 
+        : true;
+
+    if ((length && input.value.length < length) || !containsAllCharacters) 
     {
         icon.style.visibility = "hidden";
     } 

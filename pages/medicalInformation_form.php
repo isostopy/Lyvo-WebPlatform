@@ -1,12 +1,12 @@
 <?php
 
    // Funcionalidades comunes.
-   require '../includes/functions.php';
+   require_once '../includes/functions.php';
    // Datos.
-   require '../includes/config.php';
+   require_once '../includes/config.php';
 
    // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession($GLOBALS['Role_Client']);
+   UserCheckSession();
    
    // Mostrar información
    $userData = $_SESSION['userData']->data;
@@ -21,36 +21,36 @@
       $medicalInformation = array(
 
          "first_name" => $_POST['medical-info-name'],
-         "last_name" => $_POST['medical-info-surname'],
+         "last_name" =>  $_POST['medical-info-surname'],
          
          "MedicalInformation" => array(
 
-            'sex' => $_POST['medical-info-sex'],
-            'birthdate' => $_POST['medical-info-birthdate'],
-            'phone' => $_POST['medical-info-phone'],
-            'address1' => $_POST['medical-info-address1'],
-            'address2' => $_POST['medical-info-address2'],
+            'sex' =>         $_POST['medical-info-sex'],
+            'birthdate' =>   $_POST['medical-info-birthdate'],
+            'phone' =>       $_POST['medical-info-phone'],
+            'address1' =>    $_POST['medical-info-address1'],
+            'address2' =>    $_POST['medical-info-address2'],
             'nationality' => $_POST['medical-info-nationality'],
-            'work' => $_POST['medical-info-work'],
-            'marital' => $_POST['medical-info-marital'],
-            'diet' => $_POST['medical-info-diet'],
-            'sport' => $_POST['medical-info-sport'],
-            'sleep' => $_POST['medical-info-sleep'],
-            'alcohol' => $_POST['medical-info-alcohol'],
-            'tobacco' => $_POST['medical-info-tobacco'],
-            'drugs' => $_POST['medical-info-drugs'],
-            'diseases' => $_POST['medical-info-diseases'],
-            'allergies' => $_POST['medical-info-allergies'],
-            'surgeries' => $_POST['medical-info-surgeries'],
-            'relatives' => $_POST['medical-info-relatives'],
-            'notes' => $_POST['medical-info-notes']
+            'work' =>        $_POST['medical-info-work'],
+            'marital' =>     $_POST['medical-info-marital'],
+            'diet' =>        $_POST['medical-info-diet'],
+            'sport' =>       $_POST['medical-info-sport'],
+            'sleep' =>       $_POST['medical-info-sleep'],
+            'alcohol' =>     $_POST['medical-info-alcohol'],
+            'tobacco' =>     $_POST['medical-info-tobacco'],
+            'drugs' =>       $_POST['medical-info-drugs'],
+            'diseases' =>    $_POST['medical-info-diseases'],
+            'allergies' =>   $_POST['medical-info-allergies'],
+            'surgeries' =>   $_POST['medical-info-surgeries'],
+            'relatives' =>   $_POST['medical-info-relatives'],
+            'notes' =>       $_POST['medical-info-notes']
          )
       );
 
       $jsonBody = json_encode($medicalInformation, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
       // Enviar información.
-      MedicalInformationSave($jsonBody);
+      UserMedicalInformationSave($jsonBody);
 
       $message = "Información almacenada con éxito.";
 

@@ -9,7 +9,10 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    require '../vendor/autoload.php';
+    require_once '../vendor/autoload.php';
+
+    // Funcionalidades de mensajes.
+    require_once 'messages.php';
 
     // Enviar Email.
     function SendEmail($mailTo, $subject, $body, $bodyNonHTML)
@@ -54,10 +57,12 @@
             // Enviar.
             $mail->send();
 
-        } catch (Exception $e) {
-    
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    
+        } 
+        catch (Exception $e) 
+        {
+            throw new Exception(Message_Error_EmailSend());
+
+            //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
 ?>

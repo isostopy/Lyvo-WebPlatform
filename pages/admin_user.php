@@ -55,7 +55,6 @@
    <title>Lyvo Historia</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/medicalInformation_form.css">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -142,7 +141,7 @@
                 ?>
                 
                 <input type="submit" name="submitInfo" value="GUARDAR">
-                <input type="submit" name="submitDelete" value="ELIMINAR USUARIO">
+                <input type="submit" name="submitDelete" value="ELIMINAR USUARIO" class="button-halfhidden">
 
             </form>
 

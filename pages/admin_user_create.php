@@ -63,7 +63,6 @@
    <title>Lyvo Historia</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/medicalInformation_form.css">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -167,7 +166,7 @@
                     if (isset($error)) { echo '<span class="msg msg-error">'.$error.'</span>'; }
                 ?>
                 
-                <input type="submit" name="submit" value="CREAR">
+                <input type="submit" name="submit" value="CREAR" class="form-btn">
 
             </form>
 

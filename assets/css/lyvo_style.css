@@ -302,6 +302,25 @@ p{
     background-color: #72998b;
 }
 
+input[type=submit].button-halfhidden{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    transition-duration: 0.2s;
+    border: none;
+    background-color: #9ab1a9;
+    color: white ;
+    margin-top: 25px;
+}
+
+input[type=submit].button-halfhidden:hover{
+    cursor: pointer;
+    background-color: #5d756c;
+}
+
 .button-border{
 
     font-weight: 600;
@@ -432,7 +451,6 @@ a:hover{
     margin-top: 5px;
     margin-bottom: 10px;
 }
-
 
 /* Estilos para tablet (estos se añaden o remplazan a los estilos previos) */
 

@@ -44,6 +44,15 @@
 
     }
 
+    // Place
+    enum Places: string {
+
+        case AUDITORIO = 'Auditorio';
+        case SALAEXPOSICIONES = 'Sala Exposiciones';
+        case SALAPRIVADA = "Sala Privada";
+
+    }
+
     // ---------------------------------------------------------------------------------------------------------------------------------------
     // URLs ----------------------------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -55,6 +64,7 @@
 
     // RESOLVER A LOCALHOST
 
+    // QUIZÁ TODO ESTE CÓDIGO SEA MEJOR METERLO EN ENUMERACIONES QUE SON INMUTABLES Y NO SE PUEDEN CAMBIAR EN TIEMPO DE EJECUCIÓN ------------
     $URL_Base = "http://localhost/Lyvo-WebPlatform";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
 

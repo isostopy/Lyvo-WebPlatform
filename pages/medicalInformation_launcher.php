@@ -35,7 +35,7 @@
       $json = json_encode($data);
 
       // Guardar
-      MedicalInformationSave($json);
+      UserMedicalInformationSave($json);
 
       // Cargar
       LoadPage("public/3d_launcher.php");

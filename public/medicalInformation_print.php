@@ -17,7 +17,7 @@
       
       try
       {
-         $userInformation = UserGetData_FilterAllUsers($userId);
+         $userInformation = UserGetDataById($userId);
          $medicalData = $userInformation->MedicalInformation;
 
          // Mostrar los campos de la información médica si el usuario está registrado.

@@ -4,6 +4,8 @@
     // PHP con mensajes de información.
     //*******************************************************************
 
+    // ERROR --------------------------------------------------------------------------------------------------
+
     function Message_Error_General()
     {
         return "Se ha producido un error.";
@@ -59,15 +61,42 @@
         return "Se ha producido un error al enviar el e-mail de confirmación. Por favor, contacte con el soporte.";
     }
 
-    function Message_Error_UserRoleNotDefined()
+    function Message_Error_UserNotRegistered()
     {
-        return "Es necesario seleccionar un tipo de usuario.";
+        return "El usuario no se encuentra registrado en el sistema.";
     }
 
     function Message_Error_UserRole()
     {
         return "Se ha producido un error con su rol de usuario. Por favor, contacte con el soporte.";
     }
+
+    function Message_Error_UserRoleNotDefined()
+    {
+        return "Es necesario seleccionar un tipo de usuario.";
+    }
+
+    function Message_Error_PlaceSelected()
+    {
+        return "El lugar seleccionado no se encuentra registrado.";
+    }
+
+    function Message_Error_InfoSaved()
+    {
+        return "Se ha producido un error al guardar la información.";
+    }
+
+    function Message_Error_Dates()
+    {
+        return "La fecha de inicio debe ser anterior a la fecha de fin.";
+    }
+
+    function Message_Error_BookingWrite()
+    {
+        return "No se ha podido almacenar la información de la reserva.";
+    }
+
+    // OK --------------------------------------------------------------------------------------------------
 
     function Message_Ok_Validation()
     {
@@ -79,10 +108,7 @@
         return "Información guardada correctamente.";
     }
 
-    function Message_Error_InfoSaved()
-    {
-        return "Se ha producido un error al guardar la información.";
-    }
+    // EMAIL --------------------------------------------------------------------------------------------------
 
     function Email_Register_Subject()
     {

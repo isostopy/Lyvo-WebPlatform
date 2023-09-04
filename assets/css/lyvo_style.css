@@ -363,7 +363,7 @@ input[type=submit].button-halfhidden:hover{
     color: #72998b;
 }
 
-input[type=text], .content input[type=password], .content input[type=email]{
+input[type=text], input[type=password], input[type=email], input[type=date]{
     
     background-color: #e9f2ef;
     border: 2px solid #87b4a4;

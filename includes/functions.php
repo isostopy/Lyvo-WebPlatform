@@ -551,27 +551,22 @@
         }
     }
 
-    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE TODOS
-    function UserGetData_FilterAllUsers($user_id)
+    // COMPROBAR QUE EL USUARIO ESTÁ REGISTRADO
+    // De todos los usuarios, retorna la información del indicado por el email.
+    function UserGetDataByEmail($email)
     {
-        // Preparar los datos.
-        $headers = array('Content-Type: application/json','Authorization: Bearer '.$GLOBALS['DirectusToken']);
+        // Obtenemos la información de todos los usuarios.
+        $users = UserGetDataAll();
 
-        // Enviar la solicitud.
-        $responseArray = HttpRequest('GET', $GLOBALS['URL_DirectusUsers'], $headers);
-        $response = $responseArray['response'];
-        $httpcode = $responseArray['httpcode'];
+        // Retornamos la información del usuario indicado.
+        return UserGetByEmail($users, $email);
+    }
 
-        // Analizar código de la respuesta para comprobar errores, etc.
-        HttpRequestCodeAnalyzer($response, $httpcode);
-
-        $obj = json_decode($response);
-
-        // Comprobamos que la respuesta tiene datos válidos.
-        if (!isset($obj->data)) 
-        {
-            throw new Exception(Message_Error_InfoGet());
-        }
+    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE TODOS
+    // De todos los usuarios, retorna la información del indicado por el id.
+    function UserGetDataById($user_id)
+    {
+        $obj = UserGetDataAll();
 
         // Obtenemos la información específica del usuario
         $userInfo = UserGetById($obj, $user_id);
@@ -589,12 +584,26 @@
         return $userInfo;
     }
 
-    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE UN STDCLASS CON TODOS LOS USUARIOS
+    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE UN STDCLASS CON TODOS LOS USUARIOS MEDIANTE EL ID
     function UserGetById($stdClass, $id) 
     {
         foreach ($stdClass->data as $user) 
         {
             if ($user->id == $id) 
+            {
+                return $user;
+            }
+        }
+    
+        return null;
+    }
+
+    // OBTENER INFORMACIÓN DEL USUARIO A PARTIR DE UN STDCLASS CON TODOS LOS USUARIOS MEDIANTE EL EMAIL
+    function UserGetByEmail($stdClass, $email) 
+    {
+        foreach ($stdClass->data as $user) 
+        {
+            if ($user->email == $email) 
             {
                 return $user;
             }
@@ -665,6 +674,25 @@
                 LoadPage("public/welcome.php");
             }
         } 
+    }
+
+    // COMPROBAR QUE EL USUARIO ESTÁ REGISTRADO
+    function UserCheckExistenceByEmail($email)
+    {
+        $users = UserGetDataAll();
+
+        // Recorrer el array de datos
+        foreach ($users->data as $user) 
+        {
+            if ($user->email == $email) 
+            {   
+                // El email existe.
+                return true;
+            }
+        }
+
+        // El email no existe.
+        return false;
     }
 
     // MOFIDICAR INFORMACIÓN DE USUARIO

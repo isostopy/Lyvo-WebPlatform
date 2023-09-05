@@ -1,3 +1,18 @@
 {
-    "bookings": []
+    "bookings": [
+        {
+            "bookingId": "64f70763c2c49",
+            "userId": "1a704fff-dd70-4688-842a-9b90e0ebf5a7",
+            "userEmail": "fgzarq@gmail.com",
+            "startDate": "2023-09-07",
+            "endDate": "2023-09-08"
+        },
+        {
+            "bookingId": "64f7079d3e3c5",
+            "userId": "1a704fff-dd70-4688-842a-9b90e0ebf5a7",
+            "userEmail": "fgzarq@gmail.com",
+            "startDate": "2023-09-05",
+            "endDate": "2023-09-06"
+        }
+    ]
 }

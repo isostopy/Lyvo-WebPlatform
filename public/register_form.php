@@ -31,7 +31,7 @@
          }
       
          // Register.
-         Register($_POST['name'], $_POST['surname'],$_POST['email'],$_POST['password']);
+         Register($_POST['name'], $_POST['surname'],$_POST['email'],$_POST['password'],UserType::CLIENT,UserStatus::INVITED,true);
 
          // Registro completo.
          LoadPage("pages/register_congrats.php");

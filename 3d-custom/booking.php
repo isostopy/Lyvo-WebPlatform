@@ -8,8 +8,11 @@
     // FUNCIONES GENERALES
     function GetInfo($path)
     {
+        // comprobar que el archivo existe
+        if (!is_readable($path)) { return null; }
+
         $fileContents = file_get_contents($path);
-        return json_decode($fileContents);
+        return json_decode($fileContents);    
     }
 
     // OBTENER INFORMACIÓN DE RESERVAS
@@ -18,12 +21,15 @@
         // Ubicación del archivo
         $filePath = GetPath($place);
 
+        // comprobar que el archivo existe
+        if (!is_readable($filePath)) { return null; }
+
         // Obtener información del archivo
         $jsonContent = file_get_contents($filePath);
         return json_decode($jsonContent);
     }
 
-    // GUARDAR RESERVAS
+    // GUARDAR RESERVAS - ESCRIBIR ARCHIVO
     function BookingStore($booking)
     {
         try
@@ -34,6 +40,13 @@
             // Leer el archivo y decodificar el JSON 
             $data = GetInfo($filePath);
         
+            // Si recibimos datos vacios hay que crear el archivo.
+            if($data === null)
+            {
+                $data = new stdClass();
+                $data->bookings = [];
+            }
+
             // Crear un nuevo stdClass para la reserva
             $newBooking = new stdClass();
 
@@ -42,10 +55,10 @@
             $newBooking->userEmail = $booking->userEmail;
             $newBooking->startDate = $booking->dateStart;
             $newBooking->endDate = $booking->dateEnd;
-        
+
             // Añadir el nuevo stdClass a la lista de reservas
             $data->bookings[] = $newBooking;
-        
+
             // Codificar de nuevo a JSON y escribir al archivo
             $newFileContents = json_encode($data, JSON_PRETTY_PRINT);
             file_put_contents($filePath, $newFileContents);
@@ -64,6 +77,9 @@
 
         // Leer el archivo y decodificar el JSON
         $data = GetInfo($filePath);
+
+        // Si recibimos datos vacios, terminamos.
+        if($data === null){return;}
 
         // Buscar el elemento con el bookingId dado y eliminarlo
         foreach ($data->bookings as $index => $booking) 

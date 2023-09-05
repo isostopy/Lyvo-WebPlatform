@@ -28,9 +28,12 @@
             // Obtener la información.
             $infoBookings = BookingGetByPlace($place);
 
-            // Mostrar la reservas.
-            foreach ($infoBookings->bookings as $booking) 
+            // Si no hay archivo de reservas, volvemos.
+            if (is_object($infoBookings) && isset($infoBookings->bookings))
             {
+                // Mostrar la reservas.
+                foreach ($infoBookings->bookings as $booking) 
+                {
                 // HACER QUE SOLO SALGAN LAS RESERVAS CON CITAS POSTERIORES
                 echo "<div>";
                 echo "<p>".$booking->userEmail."</p>";
@@ -42,7 +45,8 @@
                 echo "</form>";
                 echo "</div>";
                 echo "<br>";
-            }
+                }
+            }      
         }
 
         // Si no hay valor de lugar, indicar el error.

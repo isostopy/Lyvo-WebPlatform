@@ -16,5 +16,5 @@
     }
     */
 
-    echo "sistema en mantenimeinto.";
+    echo "sistema en mantenimiento.";
 ?>

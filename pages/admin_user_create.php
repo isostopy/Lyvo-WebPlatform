@@ -2,12 +2,13 @@
 
     // Funcionalidades comunes.
     require_once '../includes/functions.php';
-
     // Datos.
     require_once '../includes/config.php';
-
     // Messages.
     require_once '../includes/messages.php';
+
+    // Comprobamos el usuario
+    UserCheckSession(UserType::ADMINISTRATOR->value);
 
     $client = UserType::CLIENT;
 

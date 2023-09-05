@@ -83,6 +83,7 @@
     $URL_DirectusRecoverPass_Request = "http://localhost:8055/auth/password/request";
     $URL_DirectusRecoverPass_Reset = "http://localhost:8055/auth/password/reset";
     $URL_RecoverPass = "http://localhost/Lyvo-WebPlatform/public/recoverPass_form_newpass.php";
+    $URL_LoginEditor = "http://localhost/Lyvo-WebPlatform/public/login_form_editor.php";
 
     // Directus rolecode
     $Role_Administrator = '3f543429-02b7-420e-b5d7-14f1b2d8523f';
@@ -112,6 +113,7 @@
     $URL_DirectusRecoverPass_Request = "https://lyvoweb.isostopyserver.net/auth/password/request";
     $URL_DirectusRecoverPass_Reset = "https://lyvoweb.isostopyserver.net/auth/password/reset";
     $URL_RecoverPass = "https://lyvoweb.isostopyserver.net/public/recoverPass_form_newpass.php";
+    $URL_LoginEditor = "https://lyvoweb.isostopyserver.net/public/login_form_editor.php";
 
     // Directus rolecode
     $Role_Administrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';

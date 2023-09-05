@@ -6,7 +6,7 @@
    require_once '../includes/functions.php';
    
    // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession();
+   UserCheckSession(UserType::ADMINISTRATOR->value);
 ?>
 
 <!DOCTYPE html>

@@ -2,30 +2,49 @@
 
     // Datos.
     require_once '../includes/config.php';
-
     // Messages.
     require_once '../includes/messages.php';
 
-    function StoreBooking($booking)
+    // FUNCIONES GENERALES
+    function GetInfo($path)
+    {
+        $fileContents = file_get_contents($path);
+        return json_decode($fileContents);
+    }
+
+    // OBTENER INFORMACIÓN DE RESERVAS
+    function BookingGetByPlace($place)
+    {
+        // Ubicación del archivo
+        $filePath = GetPath($place);
+
+        // Obtener información del archivo
+        $jsonContent = file_get_contents($filePath);
+        return json_decode($jsonContent);
+    }
+
+    // GUARDAR RESERVAS
+    function BookingStore($booking)
     {
         try
         {
             // Ubicación del archivo
             $filePath = GetPath($booking->place);
         
-            // Leer el archivo y decodificar el JSON
-            $fileContents = file_get_contents($filePath);
-            $data = json_decode($fileContents, true);
+            // Leer el archivo y decodificar el JSON 
+            $data = GetInfo($filePath);
         
-            // Añadir un nuevo elemento al array
-            $newBooking = array(
-                "userId" => $booking->userId,
-                "userEmail" => $booking->userEmail,
-                "startDate" => $booking->dateStart,
-                "endDate" => $booking->dateEnd
-            );
+            // Crear un nuevo stdClass para la reserva
+            $newBooking = new stdClass();
+
+            $newBooking->bookingId = $booking->bookingId;
+            $newBooking->userId = $booking->userId;
+            $newBooking->userEmail = $booking->userEmail;
+            $newBooking->startDate = $booking->dateStart;
+            $newBooking->endDate = $booking->dateEnd;
         
-            $data['bookings'][] = $newBooking;
+            // Añadir el nuevo stdClass a la lista de reservas
+            $data->bookings[] = $newBooking;
         
             // Codificar de nuevo a JSON y escribir al archivo
             $newFileContents = json_encode($data, JSON_PRETTY_PRINT);
@@ -35,6 +54,57 @@
         {
             throw new Exception(Message_Error_BookingWrite());    
         }
+    }
+
+    // ELIMINAR RESERVAS
+    function BookingDelete($place, $id)
+    {
+        // Ubicación del archivo
+        $filePath = GetPath($place);
+
+        // Leer el archivo y decodificar el JSON
+        $data = GetInfo($filePath);
+
+        // Buscar el elemento con el bookingId dado y eliminarlo
+        foreach ($data->bookings as $index => $booking) 
+        {
+            if ($booking->bookingId === $id)
+            {
+                unset($data->bookings[$index]);
+
+                // Reindexar el array para mantener la estructura consistente
+                $data->bookings = array_values($data->bookings);
+                break;
+            }
+        }
+
+        // Guardar el JSON modificado de nuevo en el archivo
+        $newJsonContent = json_encode($data, JSON_PRETTY_PRINT);
+        file_put_contents($filePath, $newJsonContent);
+    }
+
+    // COMPROBAR RESERVAS DEL USUARIO
+    function BookingCheckUser($place, $user)
+    {
+        $infoBookings = BookingGetByPlace($place);
+
+        foreach ($infoBookings->bookings as $booking) 
+        {
+            // Comprobar fecha.
+            $startDate = new DateTime($booking->startDate);
+            $endDate = new DateTime($booking->endDate);
+            $now = new DateTime();
+
+            $status = ($now >= $startDate && $now <= $endDate);
+
+            // Si el id está y también la fecha, damos acceso.
+            if($booking->userId == $user && $status)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // FUNCIONES AUXILIARES

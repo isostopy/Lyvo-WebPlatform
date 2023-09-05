@@ -30,7 +30,7 @@
             throw new Exception(Message_Error_TermsCondNo());
          }
       
-         // Login.
+         // Register.
          Register($_POST['name'], $_POST['surname'],$_POST['email'],$_POST['password']);
 
          // Registro completo.

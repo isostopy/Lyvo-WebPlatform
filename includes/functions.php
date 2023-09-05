@@ -638,7 +638,8 @@
     }
 
     // COMPROBAR LA SESIÓN
-    function UserCheckSession()
+    // Utilizando los parámetros podemos comprobar también el rol del usuario.
+    function UserCheckSession($role=null)
     {
         // Si no hay una sesión iniciada, cargar welcome.
         if(!isset($_SESSION['userAccessToken']->access_token))
@@ -654,24 +655,13 @@
             {
                 LoadPage("pages/session_expired.html");
             }
-        } 
-    }
 
-    // COMPROBAR LA SESIÓN Y EL USUARIO
-    function UserCheckSessionRole($role)
-    {
-        // Si no hay una sesión iniciada, cargar welcome.
-        if(!isset($_SESSION['userData']->data->role))
-        {
-            LoadPage("public/welcome.php");
-        }
-        // Si hay abierta una sesión, comprobar que el rol no coincide.
-        
-        else
-        {
-            if($_SESSION['userData']->data->role !== $role)
+            // Si hay un rol introducido, comprobamos que el usuario corresponde con este rol.
+            if(!$role){ return; }
+
+            if($_SESSION['userData']->data->role !== RoleTranslatorByName($role))
             {
-                LoadPage("public/welcome.php");
+                LoadPage("errors/404.php");
             }
         } 
     }
@@ -853,4 +843,26 @@
         }
     }
 
+    // ---------------------------------------------------------------------------------------------------------------------------------------
+    // PLACES ---------------------------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------------------------
+
+    // Obtener de las variables de la URL el lugar.
+    function PlaceGetFromURL()
+    {
+        $placeId = null;
+
+        if (isset($_GET['placeId'])) 
+        {
+            $placeId = urldecode($_GET['placeId']);
+
+            // Es importante comprobar y sanear el varlor en la URL.
+            if (!in_array($placeId, [Places::AUDITORIO->value, Places::SALAEXPOSICIONES->value, Places::SALAPRIVADA->value])) 
+            {
+                $placeId = null;
+            }
+        }
+
+        return $placeId;
+    }
 ?>

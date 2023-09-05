@@ -6,13 +6,7 @@
    require_once '../includes/functions.php';
    
    // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession();
-
-   // Codificamos los valores para poderlos enviar por URL, por si hay algún caracter especial.
-   $idAuditorio = urlencode(Places::AUDITORIO->value);
-   $idSalaExposiciones = urlencode(Places::SALAEXPOSICIONES->value);
-   $idSalaPrivada = urlencode(Places::SALAPRIVADA->value);
-
+   UserCheckSession(UserType::ADMINISTRATOR->value);
 ?>
 
 <!DOCTYPE html>
@@ -43,13 +37,13 @@
 
             <div class="content">
 
-               <h1>Andministración de espacios</h1>
+               <h1>Administración de espacios</h1>
 
                <p>Por favor, elige un espacio para configurar.</p>
 
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_assign.php?id=<?php echo $idAuditorio?>' ">AUDITORIO</button>
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_assign.php?id=<?php echo $idSalaExposiciones?>' ">SALA DE EXPOSICIONES</button>
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_assign.php?id=<?php echo $idSalaPrivada?>' ">SALA PRIVADA</button>
+               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_booking.php?placeId=<?php echo urlencode(Places::AUDITORIO->value);?>' ">AUDITORIO</button>
+               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_booking.php?placeId=<?php echo urlencode(Places::SALAEXPOSICIONES->value);?>' ">SALA DE EXPOSICIONES</button>
+               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_booking.php?placeId=<?php echo urlencode(Places::SALAPRIVADA->value);?>' ">SALA PRIVADA</button>
                
             </div>
 

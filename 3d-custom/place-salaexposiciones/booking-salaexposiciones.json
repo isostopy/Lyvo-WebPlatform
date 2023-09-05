@@ -1,10 +1,3 @@
 {
-    "bookings": [
-        {
-            "userId": "37f767b0-0b2c-4ae0-9b16-de8845281c3a",
-            "userEmail": "fgzarq@gmail.com",
-            "startDate": "2023-09-02",
-            "endDate": "2023-09-16"
-        }
-    ]
+    "bookings": []
 }

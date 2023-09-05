@@ -6,7 +6,7 @@
     require_once '../includes/config.php';
 
     // Comprobar que el usuario tiene sesión iniciada.
-    UserCheckSession();
+    UserCheckSession(UserType::ADMINISTRATOR->value);
 
     // Obtener información del usuario.
     $userId;

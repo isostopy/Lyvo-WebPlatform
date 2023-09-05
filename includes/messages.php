@@ -96,6 +96,11 @@
         return "No se ha podido almacenar la información de la reserva.";
     }
 
+    function Message_Error_BookingGet()
+    {
+        return "Se ha producido un error al obtener la información de las reservas.";
+    }
+
     // OK --------------------------------------------------------------------------------------------------
 
     function Message_Ok_Validation()
@@ -123,5 +128,48 @@
     function Email_Register_BodyNonHtml()
     {
         return "Gracias por registrarte en nuestra plataforma. Pulsa el siguiente enlace para validar tu E-mail: ";
+    }
+
+    function Email_Bookings_Subject()
+    {
+        return "No-Reply: Lyvo configurador de espacios.";
+    }
+
+    function Email_Bookings_Body($place, $dateStart, $dateEnd, $editorUrl)
+    {
+        return "Tiene permisos para configurar el espacio ".$place." entre los días ".$dateStart." y ".$dateEnd.". Puede acceder al editor desde el siguiente enlace: ".$editorUrl;
+    }
+
+    function Email_Bookings_BodyNonHtml($place, $dateStart, $dateEnd, $editorUrl)
+    {
+        return "Tiene permisos para configurar el espacio ".$place." entre los días ".$dateStart." y ".$dateEnd.". Puede acceder al editor desde el siguiente enlace: ".$editorUrl;
+    }
+
+
+    // INFO --------------------------------------------------------------------------------------------------
+
+    function Info_UploadNoFile()
+    {
+        return "No se ha seleccionado ningún archivo.";
+    }
+
+    function Info_UploadSizeMax()
+    {
+        return "El archivo es demasiado grande.";
+    }
+
+    function Info_UploadFormatInvalid()
+    {
+        return "Formato de archivo no permitido.";
+    }
+
+    function Info_UploadFile()
+    {
+        return "Archivo subido correctamente.";
+    }
+
+    function Info_UploadFileError()
+    {
+        return "Error al subir el archivo.";
     }
 ?>

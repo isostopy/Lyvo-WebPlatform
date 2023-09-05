@@ -6,37 +6,60 @@
    require_once '../includes/functions.php';
    // Mensajes.
    require_once '../includes/messages.php';
-   // Reservas.
+   // Bookings.
    require_once '../3d-custom/booking.php';
+   // Email.
+   require_once '../includes/email.php';
    
-   // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession();
+   // Comprobar que el usuario tiene sesión iniciada y que el usuario es administrador.
+   UserCheckSession(UserType::ADMINISTRATOR->value);
 
    // ACCIONES INICIALES. OBTENER ESPACIO. -------------------------------------------------------------
-   $placeId;
-
+   
    // Obtenemos el valor del espacio de la URL y lo decodificamos.
-   if (isset($_GET['id'])) 
-   {
-        $placeId = urldecode($_GET['id']);
+   $placeId = PlaceGetFromURL();
 
-        // Es importante comprobar y sanear el varlor en la URL.
-        if (!in_array($placeId, [Places::AUDITORIO->value, Places::SALAEXPOSICIONES->value, Places::SALAPRIVADA->value])) 
+   // ACCIONES PARA MOSTRAR LAS RESERVAS ACTUALES -------------------------------------------------------
+   function PrintBookings($place)
+   {
+        // Comprobamos que tenemos un valor de lugar.
+        if($place)
         {
-            $placeId = Message_Error_PlaceSelected();
+            // Obtener la información.
+            $infoBookings = BookingGetByPlace($place);
+
+            // Mostrar la reservas.
+            foreach ($infoBookings->bookings as $booking) 
+            {
+                // HACER QUE SOLO SALGAN LAS RESERVAS CON CITAS POSTERIORES
+                echo "<div>";
+                echo "<p>".$booking->userEmail."</p>";
+                echo "<p> Inicio: ".$booking->startDate."</p>"; 
+                echo "<p> Fin: ".$booking->endDate."</p>";
+                echo "<form action='' method='POST'>";
+                echo "<input type='hidden' name='booking-id' value='".$booking->bookingId."'>"; // Valor encerrado entre comillas
+                echo "<input type='submit' value='Eliminar reserva'>";
+                echo "</form>";
+                echo "</div>";
+                echo "<br>";
+            }
+        }
+
+        // Si no hay valor de lugar, indicar el error.
+        else
+        {
+            echo "<p>".Message_Error_BookingGet()."</p>";
         }
    }
 
-   // Si el espacio no existe.
-   else
+   // ACCIONES PARA ELIMINAR RESERVAS -------------------------------------------------------------------
+   if(isset($_POST['booking-id']))
    {
-        $placeId = Message_Error_PlaceSelected();
+        $bookingId = $_POST['booking-id'];
+        BookingDelete($placeId, $bookingId);
    }
 
-
-
    // ACCIONES DE CONFIGURACIÓN. ------------------------------------------------------------------------
-
    if (isset($_POST['general-info-email']))
    {
         $email = $_POST['general-info-email'];
@@ -69,6 +92,7 @@
             // Almacenar la información en un stdClass;
             $booking = new stdClass();
 
+            $booking->bookingId = uniqid();
             $booking->place = $placeId;
             $booking->userId = $userId;
             $booking->userEmail = $email;
@@ -76,17 +100,23 @@
             $booking->dateEnd = $dateEnd;
 
             // Una vez tenemos todos los datos, hay que almacenar la reserva.
-            StoreBooking($booking);
+            BookingStore($booking);
 
+            // 4. finalmente informamos al usuario.
+            $subject = Email_Bookings_Subject();
+            $body = Email_Bookings_Body($placeId, $dateStart, $dateEnd, $GLOBALS['URL_LoginEditor']);
+            $bodyNonHTML = Email_Bookings_BodyNonHtml($placeId, $dateStart, $dateEnd, $GLOBALS['URL_LoginEditor']);
+
+            SendEmail($email, $subject, $body, $bodyNonHTML);
+
+            // Terminar en otra página.
+            LoadPage("pages/admin_place_booking_congrats.php");
         }
         catch (Exception $e)
         {
             $error = $e->getMessage();
         }
    } 
-
-   // 4. Enviar email de invitación.
-
 ?>
 
 <!DOCTYPE html>
@@ -171,10 +201,15 @@
                     
                     <input type="submit" name="submit" value="ASIGNAR" class="form-btn margin-bottom-50px">
 
-                    <button class="button-general margin-top-30px" onclick="location.href = 'place_configurator.php' ">CONFIGURAR ESPACIO</button>
-
                 </form>
-               
+
+                <button class="button-general margin-bottom-30px" onclick="location.href = 'editor_place.php?placeId=<?php echo urlencode($placeId);?>' ">CONFIGURAR ESPACIO</button>
+
+                <div if="bookingsInfo">
+                    
+                    <?php PrintBookings($placeId) ?>
+
+                </div>
             </div>
 
         </div>
@@ -205,6 +240,8 @@
     <script>
 
         fieldChecker_Load('email-input', 'email-check-icon', ['@','.'], 6);
+
+
 
     </script>
 

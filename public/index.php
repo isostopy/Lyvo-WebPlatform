@@ -1,5 +1,4 @@
 <?php
-    /*
     // Funcionalidades comunes.
     require_once '../includes/functions.php';
 
@@ -14,7 +13,4 @@
 
         LoadPageByUserRole($userRole);
     }
-    */
-
-    echo "sistema en mantenimiento.";
 ?>

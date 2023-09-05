@@ -1,8 +1,10 @@
 <?php
-/*
     // Funcionalidades comunes.
     require_once '../includes/functions.php';
 
+    LoadPage("public/welcome.php");
+
+    /*
     // Inicio de la sesión. Todo el mundo que necesite de sesiones tiene que cargar este script.
     if (!isset($_SESSION['userData']))
     {
@@ -15,6 +17,4 @@
         LoadPageByUserRole($userRole);
     }
     */
-
-    echo "Servicio en mantenimiento.";
 ?>

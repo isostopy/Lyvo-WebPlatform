@@ -1,6 +1,5 @@
 <?php
 
-/*
    // Datos.
    require_once '../includes/config.php';
 
@@ -17,7 +16,7 @@
    {
       LoadPage("public/login_form.php");
    }
-*/
+
 ?>
 
 <!DOCTYPE html>

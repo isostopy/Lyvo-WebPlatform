@@ -76,6 +76,7 @@
     $DirectusToken = "EfACfwSA6TapIevXtYC_WcKVToLuct4o";
 
     // Endpoints
+    //CMS
     $URL_DirectusLogin = "http://localhost:8055/auth/login";
     $URL_DirectusRefresh = "http://localhost:8055/auth/refresh";
     $URL_DirectusLogout = "http://localhost:8055/auth/logout";
@@ -83,6 +84,7 @@
     $URL_DirectusUsersMe = "http://localhost:8055/users/me";
     $URL_DirectusRecoverPass_Request = "http://localhost:8055/auth/password/request";
     $URL_DirectusRecoverPass_Reset = "http://localhost:8055/auth/password/reset";
+
     $URL_RecoverPass = "http://localhost/Lyvo-WebPlatform/public/recoverPass_form_newpass.php";
     $URL_LoginEditor = "http://localhost/Lyvo-WebPlatform/public/login_form_editor.php";
 
@@ -104,13 +106,15 @@
     $DirectusToken = "XB0cW-gitsmiWnX4nqf8i6dlARG-1ijX";
 
     // Endpoints
-    $URL_DirectusLogin = "https://lyvoweb.isostopyserver.net/auth/login";
-    $URL_DirectusRefresh = "https://lyvoweb.isostopyserver.net/auth/refresh";
-    $URL_DirectusLogout = "https://lyvoweb.isostopyserver.net/auth/logout";
-    $URL_DirectusUsers = "https://lyvoweb.isostopyserver.net/users";
-    $URL_DirectusUsersMe = "https://lyvoweb.isostopyserver.net/users/me";
-    $URL_DirectusRecoverPass_Request = "https://lyvoweb.isostopyserver.net/auth/password/request";
-    $URL_DirectusRecoverPass_Reset = "https://lyvoweb.isostopyserver.net/auth/password/reset";
+    //CMS
+    $URL_DirectusLogin = "https://lyvocms.isostopyserver.net/auth/login";
+    $URL_DirectusRefresh = "https://lyvocms.isostopyserver.net/auth/refresh";
+    $URL_DirectusLogout = "https://lyvocms.isostopyserver.net/auth/logout";
+    $URL_DirectusUsers = "https://lyvocms.isostopyserver.net/users";
+    $URL_DirectusUsersMe = "https://lyvocms.isostopyserver.net/users/me";
+    $URL_DirectusRecoverPass_Request = "https://lyvocms.isostopyserver.net/auth/password/request";
+    $URL_DirectusRecoverPass_Reset = "https://lyvocms.isostopyserver.net/auth/password/reset";
+
     $URL_RecoverPass = "https://lyvoweb.isostopyserver.net/public/recoverPass_form_newpass.php";
     $URL_LoginEditor = "https://lyvoweb.isostopyserver.net/public/login_form_editor.php";
 

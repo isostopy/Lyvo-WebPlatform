@@ -100,9 +100,8 @@
     // Partial
     $URL_Partial_Validation = "/pages/register_emailValidation.php?user=";
 
-
     // Admin token
-    $DirectusToken = "7k34-2ziRdVJDOP-sbLukUEmHcdm9adS";
+    $DirectusToken = "XB0cW-gitsmiWnX4nqf8i6dlARG-1ijX";
 
     // Endpoints
     $URL_DirectusLogin = "https://lyvoweb.isostopyserver.net/auth/login";

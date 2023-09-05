@@ -93,8 +93,6 @@
     $Role_Client = 'c46bd43c-1030-45c2-b0b2-d8abb74b5208';
     */
 
-
-    
     // Resolver a URLs
     $URL_Base = "https://lyvoweb.isostopyserver.net";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
@@ -104,7 +102,7 @@
 
 
     // Admin token
-    $DirectusToken = "-VGG3ck0ijSH0t5yj5bgObjUxXe7WmKt";
+    $DirectusToken = "7k34-2ziRdVJDOP-sbLukUEmHcdm9adS";
 
     // Endpoints
     $URL_DirectusLogin = "https://lyvoweb.isostopyserver.net/auth/login";
@@ -119,7 +117,7 @@
 
     // Directus rolecode
     $Role_Administrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';
-    $Role_Company = ''; // -------------------------------------------------------------------------------------------------------------------------- AÑADIR AÑADIR AÑADIR ---
+    $Role_Company = 'caca6253-adef-4e3d-828a-7153d23cd193';
     $Role_Professional = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
     

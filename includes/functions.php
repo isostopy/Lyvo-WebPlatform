@@ -165,7 +165,7 @@
 
     // REGISTRO
     // Por defecto introducimos los valores para el registro del cliente que no selecciona ni su tipo de usuario ni su estado.
-    function Register($user_Name, $user_LastName, $user_Email, $user_Password, $user_Role, $status, $sendEmail = true)
+    function Register($user_Name, $user_LastName, $user_Email, $user_Password, $user_Role=UserType::CLIENT->value, $status=UserStatus::INVITED->value, $sendEmail = true)
     {
         // Traducimos el nombre del role al código correspondiente.
         $user_Role_Code = RoleTranslatorByName($user_Role);

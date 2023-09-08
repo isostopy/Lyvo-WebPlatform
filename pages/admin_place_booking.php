@@ -7,7 +7,7 @@
    // Mensajes.
    require_once '../includes/messages.php';
    // Bookings.
-   require_once '../3d-custom/booking.php';
+   require_once '../includes/booking.php';
    // Email.
    require_once '../includes/email.php';
    

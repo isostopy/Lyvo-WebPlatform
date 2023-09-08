@@ -1,5 +1,8 @@
 <?php
 
+    echo $URL_Base = $_SERVER['HTTP_HOST'];
+
+    /*
     // Mensajes.
     require_once '../includes/messages.php';
     require_once '../includes/functions.php';
@@ -11,5 +14,6 @@
     echo GetStoredToken('refresh_token');
     echo '<br>';
     echo 'user:'.$_SESSION['userData']->data->role;;
+    */
 
 ?>

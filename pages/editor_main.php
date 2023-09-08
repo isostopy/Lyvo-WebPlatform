@@ -5,7 +5,7 @@
     // Funcionalidades comunes.
     require_once '../includes/functions.php';
     // Bookings.
-    require_once '../3d-custom/booking.php';
+    require_once '../includes/booking.php';
    
     // Comprobar que el usuario tiene sesión iniciada.
     UserCheckSession();

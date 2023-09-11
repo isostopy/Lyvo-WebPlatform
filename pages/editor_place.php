@@ -35,6 +35,18 @@
     {
         LoadPage("public/login_form.php");
     }
+
+    function CreateInputs($title, $name, $items) 
+    {
+        for ($i = 1; $i <= $items; $i++) {
+            echo '<div class="content-label">';
+            echo '    <h2>'. $title . ' ' . $i . '</h2>';
+            echo '    <div class="input-icon">';
+            echo '        <input type="file" name="' . $name . '_' . $i . '" id="' . $name . '_' . $i . '">';
+            echo '    </div>';
+            echo '</div>';
+        }
+    }  
 ?>
 
 
@@ -83,41 +95,7 @@
 
                         <input type="hidden" name="reference" value="<?php echo $placeId?>">
 
-                        <div class="content-label">
-
-                            <h2>Auditorio 1</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_auditorio_1" id="image_auditorio_1">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Auditorio 2</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_auditorio_2" id="image_auditorio_2">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Auditorio 3</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_auditorio_3" id="image_auditorio_3">
-
-                            </div>
-
-                        </div>
+                        <?php CreateInputs("Auditorio","image_auditorio",3); ?>
 
                         <input type="button" name="submit" value="SUBIR IMÁGENES" class="form-btn margin-bottom-50px" onclick="uploadFiles('uploadForm')">
 
@@ -138,65 +116,7 @@
 
                         <input type="hidden" name="reference" value="<?php echo $placeId?>">
 
-                        <div class="content-label">
-
-                            <h2>Sala Exposiciones 1</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaexposiciones_1" id="image_salaexposiciones_1">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Sala Exposiciones 2</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaexposiciones_2" id="image_salaexposiciones_2">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Sala Exposiciones 3</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaexposiciones_3" id="image_salaexposiciones_3">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Sala Exposiciones 4</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaexposiciones_4" id="image_salaexposiciones_4">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Sala Exposiciones 5</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaexposiciones_5" id="image_salaexposiciones_5">
-
-                            </div>
-
-                        </div>
+                        <?php CreateInputs("Sala exposiciones","image_salaexposiciones",12); ?>
 
                         <input type="button" name="submit" value="SUBIR IMÁGENES" class="form-btn margin-bottom-50px" onclick="uploadFiles('uploadForm')">
 
@@ -217,29 +137,7 @@
 
                         <input type="hidden" name="reference" value="<?php echo $placeId?>">
 
-                        <div class="content-label">
-
-                            <h2>Sala Privada 1</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaprivada_1" id="image_salaprivada_1">
-
-                            </div>
-
-                        </div>
-
-                        <div class="content-label">
-
-                            <h2>Sala Privada 2</h2>
-
-                            <div class="input-icon">
-
-                                <input type="file" name="image_salaprivada_2" id="image_salaprivada_2">
-
-                            </div>
-
-                        </div>
+                        <?php CreateInputs("Sala privada","image_salaprivada",2); ?>
 
                         <input type="button" name="submit" value="SUBIR IMÁGENES" class="form-btn margin-bottom-50px" onclick="uploadFiles('uploadForm')">
 

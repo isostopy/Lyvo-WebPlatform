@@ -63,7 +63,7 @@
     // al ser el elemento principal, lo va a hacer desde la raiz.
 
 
-    /*
+
     // RESOLVER A LOCALHOST
 
     // QUIZÁ TODO ESTE CÓDIGO SEA MEJOR METERLO EN ENUMERACIONES QUE SON INMUTABLES Y NO SE PUEDEN CAMBIAR EN TIEMPO DE EJECUCIÓN ------------
@@ -76,6 +76,7 @@
     // Admin token
     $DirectusToken = "EfACfwSA6TapIevXtYC_WcKVToLuct4o";
 
+    /*
     // Endpoints
     //CMS
     $URL_DirectusLogin = "http://localhost:8055/auth/login";

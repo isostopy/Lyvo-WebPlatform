@@ -3,3 +3,10 @@ ErrorDocument 404 /Lyvo-WebPlatform/errors/404.php
 ErrorDocument 403 /Lyvo-WebPlatform/errors/404.php
 
 Options -Indexes
+
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET,POST,PUT,DELETE,OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+</IfModule>

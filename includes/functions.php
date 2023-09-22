@@ -139,7 +139,7 @@
             case 'TOKEN_EXPIRED':
 
                 // Cargamos la pantalla de sesión expirada.
-                LoadPage("pages/session_expired.html");
+                LoadPage("pages/session_expired.php");
 
                 break;
 
@@ -420,7 +420,7 @@
         if (!isset($_SESSION['userAccessToken']))
         {
             // Si no hay token de refresco, nos vamos a la página de sesión expirada.
-            LoadPage("pages/session_expired.html");
+            LoadPage("pages/session_expired.php");
         }
 
         try
@@ -433,7 +433,7 @@
         }
         catch (Exception $e)
         {
-            LoadPage("pages/session_expired.html");
+            LoadPage("pages/session_expired.php");
         }
     }
 
@@ -653,7 +653,7 @@
             // Si no conseguimos un token correcto, enviamos al usuario a la página de sesión caducada.
             if(!UserGetTokenStatus())
             {
-                LoadPage("pages/session_expired.html");
+                LoadPage("pages/session_expired.php");
             }
 
             // Si hay un rol introducido, comprobamos que el usuario corresponde con este rol.

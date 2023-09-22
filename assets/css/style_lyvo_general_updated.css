@@ -1,0 +1,361 @@
+/* FUENTES DE TEXTO */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto&display=swap');
+
+/* VARIABLES */
+:root {
+    --color_1: #48907f; /* Botones */
+    --color_2: #004d6d; /* Fondos */
+    --color_3: #002B49; /* Texto y títulos  */
+    --color_4: #e9f2ef;/* Inputs */
+}
+
+/* ELIMINAR ESTILOS POR DEFECTO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+
+    height: 100%;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5vh;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* TÍTULOS ////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+h1{
+    font-weight: 600;
+}
+
+h2{
+    font-size: 1.6vh;
+    font-weight: 700;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* VIDEO BACKGROUND ///////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+.video-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -5;   /* Asegura que el video permanezca detrás del contenido */
+    overflow: hidden;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   /* Centra el video en la pantalla */
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* ADORNOS ////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+#lyvo-leaf{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 70%;
+
+    background-image: url("../images/hoja_borde.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -1;
+
+    /*background-color: rgba(173, 143, 202, 0.308);*/
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+#content {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: start;
+    align-items: start;
+    min-height: 100vh;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* HEADER /////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+#header{
+    
+    position: fixed;
+
+    height: 10vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;           /* centra verticalmente */
+    justify-content: flex-start;   /* alinea al inicio (izquierda) */
+    padding-left: 20px;
+    padding-right: 20px;
+
+    /*background-color: rgba(0, 255, 34, 0.397);*/
+}
+
+#logo {
+
+    width: 150px;   /* Tamaño del logo */
+    z-index: 10;    /* Asegura que el logo esté por encima de otros elementos */
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* FOOTER /////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+#footer{
+
+    position: fixed;   /* Fijamos el objeto */
+    bottom: 0;         /* Lo dejamos fijado en la parte inferior*/  
+
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    font-size: 1.2vh;
+
+    /*background-color: rgba(255, 0, 0, 0.397);*/
+}
+
+.footer-element{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    /*background-color: rgba(0, 255, 76, 0.397);*/
+}
+
+.hiperlink{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+#panels{
+    flex: 1;
+    display: flex;
+    flex-direction: row;   /* Esto hará que los sub-paneles se apilen verticalmente */
+    align-items: center;
+
+    width: 100%;
+
+    /*background-color: rgba(0, 38, 255, 0.171);*/
+}
+
+#panel-left {
+
+    display: flex;
+    flex-direction: column;   /* Esto hará que los sub-paneles se apilen verticalmente */
+    align-items: center;
+
+    width: 60vw;
+
+    /*background-color: rgba(0, 38, 255, 0.171);*/
+}
+
+#panel-right {
+
+    display: flex;
+    justify-content: center;   /* Centra horizontalmente */
+    align-items: center;       /* Centra verticalmente */
+
+    overflow: hidden;
+
+    width: 40vw;
+    height: 100vh;
+
+    /*background-color: rgba(0, 255, 255, 0.507);*/
+}
+
+.panel-title{
+    width: 100%;
+    text-align: left;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* IMAGES /////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+.img-center {
+    width: 50%; /* O el tamaño que prefieras para tu imagen */
+    height: 50%; /* O el tamaño que prefieras para tu imagen */
+
+    object-fit: contain;
+}
+
+.img-fullsize{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;  /* Para mantener las proporciones de la imagen mientras la redimensiona */
+}
+
+
+
+.panel-content{
+
+    flex: 1;
+    width: 60%;
+    display: flex;
+    flex-direction: column; /* Esto hará que los sub-paneles se apilen verticalmente */
+
+    align-items: center;
+
+    /*background-color: rgba(247, 0, 255, 0.349);*/
+
+}
+
+form{
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Esto hará que los sub-paneles se apilen verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: start; /* Centra arriba verticalmente */
+
+    width: 100%;
+
+    /*background-color: rgba(0, 255, 98, 0.26);*/
+}
+
+.panel-subpanels-container{
+    flex: 1;
+    display: flex;
+    flex-direction: row; /* Esto hará que los sub-paneles se apilen verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: start; /* Centra arriba verticalmente */
+
+    width: 100%;
+
+    /*background-color: rgba(0, 255, 98, 0.26);*/
+}
+
+.panel-sub {
+    flex: 1;
+    width: 100%;
+
+    /*background-color: rgba(255, 145, 0, 0.199);*/
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* INPUT y BOTONES ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+input[type=text], input[type=password], input[type=email], input[type=date]{
+    
+    background-color: var(--color_4);
+    border: none;
+    border-color: var(--color_1);
+    width: 100%;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    height: 50px;
+
+    padding: 0.8em;
+}
+
+.button-general, input[type=submit], input[type=button]{
+
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition-duration: 0.2s;
+    border: none;
+    
+}
+
+.button-color{
+    background-color: var(--color_1);
+    color: white ;
+}
+
+.button-white{
+    background-color: white;
+    color: var(--color_1);
+}
+
+.button-color:hover{
+    cursor: pointer;
+    background-color: #72998b;
+}
+
+.button-white:hover{
+    cursor: pointer;
+    background-color: #97dbc2;
+}
+
+.element-info{
+    text-align: left;
+    font-size: 1.2vh;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* MÁRGENES Y AJUSTES /////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+.margin-bottom-10vh{ margin-bottom: 10vh; }
+.margin-bottom-20vh{ margin-bottom: 20vh; }
+
+.margin-bottom-5px{ margin-bottom: 5px; }
+.margin-bottom-10px{ margin-bottom: 10px; }
+.margin-bottom-20px{ margin-bottom: 20px; }
+.margin-bottom-40px{ margin-bottom: 40px; }
+
+.margin-right-20px{ margin-right: 20px; }
+
+.max-width-400px{ max-width: 400px;}
+
+/* Ocultar elementos en pantalla ancha */
+.hide-widescreen{ display: none; }
+
+.text-color-white{ color: white; }
+.text-color-blue{ color: var(--color_3); }
+
+/* Estilos responsive para smartphones */
+@media screen and (max-width: 1350px) { 
+
+    #panel-left{ width: 100%; }
+    #panel-right{ display: none; }
+
+    .panel-subpanels-container{
+        flex-direction: column;
+    }
+
+    .video-background{
+        display: none;
+    }
+
+    .margin-right-20px{margin-right: 0px;}
+
+    .hide-widescreen{
+        display: block;
+    }
+}

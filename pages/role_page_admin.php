@@ -52,22 +52,8 @@
 
         <div id="hoja-livo-grande"></div>
 
-        <div id="textos-inferiores">
-
-            <div id="copyright">
-                <p>Copyright 2023© All rights reserved</p>
-            </div>
-
-            <div id="botones-esquina">
-                <div id="politica-privacidad">
-                    <a href="../public/privacy.html">Política de privacidad</a>
-                </div>
-
-                <div id="cookies">
-                    <a href="../public/privacy.html">Aviso de cookies</a>
-                </div>
-            </div>
-        </div>
+        <!-- FOOTER -->
+        <?php include_once "../utils/htmlFooter.php"; ?>
 
     </div>
 

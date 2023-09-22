@@ -6,23 +6,25 @@
    require_once '../includes/config.php';
 
    // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession($GLOBALS['Role_Client']);
+   UserCheckSession();
 
    // Si el usuario ya tiene historia clínica, enviar al 3D, aunque no se debería
    // entrar en esta página si el usuario ya tiene historia clínica completada o saltada.
    // El bypass se debería haber realizado en el Login, el siguiente código es por seguridad.
+
    if(isset($_SESSION['userData']->data->MedicalInformation)) 
    {
       LoadPage("public/3d_launcher.php");
       $_SESSION['medicalInfoFirstTime'] = false;
    }
 
+   
    // Si el usuario entra en esta página es porque es su primera sesión. Guardamos valor para
    // más adelante saltar la página de "Todo listo".
    $_SESSION['medicalInfoFirstTime'] = true;
 
 
-   
+
    // Si no tiene historia clínica, dar la opción de rechazar o rellenar la información.
    // Si rechaza la información hay que guardar algo para que la próxima vez salte esto.
    if(isset($_POST['skip'])) 
@@ -93,29 +95,12 @@
 
       </div>
 
-      <div id="textos-inferiores">
-         <div id="copyright">
-            <p>Copyright 2023© All rights reserved</p>
-         </div>
+      <div id="right-panel"></div>
 
-         <div id="botones-esquina">
-            <div id="politica-privacidad">
-               <a href="../public/privacy.html">Política de privacidad</a>
-            </div>
+      <div id="hoja-livo-grande"></div>
 
-            <div id="cookies">
-               <a href="../public/privacy.html">Aviso de cookies</a>
-            </div>
-         </div>
-      </div>
-
-      <div id="right-panel">
-
-      </div>
-
-      <div id="hoja-livo-grande">
-
-      </div>
+      <!-- FOOTER -->
+      <?php include_once "../utils/htmlFooter.php"; ?>
 
    </div>
 

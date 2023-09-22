@@ -175,29 +175,12 @@
 
       </div>
 
-      <div id="textos-inferiores">
-         <div id="copyright">
-            <p>Copyright 2023© All rights reserved</p>
-         </div>
+      <div id="right-panel"></div>
 
-         <div id="botones-esquina">
-            <div id="politica-privacidad">
-               <a href="../public/privacy.html">Política de privacidad</a>
-            </div>
+      <div id="hoja-livo-grande"></div>
 
-            <div id="cookies">
-               <a href="../public/privacy.html">Aviso de cookies</a>
-            </div>
-         </div>
-      </div>
-
-      <div id="right-panel">
-
-      </div>
-
-      <div id="hoja-livo-grande">
-
-      </div>
+      <!-- FOOTER -->
+      <?php include_once "../utils/htmlFooter.php"; ?>
 
    </div>
 
@@ -210,7 +193,6 @@
 
         fieldChecker_Load('email-input', 'email-check-icon', ['@','.'], 6);    
         fieldChecker_Load('pass-input', 'pass-check-icon', null, 6);
-   
 
    </script>
 

@@ -1,19 +1,42 @@
-/* Import de fuente de texto*/
+/* FUENTES DE TEXTO */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Montserrat:wght@400;700&display=swap');
 
-/*  Quitar estilos  por defecto del buscador */
+
+/* ELIMINAR ESTILOS POR DEFECTO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* ELEMENTOS GENERALES */ 
+h1{
+    width: 100%;    
+    text-align: left;
+    color: #002B49;
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 1em;
+}
+
 h2{
+    color: #002B49;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
     margin-bottom: 0.5em;
 }
 
-/* Estructura  General*/
+p{
+    width: 100%;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    color: #002B49;
+}
 
+/* ESTRUCTURA GENERAL */
 .main-container{
     display: flex;
     flex-direction: column;
@@ -24,17 +47,16 @@ h2{
 }
 
 #left-panel {
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
-    top: 40%;
-    width: 100%;
+
+    width: 100%; /* Modificado con media querys */
 }
 
 .content {
-    width: 80%;
+    width: 80%; /* Modificado con media querys */
     display: flex;
     flex-direction: column;
 
@@ -67,8 +89,7 @@ h2{
 }
 
 
-/* Logo lyvo esquina superior izquierda*/
-
+/* LOGO LYVO */
 #lyvo-logo {
     align-self: flex-start;
     padding-left: 2em;
@@ -80,8 +101,7 @@ h2{
     width: 100%;
 }
 
-/* Textos inferiores (copyright, privacidad, cookies)*/
-
+/* FOOTER */
 #textos-inferiores{
     align-self: flex-end;
     z-index: 1;
@@ -130,7 +150,6 @@ h2{
 }
 
 /* Elementos Recurentes */
-
 #hoja-livo{
     position: fixed;
     right: 0;
@@ -153,6 +172,7 @@ h2{
     margin-top: 10px;
 }
 
+/* AVATAR */
 .avatar-button-container {
     display: flex;
     justify-content: center;
@@ -188,6 +208,7 @@ h2{
     height: 100%;
 }
 
+/* INPUT */
 .input-icon {
     position: relative;
 }
@@ -209,6 +230,7 @@ h2{
     cursor: pointer;
 }
 
+/* BOTONES INDICACIÓN PÁGINA */
 #botones-circulares{
     display: flex;
     gap: 5%;
@@ -257,32 +279,7 @@ h2{
     flex-direction: column;
 }
 
-/* Estilos Generales */
-
-h1{
-    width: 100%;    
-    text-align: left;
-    color: #002B49;
-    font-size: 1.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    margin-bottom: 1em;
-}
-
-h2{
-    color: #002B49;
-    font-size: 0.75rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-}
-
-p{
-    width: 100%;
-    font-size: 0.75rem;
-    font-family: "Montserrat", sans-serif;
-    text-align: left;
-    color: #002B49;
-}
-
+/* ESTILOS GENERALES */
 .button-general, input[type=submit], input[type=button]{
 
     width: 100%;
@@ -489,7 +486,6 @@ a:hover{
 }
 
 /* Estilos para monitor (estos se añaden o remplazan a los estilos previos) */
-
 @media (min-width:1350px) {
 
     #lyvo-logo {

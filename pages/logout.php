@@ -21,7 +21,7 @@
 
     </script>
 
-    <?php LoadPage('public/welcome.php'); ?>
+        <?php LoadPage('public/welcome.php'); ?>
 
     </head>
 </html>

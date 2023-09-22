@@ -55,8 +55,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Lyvo Registro</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/register_form.css">
+
+   <link rel="stylesheet" href="../assets/css/style_lyvo_general_updated.css">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -65,132 +65,117 @@
 </head>
 
 <body>
-   <div class="main-container">
 
-      <div id="lyvo-logo">
-         <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+
+   <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
+
+      <!-- HEADER -->
+      <div id="header">
+
+         <!-- LOGO -->
+         <img id="logo" src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+
       </div>
 
-      <div id="left-panel">
+      <!-- PANELS -->
+      <div id="panels">
 
-         <div id="hoja-livo"></div>
+         <!-- PANEL IZQUIERDO -->
+         <div id="panel-left">
 
-         <div class="content">
+            <div class="panel-content">
 
-            <h1>Crear cuenta</h1>
+               <!-- Título del panel -->
+               <div class="panel-title">
+                  <h1 class="text-color-blue">Crear cuenta</h1>
+               </div>   
 
-            <form action="" method="post">
+               <div class="margin-bottom-40px"></div>
 
-               <div class="margin-bottom-30px">
+               <!-- FORM -->
+               <form action="" method="post">
 
-                  <div class="content-main">
+                  <div class="panel-subpanels-container">
 
-                     <div class="content-label">
-                        <h2>Nombre</h2>
+                     <!-- Panel 1 -->
+                     <div class="panel-sub">
 
-                        <div class="input-icon">
-                           <i class="fa fa-check icon-input" id="name-check-icon" style="visibility:hidden;"></i>
-                           <input id="name-input" type="text" name="name" required>
-
+                        <!-- Field -->
+                        <div>
+                           <h2 class="text-color-blue">Nombre</h2>
+                           <div class="margin-bottom-5px"></div>
+                           <input id="input-name" type="text" name="name" placeholder="nombre" required>
                         </div>
-                     </div>
-
-                     <div class="content-label">
-                        <h2>Apellido</h2>
-
-                        <div class="input-icon">
-                           <i class="fa fa-check icon-input" id="surname-check-icon" style="visibility:hidden;"></i>
-                           <input id="surname-input" type="text" name="surname" required>
-                        </div>
-                     </div>
-
-                     <div class="content-label">
-                        <h2>E-mail</h2>
-
-                        <div class="input-icon">
-                           <i class="fa fa-check icon-input" id="email-check-icon" style="visibility:hidden;"></i>
-                           <input id="email-input" type="email" name="email" required>
-
-                        </div>
-                     </div>
-
-                     <div class="content-label">
-                        <h2>Contraseña</h2>
-
-                        <div class="input-icon">
-                           <i class="fa fa-check icon-input icon-input-margin-right" id="pass-check-icon" style="visibility:hidden;"></i>
-
-                           <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
-                              <i class="fa fa-eye-slash icon-input"></i>
-                           </div>
-
-                           <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
-                              <i class="fa fa-eye icon-input"></i>
-                           </div>
-
-                           <input id="pass-input" type="password" name="password" required>
-
+                        <div class="margin-bottom-20px"></div>
+                        <div>
+                           <h2 class="text-color-blue">E-mail</h2>
+                           <div class="margin-bottom-5px"></div>
+                           <input id="input-email" type="email" name="email" placeholder="e-mail" required>
                         </div>
 
-                        <p class="caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>
+                     </div>
+                     <div class="margin-bottom-20px"></div>
+
+                     <div class="margin-right-20px"></div>
+
+                     <!-- Panel 2 -->
+                     <div class="panel-sub">
+
+                        <!-- Field -->
+                        <div>
+                           <h2 class="text-color-blue">Apellidos</h2>
+                           <div class="margin-bottom-5px"></div>
+                           <input id="input-surname" type="text" name="surname" placeholder="apellido" required>
+                        </div>
+                        <div class="margin-bottom-20px"></div>
+                        <div>
+                           <h2 class="text-color-blue">Contraseña</h2>
+                           <div class="margin-bottom-5px"></div>
+                           <input id="input-pass" type="password" name="password" placeholder="contraseña" required>
+                           <div class="margin-bottom-5px"></div>
+                           <p class="element-info">La contraseña debe tener al menos 6 caracteres</p>
+                        </div>
 
                      </div>
+
                   </div>
 
-                  <label class="input-label-circular">
-                     <input class="input-field-label margin-right-5px" type="checkbox" id="terms" name="terms">
-                     <p class="radio-text">He leído y acepto los <a href="../public/privacy.html">Términos y Condiciones de uso</a></p>
-                  </label>
-
+                  <div class="margin-bottom-40px"></div>
 
                   <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
+                  <input id="button-create" type="submit" name="submit" value="CREAR CUENTA" class="button-general button-color">
+                  
+                  
+               </form>
 
-               </div>
-
-               <input id="entrar-button" type="submit" name="submit" value="CREAR CUENTA" class="form-btn">
-
-            </form>
+            </div>
 
             <p class="texto-bajo-boton">¿Ya tienes una cuenta? <a href="login_form.php">ENTRAR</a></p>
 
          </div>
 
-      </div>
+         <!-- PANEL DERECHO -->
+         <div id="panel-right">
 
-      <div id="textos-inferiores">
-         <div id="copyright">
-            <p>Copyright 2023© All rights reserved</p>
+            <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
+
          </div>
 
-         <div id="botones-esquina">
-            <div id="politica-privacidad">
-               <a href="../public/terms.html">Política de privacidad</a>
-            </div>
-
-            <div id="cookies">
-               <a href="../public/terms.html">Aviso de cookies</a>
-            </div>
-         </div>
       </div>
 
-      <div id="right-panel">
-
-      </div>
-
-      <div id="hoja-livo-grande">
-
-      </div>
+      <?php include_once "../utils/htmlFooter.php"; ?>
 
    </div>
 
    <script>
 
-      passDisplay_Load('pass-input','show-pass-icon','hide-pass-icon');
+      passDisplay_Load('input-pass','show-pass-icon','hide-pass-icon');
       
-      fieldChecker_Load('name-input', 'name-check-icon', undefined, 1);
-      fieldChecker_Load('surname-input', 'surname-check-icon', undefined, 1);
-      fieldChecker_Load('email-input', 'email-check-icon', ['@','.'], 6);    
-      fieldChecker_Load('pass-input', 'pass-check-icon', undefined, 6);
+      fieldChecker_Load('input-name', 'name-check-icon', undefined, 1);
+      fieldChecker_Load('input-surname', 'surname-check-icon', undefined, 1);
+      fieldChecker_Load('input-email', 'email-check-icon', ['@','.'], 6);    
+      fieldChecker_Load('input-pass', 'pass-check-icon', undefined, 6);
    
     </script>
 

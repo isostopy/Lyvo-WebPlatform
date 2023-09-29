@@ -28,9 +28,11 @@ window.onload = function () {
     pages[1] = document.getElementById(pagesId[1]);
     pages[2] = document.getElementById(pagesId[2]);
 
+    /*
     pagesMarkers[0] = document.getElementById(pagesId[0] + pageMarkerSuffix);
     pagesMarkers[1] = document.getElementById(pagesId[1] + pageMarkerSuffix);
     pagesMarkers[2] = document.getElementById(pagesId[2] + pageMarkerSuffix);
+*/
 
     //buttons
     buttonNext = document.getElementById("button-next");
@@ -55,20 +57,24 @@ function showCurrentPage()
             // Page
             pages[i].style.display = "flex";
 
+            /*
             // Marker
             pagesMarkers[i].style.backgroundColor  = "#87b4a4";
             pagesMarkers[i].getElementsByTagName("p")[0].style.color = "white";
             pagesMarkers[i].getElementsByTagName("p")[0].style.fontWeight = "bold";
+            */
         }
         else
         {
             // Page
             pages[i].style.display = "none";
 
+            /*
             // Marker
             pagesMarkers[i].style.backgroundColor  = "";
             pagesMarkers[i].getElementsByTagName("p")[0].style.color = "black";
             pagesMarkers[i].getElementsByTagName("p")[0].style.fontWeight = "100";
+            */
         }
     }
 }

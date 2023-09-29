@@ -38,7 +38,7 @@
     <title>Lyvo Welcome</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/style_lyvo_general_updated.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
@@ -57,6 +57,7 @@
         <div id="header">
 
             <!-- LOGO -->
+            <!-- En este caso solo va a parecer en el responsive -->
             <img id="logo" class="hide-widescreen" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
             
         </div>
@@ -70,13 +71,16 @@
                 <div class="panel-content max-width-400px">
 
                     <!-- Título del panel -->
-                    <h1 class="text-color-white">¡Bienvenido!</h1>
+                    <div class="panel-title">
+                        <h1 class="text-color-white">¡Bienvenido!</h1>
+                    </div>   
+
                     <div class="margin-bottom-20px"></div>
 
                     <!-- Subpaneles -->
                     <div class="panel-subpanels-container">
 
-                        <div class="panel-sub">
+                        <div class="panel-sub flex-column">
 
                             <p class="text-color-white">Por favor, elige el modo de acceso a la plataforma. Si no tienes usuario puedes crear uno nuevo o entrar como invitado.</p>
                             <div class="margin-bottom-20px"></div>
@@ -94,7 +98,7 @@
 
                 </div>
 
-                <div id="lyvo-leaf"></div>
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
 
             </div>
 
@@ -112,7 +116,7 @@
         </div>
 
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

@@ -6,12 +6,12 @@
     </div>
 
     <div class="footer-element">
-        <div class="hiperlink">
-            <a class="hiperlink" href="../public/privacy.php">Política de privacidad</a>
+        <div>
+            <a class="link margin-right-20px adaptative-ctd" href="../public/privacy.php">Política de privacidad</a>
         </div>
 
         <div>
-            <a class="hiperlink" href="../public/privacy.php">Aviso de cookies</a>
+            <a class="link adaptative-ctd" href="../public/privacy.php">Aviso de cookies</a>
         </div>
     </div>
 </div>

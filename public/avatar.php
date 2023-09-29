@@ -53,7 +53,7 @@
       $_SESSION['avatarSelected'] = $avatarSelected;
 
       // Almacenamos el nombre del usuario.
-      $_SESSION['nameSelected'] = $_POST['name-input'];
+      $_SESSION['nameSelected'] = $_POST['input-name'];
 
       // Si el usuario ha hecho login, guardar en el CMS el avatar seleccionado.
       if($userRegistered)
@@ -81,12 +81,13 @@
 
    <head>
 
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Lyvo Avatar</title>
-      <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-      <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyvo Login</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
+    
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -96,81 +97,123 @@
 
    <body>
 
-      <div class="main-container">
+      <!-- CONTENEDOR PRINCIPAL -->
+      <div id="content">
 
-         <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+         <!-- HEADER -->
+         <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_color.png" alt="Lyvo">
+
          </div>
 
-         <div id="left-panel">
+         <!-- PANELS -->
+         <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left">
 
-            <div class="content">
+               <div class="panel-content max-width-400px">
 
-               <h1>Selección de avatar</h1>
+                  <!-- Título del panel -->
+                  <div class="panel-title">
+                     <h1 class="text-color-blue">Selección de avatar</h1>
+                  </div>   
 
+                  <div class="margin-bottom-40px"></div>
+
+                  <!-- FORM -->
                   <form action="" method="post">
 
-                     <?php
+                     <div class="panel-subpanels-container">
 
-                        // Mostrar campo para añadir nombre si el usuario no está registrado
+                        <div class="panel-sub flex-column">
+                           
+                           <?php
 
-                        if(!isset($_SESSION['userData']))
-                        {
-                           echo '<div class="content-label"> <h2>Nombre</h2><div class="input-icono"><input class="input-field" name="name-input" type="text"> </div> </div>';
-                        }
+                              // Mostrar campo para añadir nombre si el usuario no está registrado
 
-                     ?>
+                              if(!isset($_SESSION['userData']))
+                              {
+                                 echo
+                                 '
+                                 <div class="panel-element">
+                                    <h2 class="text-color-blue">Nombre</h2>
+                                    <div class="margin-bottom-5px"></div>
 
-                     <div class="content-label">
+                                    <div class="input-field-icon-container">
+                                        <input id="input-name" type="text" name="name" placeholder="Nombre" required>
+                                    </div>
+                                 </div>
+
+                                 <div class="margin-bottom-20px"></div>
+                                 ';
+                              }
+
+                           ?>
                         
-                        <h2>Avatar</h2>
+                           <h2 class="text-color-blue">Avatar</h2>
 
-                        <p>Elige entre una selección de avatares predefinidos.</p>
+                           <p>Elige entre una selección de avatares predefinidos.</p>
+                           <div class="margin-bottom-20px"></div>
 
-                        <?php
 
-                           // Mostrar opciones para crear una cuenta o hacer logout.
-                           if(!isset($_SESSION['userData']))
-                           {
-                              echo '<p>¿Quieres más opciones de personalización?</p><a href="register_form.php"><p>CREA UNA CUENTA</p></a>';   
-                           }
-                           else
-                           {
-                              echo '<a href="../pages/logout.php"><p>logout</p></a>';
-                           }
+                           <?php
 
-                        ?>
+                              // Mostrar opciones para crear una cuenta o hacer logout.
+                              if(!isset($_SESSION['userData']))
+                              {
+                                 echo '<p>¿Quieres más opciones de personalización?</p><a class="link link-bold" href="register_form.php"><p>CREA UNA CUENTA</p></a><div class="margin-bottom-20px"></div>
+                                 ';   
+                              }
+                              else
+                              {
+                                 echo '<a href="../pages/logout.php" class="link link-bold">Logout</a>';
+                              }
 
-                        <div class="avatar-button-container">
+                           ?>
 
-                           <div class="avatar-button" id="avatar-1"> <img src="../assets/images/t_icon_man_1.png"> </div>
-                           <div class="avatar-button" id="avatar-2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
-                           <div class="avatar-button" id="avatar-3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
-                           <div class="avatar-button" id="avatar-4"> <img src="../assets/images/t_icon_man_3.png"> </div>
-                           <div class="avatar-button" id="avatar-5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
-                           <div class="avatar-button" id="avatar-6"> <img src="../assets/images/t_icon_man_2.png"> </div>
+                           <div class="panel-sub flex-center flex-margin-r10-c20">
 
-                           <input type="hidden" value="avatar-1" name='avatar-selected' id='avatar-selected'>
+                              <div class="avatar-button" id="avatar-1"> <img src="../assets/images/t_icon_man_1.png"> </div>
+                              <div class="avatar-button" id="avatar-2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
+                              <div class="avatar-button" id="avatar-3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
+                              <div class="avatar-button" id="avatar-4"> <img src="../assets/images/t_icon_man_3.png"> </div>
+                              <div class="avatar-button" id="avatar-5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
+                              <div class="avatar-button" id="avatar-6"> <img src="../assets/images/t_icon_man_2.png"> </div>
+
+                              <input type="hidden" value="avatar-1" name='avatar-selected' id='avatar-selected'>
+
+                           </div>
 
                         </div>
 
                      </div>
 
-                     <input type="submit" value="ENTRAR" class="button-general" id="button-avatar-submit">
+                     <div class="margin-bottom-40px"></div>
+
+                     <input type="submit" value="ENTRAR" class="button-general button-color" id="button-avatar-submit">
+
+                     <div class="margin-bottom-40px"></div>
 
                   </form>
 
+               </div>
+
             </div>
 
-         </div>
+            <!-- PANEL DERECHO -->
+            <div id="panel-right">
 
-         <div id="right-panel"></div>
+               <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
 
-         <div id="hoja-livo-grande"></div>
+            </div>
 
-         <?php include_once "../utils/htmlFooter.php"; ?>
+         </div>                       
+
+      <!-- FOOTER -->
+      <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
       </div>
 

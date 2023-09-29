@@ -56,7 +56,7 @@
    <title>Lyvo Registro</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-   <link rel="stylesheet" href="../assets/css/style_lyvo_general_updated.css">
+   <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -66,7 +66,6 @@
 
 <body>
 
-
    <!-- CONTENEDOR PRINCIPAL -->
    <div id="content">
 
@@ -74,7 +73,7 @@
       <div id="header">
 
          <!-- LOGO -->
-         <img id="logo" src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+         <img id="logo" src="../assets/images/t_logo_lyvo_color.png" alt="Lyvo">
 
       </div>
 
@@ -98,60 +97,96 @@
 
                   <div class="panel-subpanels-container">
 
-                     <!-- Panel 1 -->
-                     <div class="panel-sub">
+                     <div class="panel-sub flex-margin-r20-c20">
 
-                        <!-- Field -->
-                        <div>
+                        <!-- Input field name -->
+                        <div class="panel-element-adaptative">
                            <h2 class="text-color-blue">Nombre</h2>
                            <div class="margin-bottom-5px"></div>
-                           <input id="input-name" type="text" name="name" placeholder="nombre" required>
+
+                           <div class="input-field-icon-container">
+                              <i class="fa fa-check input-field-icon-icon" id="icon-check-name" style="visibility:hidden;"></i>
+                              <input id="input-name" type="text" name="name" placeholder="nombre" required>
+                           </div>
+                           
                         </div>
-                        <div class="margin-bottom-20px"></div>
-                        <div>
-                           <h2 class="text-color-blue">E-mail</h2>
-                           <div class="margin-bottom-5px"></div>
-                           <input id="input-email" type="email" name="email" placeholder="e-mail" required>
-                        </div>
 
-                     </div>
-                     <div class="margin-bottom-20px"></div>
-
-                     <div class="margin-right-20px"></div>
-
-                     <!-- Panel 2 -->
-                     <div class="panel-sub">
-
-                        <!-- Field -->
-                        <div>
+                        <!-- Input field apellido -->
+                        <div class="panel-element-adaptative">
                            <h2 class="text-color-blue">Apellidos</h2>
                            <div class="margin-bottom-5px"></div>
-                           <input id="input-surname" type="text" name="surname" placeholder="apellido" required>
+                           <div class="input-field-icon-container">
+                              <i class="fa fa-check input-field-icon-icon" id="icon-check-surname" style="visibility:hidden;"></i>
+                              <input id="input-surname" type="text" name="surname" placeholder="apellidos" required>
+                           </div>
                         </div>
-                        <div class="margin-bottom-20px"></div>
-                        <div>
+
+                        <!-- Input field email -->
+                        <div class="panel-element-adaptative">
+                           <h2 class="text-color-blue">E-mail</h2>
+                           <div class="margin-bottom-5px"></div>
+
+                           <div class="input-field-icon-container">
+                              <i class="fa fa-check input-field-icon-icon" id="icon-check-email" style="visibility:hidden;"></i>
+                              <input id="input-email" type="email" name="email" placeholder="e-mail" required>
+                           </div>
+                        </div>
+
+                        <!-- Input field contraseña -->
+                        <div class="panel-element-adaptative">
                            <h2 class="text-color-blue">Contraseña</h2>
                            <div class="margin-bottom-5px"></div>
-                           <input id="input-pass" type="password" name="password" placeholder="contraseña" required>
+
+                           <div class="input-field-icon-container">
+                              <i class="fa fa-check input-field-icon-icon margin-right-20px" id="icon-check-pass" style="visibility:hidden;"></i>
+                              
+                              <div id="icon-show-pass" class="hover-pointer" style="visibility:visible;">
+                                 <i class="fa fa-eye-slash input-field-icon-icon"></i>
+                              </div>
+
+                              <div id="icon-hide-pass" class="hover-pointer" style="visibility:hidden;">
+                                 <i class="fa fa-eye input-field-icon-icon"></i>
+                              </div>
+                              
+                              <input id="input-pass" type="password" name="password" placeholder="contraseña" required>
+                           </div>
+                           
                            <div class="margin-bottom-5px"></div>
-                           <p class="element-info">La contraseña debe tener al menos 6 caracteres</p>
+                           <p class="element-info-detail">La contraseña debe tener al menos 6 caracteres</p>
                         </div>
 
                      </div>
 
                   </div>
 
+                  <div class="margin-bottom-20px"></div>
+
+                  <div class="flex-center suboption">
+                     <input class="margin-right-10px" type="checkbox" id="terms" name="terms">
+                     <p>He leído y acepto los <a class="link link-bold" href="../public/privacy.html">Términos y Condiciones de uso</a></p>   
+                  </div>
+
                   <div class="margin-bottom-40px"></div>
 
-                  <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } ?>
-                  <input id="button-create" type="submit" name="submit" value="CREAR CUENTA" class="button-general button-color">
-                  
-                  
+                  <!-- Respuestas -->
+                  <?php if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; echo '<div class="margin-bottom-10px"></div>';} ?>
+
+                  <input id="button-create" type="submit" name="submit" value="Crear cuenta" class="button-general button-color">
+
                </form>
+
+               <div class="margin-bottom-10px"></div>
+
+               <div class="flex-center suboption">
+                  <p>¿Ya tienes una cuenta? <a class="link link-bold" href="login_form.php">ENTRAR</a></p>        
+               </div>
+
+               <div class="margin-bottom-20px"></div>
+               
 
             </div>
 
-            <p class="texto-bajo-boton">¿Ya tienes una cuenta? <a href="login_form.php">ENTRAR</a></p>
+            <div class="lyvo-leaf lyvo-leaf-solid"></div>
 
          </div>
 
@@ -164,18 +199,19 @@
 
       </div>
 
-      <?php include_once "../utils/htmlFooter.php"; ?>
+      <!-- FOOTER -->
+      <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
    </div>
 
    <script>
 
-      passDisplay_Load('input-pass','show-pass-icon','hide-pass-icon');
+      passDisplay_Load('input-pass','icon-show-pass','icon-hide-pass');
       
-      fieldChecker_Load('input-name', 'name-check-icon', undefined, 1);
-      fieldChecker_Load('input-surname', 'surname-check-icon', undefined, 1);
-      fieldChecker_Load('input-email', 'email-check-icon', ['@','.'], 6);    
-      fieldChecker_Load('input-pass', 'pass-check-icon', undefined, 6);
+      fieldChecker_Load('input-name', 'icon-check-name', undefined, 1);
+      fieldChecker_Load('input-surname', 'icon-check-surname', undefined, 1);
+      fieldChecker_Load('input-email', 'icon-check-email', ['@','.'], 6);    
+      fieldChecker_Load('input-pass', 'icon-check-pass', undefined, 6);
    
     </script>
 

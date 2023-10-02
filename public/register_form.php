@@ -161,7 +161,7 @@
 
                   <div class="margin-bottom-20px"></div>
 
-                  <div class="flex-center suboption">
+                  <div class="panel-sub suboption">
                      <input class="margin-right-10px" type="checkbox" id="terms" name="terms">
                      <p>He leído y acepto los <a class="link link-bold" href="../public/privacy.html">Términos y Condiciones de uso</a></p>   
                   </div>
@@ -177,7 +177,7 @@
 
                <div class="margin-bottom-10px"></div>
 
-               <div class="flex-center suboption">
+               <div class="panel-sub suboption">
                   <p>¿Ya tienes una cuenta? <a class="link link-bold" href="login_form.php">ENTRAR</a></p>        
                </div>
 

@@ -68,7 +68,7 @@
 
 </head>
 
-<!-- Color añadido para responsive -->
+<!-- Fondo oscuro para responsive -->
 <body style="background-color: var(--color_2);">
 
     <div class="video-background">
@@ -147,7 +147,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex-center suboption">
+                                <div class="panel-sub suboption">
                                     <input class="margin-right-10px" type="checkbox" id="remember" name="remember">
                                     <p class="text-color-white">Recordarme</p>   
                                 </div>
@@ -166,7 +166,7 @@
                     </form>
 
                     <div class="margin-bottom-10px"></div>
-                    <div class="flex-center suboption">
+                    <div class="panel-sub suboption">
                         <p class="text-color-white">¿Necesitas una cuenta? <a class="link link-bold" href="register_form.php">REGÍSTRATE</a></p>   
                     </div>
 

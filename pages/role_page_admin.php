@@ -20,30 +20,43 @@
     <title>Lyvo Admin</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <!-- En este caso solo va a parecer en el responsive -->
+            <img id="logo" class="hide-widescreen" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <div id="panel-left">
 
-            <div class="content">
+                <div id="hoja-livo"></div>
 
-               <h1>Ventana de administración</h1>
+                <div class="content">
 
-               <p>Por favor, elige el modo de gestión.</p>
+                <h1 class="text-color-white">Ventana de administración</h1>
 
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_users.php' ">GESTIÓN DE USUARIOS</button>
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_places.php' ">GESTIÓN DE ESPACIOS</button>
-               
+                <p class="text-color-white">Por favor, elige el modo de gestión.</p>
+
+                <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_users.php' ">GESTIÓN DE USUARIOS</button>
+                <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_places.php' ">GESTIÓN DE ESPACIOS</button>
+                
+                </div>
+
             </div>
 
         </div>

@@ -42,7 +42,7 @@
 
 </head>
 
-<!-- Color añadido para responsive -->
+<!-- Fondo oscuro para responsive -->
 <body style="background-color: var(--color_2);">
 
     <div class="video-background">

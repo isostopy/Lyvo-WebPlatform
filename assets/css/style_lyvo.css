@@ -308,11 +308,15 @@ h2{
     flex-direction: column;
 }
 
+.flex-start{
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .flex-center {
     width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 form{

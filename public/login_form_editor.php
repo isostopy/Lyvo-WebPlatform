@@ -54,7 +54,7 @@
 
 </head>
 
-<!-- Color añadido para responsive -->
+<!-- Fondo oscuro -->
 <body style="background-color: var(--color_2);">
 
     <!-- CONTENEDOR PRINCIPAL -->
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex-center suboption">
+                                <div class="panel-sub suboption">
                                     <input class="margin-right-10px" type="checkbox" id="remember" name="remember">
                                     <p class="text-color-white">Recordarme</p>   
                                 </div>

@@ -169,7 +169,7 @@
                               }
                               else
                               {
-                                 echo '<a href="../pages/logout.php" class="link link-bold">Logout</a>';
+                                 echo '<a href="../pages/logout.php" class="link link-bold">Logout</a><div class="margin-bottom-20px"></div>';
                               }
 
                            ?>

@@ -42,18 +42,17 @@
         <!-- PANELS -->
         <div id="panels">
 
+            <!-- PANEL IZQUIERDO -->
             <div id="panel-left">
-
-                <div id="hoja-livo"></div>
 
                 <div class="content">
 
-                <h1 class="text-color-white">Ventana de administración</h1>
+                    <h1 class="text-color-white">Ventana de administración</h1>
 
-                <p class="text-color-white">Por favor, elige el modo de gestión.</p>
+                    <p class="text-color-white">Por favor, elige el modo de gestión.</p>
 
-                <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_users.php' ">GESTIÓN DE USUARIOS</button>
-                <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_places.php' ">GESTIÓN DE ESPACIOS</button>
+                    <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_users.php' ">GESTIÓN DE USUARIOS</button>
+                    <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_places.php' ">GESTIÓN DE ESPACIOS</button>
                 
                 </div>
 
@@ -61,12 +60,19 @@
 
         </div>
 
-        <div id="right-panel"></div>
+        <!-- PANEL DERECHO -->
+        <div id="panel-right">
 
-        <div id="hoja-livo-grande"></div>
+            <div class="panel-sub">
+
+                <img src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo" class="img-center">
+
+            </div>
+
+        </div>
 
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

@@ -2,64 +2,74 @@
 <html>
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Lyvo Recover</title>
 
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyvo Admin</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
+
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left">
 
-            <div class="content">
+                <div class="panel-content max-width-400px">
 
-                <h1>Página no encontrada</h1>
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white">Página no encontrada</h1>
+                    </div>   
 
-                <p class="margin-bottom-50px">Lo sentimos, la página a la que trata de acceder no existe.</p>
+                    <div class="margin-bottom-20px"></div>
 
-                <p>Puede cerrar esta ventana o volver al <a href="../public/welcome.php">INICIO</a></p>
+                    <!-- Subpaneles -->
+                    <div class="panel-subpanels-container">
 
-               </form>
+                        <div class="panel-sub flex-column">
 
-            </div>
+                            <p class="text-color-white">La página que busca no existe o no ha podido encontrarse. Haga clic en el botón para volver al incio.</p>
+                            <div class="margin-bottom-20px"></div>
+                            <button class ="button-general button-color" onclick="location.href = '../public/welcome.php' ">Volver</button>
+                        
+                        </div>
 
-        </div>
+                    </div>
 
-        <div id="right-panel">
-        </div>
-
-        <div id="hoja-livo-grande">
-        </div>
-
-        <div id="textos-inferiores">
-            <div id="copyright">
-                <p>Copyright 2023© All rights reserved</p>
-            </div>
-
-            <div id="botones-esquina">
-                <div id="politica-privacidad">
-                    <a href="#">Política de privacidad</a>
                 </div>
 
-                <div id="cookies">
-                    <a href="#">Aviso de cookies</a>
-                </div>
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
+
             </div>
+
+            <!-- PANEL DERECHO -->
+            <div id="panel-right"></div>
+
         </div>
+
+        <!-- FOOTER -->
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
-
 
 </body>
 

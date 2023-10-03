@@ -76,66 +76,94 @@
     <title>Lyvo Usuarios</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left-wide">
 
-            <div class="content">
+                <div class="panel-content width-100">
 
-                <h1>Administración de usuarios</h1>
-
-                <button class ="button-general margin-bottom-50px" onclick="location.href = 'admin_user_create.php' ">CREAR USUARIO</button>
-
-                <!-- Inputs para filtrar -->
-                <div class="content-label">
-                    <h2>Filtrar por tipo.</h2>
-                    <select class ="margin-bottom-10px" id="filterDivSelect">
-                        <option value="">Mostrar todos</option>
-                        <option value="empresas">Empresas</option>
-                        <option value="profesionales">Profesionales</option>
-                        <option value="clientes">Clientes</option>
-                    </select>
-                </div>
-
-                <div class="content-label">
-                    <h2>Filtrar por usuarios.</h2>
-                    <div class="input-icon">
-                        <input type="text" id="filterButton" placeholder="nombre de usuario">
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white">Administración de usuarios</h1>
                     </div>
+
+                    <div class="margin-bottom-40px"></div>
+
+                    <!-- Subpaneles -->
+                    <div class="panel-subpanels-container flex-margin-r20-c20">
+
+                        <div class="panel-sub flex-column max-width-400px">
+
+                            <!-- Inputs para filtrar -->
+                            <div class="content-label">
+                                <h2>Filtrar por tipo.</h2>
+                                <select class ="margin-bottom-10px" id="filterDivSelect">
+                                    <option value="">Mostrar todos</option>
+                                    <option value="empresas">Empresas</option>
+                                    <option value="profesionales">Profesionales</option>
+                                    <option value="clientes">Clientes</option>
+                                </select>
+                            </div>
+
+                            <div class="content-label">
+                                <h2>Filtrar por usuarios.</h2>
+                                <div class="input-icon">
+                                    <input type="text" id="filterButton" placeholder="nombre de usuario">
+                                </div>
+                            </div>
+
+                            <!-- Botón crear usuario -->
+                            <button class ="button-general button-color" onclick="location.href = 'admin_user_create.php' ">CREAR USUARIO</button>
+                            
+                        </div>
+
+                        <div class="panel-sub flex-column overflow-scroll">
+
+                            <?php 
+                            
+                            ShowUsersAsButtons();
+
+                            if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } 
+                            
+                            ?>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <!-- Botones -->
-                <p class ="margin-bottom-10px">A continuación se muestran los usuarios.</p>
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
 
-                <?php 
-                    
-                    ShowUsersAsButtons();
-
-                    if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } 
-                    
-                ?>
-               
             </div>
 
+            <!-- PANEL DERECHO -->
+            <div id="panel-right"></div>
+
         </div>
 
-        <div id="right-panel"></div>
-
-        <div id="hoja-livo-grande"></div>
-
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

@@ -7,6 +7,7 @@
    
    // Comprobar que el usuario tiene sesión iniciada.
    UserCheckSession(UserType::ADMINISTRATOR->value);
+   
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +35,7 @@
         <div id="header">
 
             <!-- LOGO -->
-            <!-- En este caso solo va a parecer en el responsive -->
-            <img id="logo" class="hide-widescreen" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
             
         </div>
 
@@ -45,29 +45,38 @@
             <!-- PANEL IZQUIERDO -->
             <div id="panel-left">
 
-                <div class="content">
+                <div class="panel-content max-width-400px">
 
-                    <h1 class="text-color-white">Ventana de administración</h1>
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white">Panel de administrador</h1>
+                    </div>   
 
-                    <p class="text-color-white">Por favor, elige el modo de gestión.</p>
+                    <div class="margin-bottom-20px"></div>
 
-                    <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_users.php' ">GESTIÓN DE USUARIOS</button>
-                    <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_places.php' ">GESTIÓN DE ESPACIOS</button>
-                
+                    <!-- Subpaneles -->
+                    <div class="panel-subpanels-container">
+
+                        <div class="panel-sub flex-column">
+
+                            <p class="text-color-white">Por favor, elija qué quiere gestionar a continuación.</p>
+                            <div class="margin-bottom-20px"></div>
+                            <button class ="button-general button-color" onclick="location.href = 'admin_users.php' ">Gestión de usuarios</button>
+                            <div class="margin-bottom-20px"></div>
+                            <button class ="button-general button-color" onclick="location.href = 'admin_places.php' ">Gestión de espacios</button>
+                        
+                        </div>
+
+                    </div>
+
                 </div>
 
-            </div>
-
-        </div>
-
-        <!-- PANEL DERECHO -->
-        <div id="panel-right">
-
-            <div class="panel-sub">
-
-                <img src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo" class="img-center">
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
 
             </div>
+
+            <!-- PANEL DERECHO -->
+            <div id="panel-right"></div>
 
         </div>
 

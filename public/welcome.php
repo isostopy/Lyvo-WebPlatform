@@ -103,15 +103,7 @@
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right">
-
-                <div class="panel-sub">
-
-                    <img src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo" class="img-center">
-
-                </div>
-
-            </div>
+            <div id="panel-right"></div>
 
         </div>
 

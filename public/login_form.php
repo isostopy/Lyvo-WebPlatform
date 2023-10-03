@@ -1,17 +1,20 @@
 <?php
 
-    // 1. REQUISITOS
+    // 0. REQUISITOS
 
-   // Datos.
-   require_once '../includes/config.php';
+    // Datos.
+    require_once '../includes/config.php';
 
-   // Funcionalidades comunes.
-   require_once '../includes/functions.php';
+    // Funcionalidades comunes.
+    require_once '../includes/functions.php';
 
-   // Mensajes.
-   require_once '../includes/messages.php';
+    // Mensajes.
+    require_once '../includes/messages.php';
 
-   // -------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------
+
+    // 1. PODEMOS COMPROBAR PRIMERO SI EL USUARIO ESTÁ REGISTRADO
+    // Si está registrado se le puede dar paso.    
 
     // 2. LOGIN   
     if(isset($_POST['submit']))

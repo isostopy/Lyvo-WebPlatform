@@ -81,9 +81,9 @@
       <div id="panels">
 
          <!-- PANEL IZQUIERDO -->
-         <div id="panel-left">
+         <div id="panel-left" class="width-60vw flex-justify-center padding-left-50px">
 
-            <div class="panel-content">
+            <div class="panel-content max-width-700px">
 
                <!-- Título del panel -->
                <div class="panel-title">
@@ -97,7 +97,7 @@
 
                   <div class="panel-subpanels-container">
 
-                     <div class="panel-sub flex-margin-r20-c20">
+                     <div class="panel-sub flex-wrap flex-margin-r20-c20">
 
                         <!-- Input field name -->
                         <div class="panel-element-adaptative">
@@ -161,7 +161,7 @@
 
                   <div class="margin-bottom-20px"></div>
 
-                  <div class="panel-sub suboption">
+                  <div class="panel-sub flex-row suboption">
                      <input class="margin-right-10px" type="checkbox" id="terms" name="terms">
                      <p>He leído y acepto los <a class="link link-bold" href="../public/privacy.html">Términos y Condiciones de uso</a></p>   
                   </div>

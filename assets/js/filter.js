@@ -22,19 +22,19 @@ document.getElementById('filterDivSelect').addEventListener('change', function(e
     });
 });
 
-document.getElementById('filterButton').addEventListener('input', function(e) 
+document.getElementById('inputFilterUser').addEventListener('input', function(e) 
 {
     const value = e.target.value.toLowerCase();
 
-    document.querySelectorAll('button.button-general').forEach(button => {
-
-        if (button.textContent.toLowerCase().includes(value)) 
-        {
-            button.style.display = '';
-        }
-        else 
-        {
-            button.style.display = 'none';
+    document.querySelectorAll('.userListElement').forEach(container => {
+        
+        // Aquí, buscamos el enlace dentro de cada contenedor
+        const link = container.querySelector('a');
+        
+        if (link.textContent.toLowerCase().includes(value)) {
+            container.style.display = '';
+        } else {
+            container.style.display = 'none';
         }
     });
 });

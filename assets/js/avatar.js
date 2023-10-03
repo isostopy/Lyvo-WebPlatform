@@ -46,7 +46,6 @@ function selectAvatar(id) {
     selectedAvatar = id;
 
     highlightSelected(id);
-
 }
 
 function highlightSelected(value)
@@ -57,12 +56,12 @@ function highlightSelected(value)
     {
         if(i===index)
         {
-            avatars[i].classList.add('avatar-selected');
+            avatars[i].classList.add('button-avatar-selected');
             avatars[i].classList.remove('avatar');
         }
         else
         {
-            avatars[i].classList.remove('avatar-selected');
+            avatars[i].classList.remove('button-avatar-selected');
             avatars[i].classList.add('avatar');
         }
     }

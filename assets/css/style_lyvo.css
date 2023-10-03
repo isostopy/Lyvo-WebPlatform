@@ -103,7 +103,6 @@ h2{
 
 .lyvo-leaf-solid{
     background-image: url("../images/hoja_solido.svg");
-    z-index: 1;
 }
 
 /* ////////////////////////////////////////////////////////////////////////////// */
@@ -122,11 +121,10 @@ h2{
 /* ////////////////////////////////////////////////////////////////////////////// */
 
 #header{
-    
-    position: fixed;
 
     height: 10vh;
     width: 100%;
+    position: fixed;
 
     display: flex;
     align-items: center;           /* centra verticalmente */
@@ -138,8 +136,6 @@ h2{
 }
 
 #logo {
-
-
     height: 6vh;   /* Tamaño del logo */
     z-index: 10;    /* Asegura que el logo esté por encima de otros elementos */
 }
@@ -185,7 +181,6 @@ h2{
     flex: 1;
     display: flex;
     flex-direction: row;   /* Esto hará que los sub-paneles se apilen verticalmente */
-    align-items: center;
 
     width: 100%;
 
@@ -193,37 +188,23 @@ h2{
 }
 
 #panel-left {
-
+    flex: 1;
     display: flex;
     flex-direction: column;   /* Esto hará que los sub-paneles se apilen verticalmente */
-    align-items: center;
 
-    width: 60vw;
+    min-height: 100vh;
 
-    /*background-color: rgba(0, 38, 255, 0.171);*/
-}
-
-#panel-left-wide{
-    display: flex;
-    padding-left: 50px;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    width: 80vw;
+    /* background-color: rgba(0, 38, 255, 0.171); */
 }
 
 #panel-right {
 
     display: flex;
-    justify-content: center;   /* Centra horizontalmente */
-    align-items: center;       /* Centra verticalmente */
 
-    overflow: hidden;
-
-    width: 40vw;
     height: 100vh;
+    width: 40vw;
 
-    /*background-color: rgba(0, 255, 255, 0.507);*/
+    /* background-color: rgba(0, 255, 255, 0.507); */
 }
 
 .panel-title{
@@ -251,25 +232,20 @@ h2{
 
 .panel-content{
 
-    flex: 1;
-    width: 60%;
     display: flex;
     flex-direction: column; /* Esto hará que los sub-paneles se apilen verticalmente */
+    width: 100%;
 
-    align-items: center;
-
-    z-index: 1;
+    z-index: 5;
 
     /* background-color: rgba(247, 0, 255, 0.349); */
-
 }
 
 .panel-subpanels-container{
-    flex: 1;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between; /* Centra horizontalmente */
-    align-items: start; /* Centra arriba verticalmente */
 
     width: 100%;
 
@@ -279,16 +255,24 @@ h2{
 }
 
 .panel-sub {
-    flex: 1;
+
     display: flex;
 
     width: 100%;
 
-    flex-wrap: wrap;
-
     /* background-color: rgba(255, 145, 0, 0.199); */
 }
 
+.panel-background-white{
+    background-color: var(--color_4);
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+
+    padding: 1.5em;
+}
+
+/* Márgenes */
 .flex-margin-r10-c20{
     row-gap: 10px;
     column-gap: 20px;
@@ -309,6 +293,7 @@ h2{
     width: 48%;
 }
 
+/* Filas - Columnas */
 .flex-row{
     flex-direction: row;
 }
@@ -317,16 +302,17 @@ h2{
     flex-direction: column;
 }
 
-.flex-start{
-    width: 100%;
-    align-items: center;
-    justify-content: flex-start;
+.flex-wrap{
+    flex-wrap: wrap;
 }
 
-.flex-center {
-    width: 100%;
-    align-items: center;
+.flex-spaceBetween{
+    justify-content: space-between;
 }
+
+/* Alineaciones */
+.flex-align-center{ align-items: center; }
+.flex-justify-center { justify-content: center; }
 
 form{
     flex: 1;
@@ -342,15 +328,14 @@ form{
 /* INPUT y BOTONES ////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////////// */
 
-input[type=text], input[type=password], input[type=email], input[type=date]{
+input[type=text], input[type=password], input[type=email], input[type=date], select{
     
     background-color: var(--color_4);
     border: none;
-    border-color: var(--color_1);
     width: 100%;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
-    height: 50px;
+    height: 40px;
 
     padding: 0.8em;
 }
@@ -382,12 +367,12 @@ input[type="checkbox"]:checked {
 
 .button-general, input[type=submit], input[type=button]{
     width: 100%;
-    height: 50px;
+    height: 40px;
     border-radius: 25px;
     
     font-family: 'Montserrat', sans-serif;
-    font-size: 2vh;
-    font-weight: 400;
+    font-size: 1.8vh;
+    font-weight: 500;
     transition-duration: 0.2s;
     border: none;  
 }
@@ -412,7 +397,7 @@ input[type="checkbox"]:checked {
 
 .button-white{
     background-color: white;
-    color: var(--color_);
+    color: var(--color_1);
 }
 
 .button-text:hover{
@@ -454,6 +439,10 @@ input[type="checkbox"]:checked {
     font-weight: bold;
 }
 
+.link-text:hover{
+    text-decoration: underline;
+}
+
 .msg{
     font-size: 1.2rem;
 }
@@ -466,29 +455,36 @@ input[type="checkbox"]:checked {
     color: var(--color_5);
 }
 
+.text-color-white{ color: white; }
+.text-color-black{ color: black; }
+.text-color-blue{ color: var(--color_3); }
+
+.text-size-1_8vh{font-size: 1.8vh;}
+
 /* ////////////////////////////////////////////////////////////////////////////// */
 /* AVATARES ///////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////////// */
 
-.avatar-button {
+.button-avatar {
     background-color: var(--color_4);
-    width: 30%;
     border-radius: 12px;
+
+    width: 28%;
+    height: 45%;
 
     overflow: hidden;
 }
 
-.avatar-button:hover{
+.button-avatar:hover{
 
-    background-color: var(--color_1);
     cursor: pointer;
 }
 
-.avatar-selected {
-  background-color: var(--color_4);
+.button-avatar-selected {
+  background-color: var(--color_1);
 }
 
-.avatar-button img
+.button-avatar img
 {
     object-fit: scale-down;
     width: 100%;
@@ -499,12 +495,16 @@ input[type="checkbox"]:checked {
 /* MÁRGENES Y AJUSTES /////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////////// */
 
+.width-60vw{width: 60vw;}
+.width-40vw{width: 40vw;}
+
 .margin-bottom-10vh{ margin-bottom: 10vh; }
 .margin-bottom-20vh{ margin-bottom: 20vh; }
 
 .margin-bottom-5px{ margin-bottom: 5px; }
 .margin-bottom-10px{ margin-bottom: 10px; }
 .margin-bottom-20px{ margin-bottom: 20px; }
+.margin-bottom-30px{ margin-bottom: 30px; }
 .margin-bottom-40px{ margin-bottom: 40px; }
 
 .margin-right-5px{ margin-right: 5px; }
@@ -512,15 +512,15 @@ input[type="checkbox"]:checked {
 .margin-right-20px{ margin-right: 20px; }
 
 .width-100{ width: 100%;}
+.max-width-300px{ max-width: 300px;}
 .max-width-400px{ max-width: 400px;}
+.max-width-700px{ max-width: 700px;}
+
 
 /* Ocultar elementos en pantalla ancha */
 .hide-widescreen{ display: none; }
 
-.text-color-white{ color: white; }
-.text-color-black{ color: black; }
-.text-color-blue{ color: var(--color_3); }
-
+.padding-left-50px{padding-left: 50px;}
 
 /* ////////////////////////////////////////////////////////////////////////////// */
 /* MISCELANEA /////////////////////////////////////////////////////////////////// */
@@ -550,7 +550,7 @@ input[type="checkbox"]:checked {
 
 .overflow-scroll{
     overflow-y: scroll;
-    height: 500px;
+    max-height: 80vh;
 
     flex-wrap: nowrap;
 
@@ -563,6 +563,12 @@ input[type="checkbox"]:checked {
     }
 }
 
+.bar-horizontal{
+    background-color: var(--color_1);
+    width: 100%;
+    height: 1px;
+}
+
 /* ////////////////////////////////////////////////////////////////////////////// */
 /* MEDIA //////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////////// */
@@ -573,13 +579,19 @@ input[type="checkbox"]:checked {
     /* Desanclar el header de fixed */
     #header{
         position: relative;
-        margin-bottom: 20px;
         padding-left: 20px;
     }
     /* Desanclar el footer de fixed */
     #footer{position: relative;}
 
-    #panel-left{ width: 100%; }
+    #panel-left{ 
+
+        width: 100%; 
+        padding-left: 10%;
+        padding-right: 10%;
+        align-items: center;
+        justify-content: center;
+    }
     #panel-right{ display: none; }
 
     .panel-subpanels-container{

@@ -73,9 +73,9 @@
         <div id="panels">
 
             <!-- PANEL IZQUIERDO -->
-            <div id="panel-left">
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-                <div class="panel-content max-width-400px">
+                <div class="panel-content max-width-300px">
 
                     <!-- Título del panel -->
                     <div class="panel-title">
@@ -154,14 +154,10 @@
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right">
+            <div id="panel-right" class="width-60vh flex-align-center">
 
-                <div class="panel-sub">
-
-                    <img src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo" class="img-center">
-
-                </div>
-
+                <img src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo" class="img-center">
+                
             </div>
         
         </div>

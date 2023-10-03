@@ -8,6 +8,53 @@
     // Comprobar que el usuario tiene sesión iniciada.
     UserCheckSession(UserType::ADMINISTRATOR->value);
 
+    $roleSortOut = UsersSortOut();
+
+    function UsersSortOut()
+    {
+        // Obtener la información de todos los usuarios.
+        $usersInfo = UserGetDataAll();
+
+        // Comprobamos que la información es correcta.
+        if (!isset($usersInfo->data)) 
+        {
+            throw new Exception(Message_Error_General());
+        }
+
+        // Creamos el mapeo de usuarios.
+        $roleMapping = [
+            // Código comentado para no mostrar a los administradores.
+            //$GLOBALS['Role_Administrator'] => [],
+            $GLOBALS['Role_Company']       => [],
+            $GLOBALS['Role_Professional']  => [],
+            $GLOBALS['Role_Client']        => [],
+        ];
+
+        // Categorizamos a los usuarios según su valor.
+        foreach ($usersInfo->data as $user) 
+        {
+            if (isset($roleMapping[$user->role])) 
+            {
+                $roleMapping[$user->role][] = $user;
+            }
+        }
+
+        return $roleMapping;
+    }
+
+    function UsersDisplay($users)
+    {
+        foreach ($users as $user) 
+        {
+            echo '<div class="userListElement">';
+            echo '<a class="link link-text text-color-blue" href="admin_user.php?id='.$user->id.'">'.$user->first_name.' '.$user->last_name.'</a>';
+            echo "<div class ='margin-bottom-20px'></div>";
+            echo '</div>';
+        }
+    }
+
+    // CÓDIGO ANTIGUO EN DOS PARTES.
+    /*
     // Función para mostrar a los usuarios llamada desde HTML.
     function ShowUsersAsButtons()
     {
@@ -39,21 +86,22 @@
         }
 
         // Código comentado para no mostrar a los administradores.
-        //displayUsers("ADMINISTRADORES:", $roleMapping[$GLOBALS['Role_Administrator']]);
+        // displayUsers("ADMINISTRADORES:", $roleMapping[$GLOBALS['Role_Administrator']]);
+
         echo '<div id="empresas">';
-            displayUsers("EMPRESAS", $roleMapping[$GLOBALS['Role_Company']]);
+            DisplayUsers("EMPRESAS", $roleMapping[$GLOBALS['Role_Company']]);
         echo '</div>';
 
         echo '<div id="profesionales">';
-            displayUsers("PROFESIONALES", $roleMapping[$GLOBALS['Role_Professional']]);
+            DisplayUsers("PROFESIONALES", $roleMapping[$GLOBALS['Role_Professional']]);
         echo '</div>';
 
         echo '<div id="clientes">';
-            displayUsers("CLIENTES", $roleMapping[$GLOBALS['Role_Client']]);
+            DisplayUsers("CLIENTES", $roleMapping[$GLOBALS['Role_Client']]);
         echo '</div>';
     }
 
-    function displayUsers($title, $users) 
+    function DisplayUsers($title, $users) 
     {
         echo "<p class ='margin-bottom-10px'>{$title}:</p>";
         
@@ -63,6 +111,7 @@
             echo '</button>';
         }
     }
+    */
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +143,8 @@
             
         </div>
 
+        <div class="margin-bottom-40px"></div>
+
         <!-- PANELS -->
         <div id="panels">
 
@@ -110,14 +161,15 @@
                     <div class="margin-bottom-40px"></div>
 
                     <!-- Subpaneles -->
-                    <div class="panel-subpanels-container flex-margin-r20-c20">
+                    <div class="panel-subpanels-container">
 
-                        <div class="panel-sub flex-column max-width-400px">
+                        <div class="panel-sub flex-column max-width-300px">
 
                             <!-- Inputs para filtrar -->
-                            <div class="content-label">
-                                <h2>Filtrar por tipo.</h2>
-                                <select class ="margin-bottom-10px" id="filterDivSelect">
+                            <div class="panel-element">
+                                <h2 class="text-color-white">Filtrar por tipo</h2>
+                                <div class="margin-bottom-5px"></div>
+                                <select id="filterDivSelect">
                                     <option value="">Mostrar todos</option>
                                     <option value="empresas">Empresas</option>
                                     <option value="profesionales">Profesionales</option>
@@ -125,23 +177,106 @@
                                 </select>
                             </div>
 
-                            <div class="content-label">
-                                <h2>Filtrar por usuarios.</h2>
+                            <div class="margin-bottom-20px"></div>
+
+                            <!-- Input field filter -->
+                            <div class="panel-element">
+                                <h2 class="text-color-white">Filtrar por usuario</h2>
+                                <div class="margin-bottom-5px"></div>
                                 <div class="input-icon">
-                                    <input type="text" id="filterButton" placeholder="nombre de usuario">
+                                    <input type="text" id="inputFilterUser" placeholder="Nombre de usuario">
                                 </div>
                             </div>
 
+                            <div class="margin-bottom-30px"></div>
+
                             <!-- Botón crear usuario -->
-                            <button class ="button-general button-color" onclick="location.href = 'admin_user_create.php' ">CREAR USUARIO</button>
+                            <button class ="button-general button-color" onclick="location.href = 'admin_user_create.php' ">Crear usuario</button>
                             
+                            <div class="margin-bottom-30px"></div>
+
+                            <!-- Enlace volver -->
+                            <div class="panel-sub flex-center">
+                                <a class="text-color-white text-size-1_8vh" href="role_page_admin.php">Volver</a>
+                            </div>
+
+                            <div class="margin-bottom-20px"></div>
+
                         </div>
 
-                        <div class="panel-sub flex-column overflow-scroll">
+                        <div class="panel-sub flex-column">
+
+                            <div class="panel-subpanels-container flex-column overflow-scroll">
+                                
+                                <div class="margin-bottom-20px"></div>
+
+                                <!-- Panel Empresas -->
+                                <div id="empresas" class="panel-sub flex-column panel-background-white">
+
+                                    <!-- Título -->
+                                    <h2 class="text-color-blue">EMPRESAS</h2>
+
+                                    <!-- Barra -->
+                                    <div class="bar-horizontal"></div>
+                                    <div class="margin-bottom-10px"></div>
+
+                                    <!-- Listado -->
+                                    <?php
+
+                                        UsersDisplay($roleSortOut[$GLOBALS['Role_Company']]);
+
+                                    ?>
+
+                                </div>
+
+                                <div class="margin-bottom-20px"></div>
+
+                                <!-- Panel Profesionales -->
+                                <div id="profesionales" class="panel-sub flex-column panel-background-white">
+
+                                    <!-- Título -->
+                                    <h2 class="text-color-blue">PROFESIONALES</h2>
+
+                                    <!-- Barra -->
+                                    <div class="bar-horizontal"></div>
+                                    <div class="margin-bottom-10px"></div>
+
+                                    <!-- Listado -->
+                                    <?php
+
+                                        UsersDisplay($roleSortOut[$GLOBALS['Role_Professional']]);
+
+                                    ?>
+
+                                </div>
+
+                                <div class="margin-bottom-20px"></div>
+
+                                <!-- Panel Clientes -->
+                                <div id="clientes" class="panel-sub flex-column panel-background-white">
+
+                                    <!-- Título -->
+                                    <h2 class="text-color-blue">CLIENTES</h2>
+
+                                    <!-- Barra -->
+                                    <div class="bar-horizontal"></div>
+                                    <div class="margin-bottom-10px"></div>
+
+                                    <!-- Listado -->
+                                    <?php
+
+                                        UsersDisplay($roleSortOut[$GLOBALS['Role_Client']]);
+
+                                    ?>
+
+                                </div>
+
+
+                            </div>
 
                             <?php 
                             
-                            ShowUsersAsButtons();
+                            //ShowUsersAsButtons();
 
                             if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } 
                             

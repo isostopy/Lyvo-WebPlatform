@@ -97,9 +97,9 @@
       <div id="panels">
 
          <!-- PANEL IZQUIERDO -->
-         <div id="panel-left">
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-            <div class="panel-content">
+            <div class="panel-content max-width-700px">
 
                <div id="botones-circulares">
 

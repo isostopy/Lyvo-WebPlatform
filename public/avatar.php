@@ -112,7 +112,7 @@
          <div id="panels">
 
             <!-- PANEL IZQUIERDO -->
-            <div id="panel-left">
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
                <div class="panel-content max-width-400px">
 
@@ -174,14 +174,14 @@
 
                            ?>
 
-                           <div class="panel-sub flex-center flex-margin-r10-c20">
+                           <div class="panel-sub flex-spaceBetween flex-wrap">
 
-                              <div class="avatar-button" id="avatar-1"> <img src="../assets/images/t_icon_man_1.png"> </div>
-                              <div class="avatar-button" id="avatar-2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
-                              <div class="avatar-button" id="avatar-3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
-                              <div class="avatar-button" id="avatar-4"> <img src="../assets/images/t_icon_man_3.png"> </div>
-                              <div class="avatar-button" id="avatar-5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
-                              <div class="avatar-button" id="avatar-6"> <img src="../assets/images/t_icon_man_2.png"> </div>
+                              <div class="button-avatar" id="avatar-1"> <img src="../assets/images/t_icon_man_1.png"> </div>
+                              <div class="button-avatar" id="avatar-2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
+                              <div class="button-avatar" id="avatar-3"> <img src="../assets/images/t_icon_woman_3.png"> </div>
+                              <div class="button-avatar" id="avatar-4"> <img src="../assets/images/t_icon_man_3.png"> </div>
+                              <div class="button-avatar" id="avatar-5"> <img src="../assets/images/t_icon_woman_1.png"> </div>
+                              <div class="button-avatar" id="avatar-6"> <img src="../assets/images/t_icon_man_2.png"> </div>
 
                               <input type="hidden" value="avatar-1" name='avatar-selected' id='avatar-selected'>
 
@@ -195,22 +195,22 @@
 
                      <input type="submit" value="ENTRAR" class="button-general button-color" id="button-avatar-submit">
 
-                     <div class="margin-bottom-40px"></div>
-
                   </form>
+
+                  <div class="margin-bottom-40px"></div>
 
                </div>
 
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right">
+         <div id="panel-right">
 
-               <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
+            <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
 
-            </div>
+         </div>
 
-         </div>                       
+      </div>                       
 
       <!-- FOOTER -->
       <?php include_once "../utils/htmlFooter_Dark.php"; ?>

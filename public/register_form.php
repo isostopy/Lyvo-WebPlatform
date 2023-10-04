@@ -81,7 +81,7 @@
       <div id="panels">
 
          <!-- PANEL IZQUIERDO -->
-         <div id="panel-left" class="width-60vw flex-justify-center padding-left-50px">
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
             <div class="panel-content max-width-700px">
 
@@ -97,7 +97,7 @@
 
                   <div class="panel-subpanels-container">
 
-                     <div class="panel-sub flex-wrap flex-margin-r20-c20">
+                     <div class="panel-sub flex-wrap flex-margin-r20-c20 flex-spaceBetween">
 
                         <!-- Input field name -->
                         <div class="panel-element-adaptative">

@@ -43,7 +43,7 @@
         <div id="panels">
 
             <!-- PANEL IZQUIERDO -->
-            <div id="panel-left">
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
                 <div class="panel-content max-width-400px">
 
@@ -65,6 +65,13 @@
                             <div class="margin-bottom-20px"></div>
                             <button class ="button-general button-color" onclick="location.href = 'admin_places.php' ">Gestión de espacios</button>
                         
+                            <div class="margin-bottom-40px"></div>
+
+                            <!-- Enlace volver -->
+                            <div class="panel-sub flex-justify-center">
+                                <a class="text-color-white" href="../pages/logout.php">Log out</a>
+                            </div>
+
                         </div>
 
                     </div>

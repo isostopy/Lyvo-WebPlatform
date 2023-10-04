@@ -201,6 +201,8 @@
 
                </div>
 
+               <div class="lyvo-leaf lyvo-leaf-solid"></div>
+
             </div>
 
             <!-- PANEL DERECHO -->

@@ -180,7 +180,7 @@
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right" class="width-60vh flex-align-center">
+            <div id="panel-right" class="width-40vw flex-align-center">
 
                 <img src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo" class="img-center">
                 

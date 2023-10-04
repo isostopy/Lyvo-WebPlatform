@@ -44,6 +44,7 @@
 
     function UsersDisplay($users)
     {
+        /*
         foreach ($users as $user) 
         {
             echo '<div class="userListElement">';
@@ -51,6 +52,18 @@
             echo "<div class ='margin-bottom-20px'></div>";
             echo '</div>';
         }
+        */
+
+        echo '<ul class="userList">';  // Inicia la lista no ordenada
+        
+            foreach ($users as $user) {
+                echo '<li class="userListElement">';
+                echo '<a class="link link-text text-color-blue" href="admin_user.php?id='.$user->id.'">'.$user->first_name.' '.$user->last_name.'</a>';
+                echo '</li>';
+                echo '<div class="margin-bottom-10px"></div>';
+            }
+        
+            echo '</ul>';  // Finaliza la lista no ordenada
     }
 
     // CÓDIGO ANTIGUO EN DOS PARTES.
@@ -143,18 +156,19 @@
             
         </div>
 
-        <div class="margin-bottom-40px"></div>
-
         <!-- PANELS -->
         <div id="panels">
 
             <!-- PANEL IZQUIERDO -->
-            <div id="panel-left-wide">
+            <div id="panel-left" class="width-60vw flex-align-center padding-left-50px">
+
+                <div class="margin-bottom-10vh"></div> <!-- Margen header -->
+                <div class="margin-bottom-10px"></div>
 
                 <div class="panel-content width-100">
 
                     <!-- Título del panel -->
-                    <div class="panel-title">
+                    <div class="panel-title max-width-300px">
                         <h1 class="text-color-white">Administración de usuarios</h1>
                     </div>
 
@@ -196,8 +210,8 @@
                             <div class="margin-bottom-30px"></div>
 
                             <!-- Enlace volver -->
-                            <div class="panel-sub flex-center">
-                                <a class="text-color-white text-size-1_8vh" href="role_page_admin.php">Volver</a>
+                            <div class="panel-sub flex-justify-center">
+                                <a class="text-color-white" href="role_page_admin.php">Volver</a>
                             </div>
 
                             <div class="margin-bottom-20px"></div>
@@ -206,10 +220,10 @@
 
                         <div class="panel-sub flex-column">
 
+                            <div class="margin-bottom-20px"></div>
+
                             <div class="panel-subpanels-container flex-column overflow-scroll">
                                 
-                                <div class="margin-bottom-20px"></div>
-
                                 <!-- Panel Empresas -->
                                 <div id="empresas" class="panel-sub flex-column panel-background-white">
 
@@ -218,7 +232,7 @@
 
                                     <!-- Barra -->
                                     <div class="bar-horizontal"></div>
-                                    <div class="margin-bottom-10px"></div>
+                                    <div class="margin-bottom-20px"></div>
 
                                     <!-- Listado -->
                                     <?php
@@ -239,7 +253,7 @@
 
                                     <!-- Barra -->
                                     <div class="bar-horizontal"></div>
-                                    <div class="margin-bottom-10px"></div>
+                                    <div class="margin-bottom-20px"></div>
 
                                     <!-- Listado -->
                                     <?php
@@ -260,7 +274,7 @@
 
                                     <!-- Barra -->
                                     <div class="bar-horizontal"></div>
-                                    <div class="margin-bottom-10px"></div>
+                                    <div class="margin-bottom-20px"></div>
 
                                     <!-- Listado -->
                                     <?php
@@ -276,14 +290,14 @@
 
                             <?php 
                             
-                            //ShowUsersAsButtons();
-
                             if (isset($error)) { echo '<span class="msg msg-error">' . $error . '</span>'; } 
                             
                             ?>
 
                         </div>
 
+                        <div class="margin-bottom-40px"></div>
+                        
                     </div>
 
                 </div>

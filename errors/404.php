@@ -31,7 +31,7 @@
         <div id="panels">
 
             <!-- PANEL IZQUIERDO -->
-            <div id="panel-left">
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
                 <div class="panel-content max-width-400px">
 

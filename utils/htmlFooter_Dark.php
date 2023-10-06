@@ -11,7 +11,7 @@
         </div>
 
         <div>
-            <a class="link adaptative-ctd" href="../public/privacy.php">Aviso de cookies</a>
+            <a class="link text-color-white" href="../public/terms.php">Términos y condiciones</a>
         </div>
     </div>
 </div>

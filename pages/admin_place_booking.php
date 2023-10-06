@@ -31,20 +31,46 @@
             // Si no hay archivo de reservas, volvemos.
             if (is_object($infoBookings) && isset($infoBookings->bookings))
             {
+                // TO DO - Hacer que solo salgan las reservas con fecha posterior a la actual.
+
                 // Mostrar la reservas.
                 foreach ($infoBookings->bookings as $booking) 
                 {
-                // HACER QUE SOLO SALGAN LAS RESERVAS CON CITAS POSTERIORES
-                echo "<div>";
-                echo "<p>".$booking->userEmail."</p>";
-                echo "<p> Inicio: ".$booking->startDate."</p>"; 
-                echo "<p> Fin: ".$booking->endDate."</p>";
-                echo "<form action='' method='POST'>";
-                echo "<input type='hidden' name='booking-id' value='".$booking->bookingId."'>"; // Valor encerrado entre comillas
-                echo "<input type='submit' value='Eliminar reserva'>";
-                echo "</form>";
-                echo "</div>";
-                echo "<br>";
+
+                    echo '<div class="panel-sub flex-column panel-background-white">';
+                    // Nombre
+                    echo '<h2 class="text-color-blue">'.$booking->userEmail.'</h2>';
+                    echo '<div class="margin-bottom-5px"></div>';
+                    echo '<div class="bar-horizontal"></div>';
+
+                    echo '<div class="margin-bottom-10px"></div>';
+                    echo '<ul class="list-general">';
+                    echo '<li>';
+                    echo '<p class="text-color-blue">'.$booking->userEmail.'</p>';
+                    echo '</li>';
+                    echo '<div class="margin-bottom-10px"></div>';
+                    echo '<li>';
+                    echo '<p class="text-color-blue"> Inicio: '.$booking->startDate.'</p>'; 
+                    echo '</li>';
+                    echo '<div class="margin-bottom-10px"></div>';
+                    echo '<li>';
+                    echo '<p class="text-color-blue"> Fin: '.$booking->endDate.'</p>';
+                    echo '</li>';
+                    echo '</ul>';
+
+                    echo '<div class="margin-bottom-20px"></div>';
+
+                    echo '<form action="" method="post">';
+                    echo "<input type='hidden' name='booking-id' value='".$booking->bookingId."'>"; // Valor encerrado entre comillas
+                    echo "<input type='submit' class='button-color' value='Eliminar reserva'>";
+                    echo '</form>';
+
+                    echo '<div class="margin-bottom-10px"></div>';
+                    echo "</div>";
+
+                    echo '<div class="margin-bottom-20px"></div>';
+
+
                 }
             }      
         }
@@ -134,102 +160,182 @@
     <title>Lyvo Config</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <script src="../assets/js/input_field_utilities.js"></script>
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left" class="width-60vw flex-align-center padding-left-50px">
 
-            <div class="content">
+                <div class="margin-bottom-10vh"></div> <!-- Margen header -->
+                <div class="margin-bottom-10px"></div>
 
-               <h1>Administración de <?php echo $placeId; ?></h1>
+                <div class="panel-content width-100">
 
-               <p class="margin-bottom-30px">Gestión de personalización del espacio por parte del usuario. Desde este panel puede invitar al usuario elegido para configurar el espacio.</p>
-
-                <form id="userForm" action="" method="post">
-
-                    <div class="content-label">
-
-                        <h2>Email del usuario</h2>
-
-                        <div class="input-icon">
-
-                        <i id="email-check-icon" class="fa fa-check icon-input" style="visibility:hidden;"></i>
-                        <input id="email-input" type="text" name="general-info-email" placeholder="E-mail" required>
-
-                        </div>
-
+                    <!-- Título del panel -->
+                    <div class="panel-title max-width-300px">
+                        <h1 class="text-color-white">Administración de <?php echo $placeId; ?></h1>
                     </div>
 
-                    <div class="content-label">
+                    <div class="margin-bottom-40px"></div>
 
-                        <h2>Fecha de inicio del permiso de configuración.</h2>
-
-                        <div class="input-icon">
-
-                        <i id="email-check-icon" class="fa fa-check icon-input" style="visibility:hidden;"></i>
-                        <input type="date" name="info-dateStart" placeholder="Fecha inicio" required>
-
-                        </div>
-
+                    <!-- Título información -->
+                    <div class="panel-title max-width-300px">
+                        <p class="text-color-white">Gestión de personalización del espacio por parte del usuario. Desde este panel puede invitar al usuario elegido para configurar el espacio.</p>
                     </div>
 
-                    <div class="content-label">
+                    <div class="margin-bottom-20px"></div>
 
-                        <h2>Fecha de fin del permiso de configuración.</h2>
-
-                        <div class="input-icon">
-
-                        <i id="email-check-icon" class="fa fa-check icon-input" style="visibility:hidden;"></i>
-                        <input type="date" name="info-dateEnd" placeholder="Fecha fin" required>
-
-                        </div>
-
-                    </div>
-
-                    <?php
-                        if (isset($error)) { echo '<span class="msg msg-error">'.$error.'</span>'; }
-                    ?>
                     
-                    <input type="submit" name="submit" value="ASIGNAR" class="form-btn margin-bottom-50px">
+                    <!-- Subpaneles -->
+                    <div class="panel-subpanels-container">
 
-                </form>
+                        <!-- PANEL DE CONTROLES -->
+                            <div class="panel-sub flex-column max-width-300px">
 
-                <button class="button-general margin-bottom-30px" onclick="location.href = 'editor_place.php?placeId=<?php echo urlencode($placeId);?>' ">CONFIGURAR ESPACIO</button>
+                                <!-- FORM -->
+                                <form action="" method="post">
 
-                <div if="bookingsInfo">
+                                    <!-- Input field nombre -->
+                                    <div class="panel-element">
+                                        <h2 class="text-color-white">Nombre de usuario</h2>
+                                        <div class="margin-bottom-5px"></div>
+
+                                        <div class="input-field-icon-container">
+
+                                            <i class="fa fa-check input-field-icon-icon" id="icon-check-name" style="visibility:hidden;"></i>
+                                            <input id="input-name" type="text" name="general-info-name" placeholder="nombre" required>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="margin-bottom-20px"></div>
+
+                                    <!-- Input field email -->
+                                    <div class="panel-element">
+                                        <h2 class="text-color-white">E-mail del usuario</h2>
+                                        <div class="margin-bottom-5px"></div>
+
+                                        <div class="input-field-icon-container">
+
+                                            <i class="fa fa-check input-field-icon-icon" id="icon-check-email" style="visibility:hidden;"></i>
+                                            <input id="input-email" type="email" name="general-info-email" placeholder="e-mail" required>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="margin-bottom-20px"></div>
+
+                                    <!-- Fecha inicio reserva -->
+                                    <div class="panel-element">
+
+                                        <h2 class="text-color-white">Fecha de inicio de reserva</h2>
+                                        <div class="margin-bottom-5px"></div>
+
+                                        <input type="date" name="info-dateStart" placeholder="Fecha inicio" required>
+
+                                    </div>
+
+                                    <div class="margin-bottom-20px"></div>
+
+                                    <div class="panel-element">
+
+                                        <h2 class="text-color-white">Fecha de fin de reserva</h2>
+                                        <div class="margin-bottom-5px"></div>
+
+                                        <input type="date" name="info-dateEnd" placeholder="Fecha fin" required>
+
+                                    </div>
+
+                                    <div class="margin-bottom-40px"></div>
+
+                                    <!-- Errores -->
+                                    <?php
+                                        if (isset($error)) { echo '<span class="msg msg-error">'.$error.'</span>'; echo '<div class="margin-bottom-20px"></div>'; }
+                                    ?>
+
+                                    <!-- Botón submit -->
+                                    <input type="submit" name="submit" value="Asignar" class="button-general button-color">
+
+                                    <div class="margin-bottom-20px"></div>
+
+                                    <!-- Botón configurar espacio -->
+                                    <button class="button-general button-white" onclick="location.href = 'editor_place.php?placeId=<?php echo urlencode($placeId);?>' ">Configurar espacio</button>
+
+                                    <div class="margin-bottom-20px"></div>
+
+                                    <!-- Enlace volver -->
+                                    <div class="panel-sub flex-justify-center">
+                                        <a class="text-color-white" href="admin_places.php">Volver</a>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        <!-- PANEL DE RESERVAS -->
+                        <div class="panel-sub flex-column">
+
+                            <h2 class="text-color-none">///</h2>
+                            <div class="margin-bottom-5px"></div>
+
+                            <div class="panel-subpanels-container flex-column overflow-scroll">
+
+                                <!-- Reservas -->
+
+                                <?php PrintBookings($placeId); ?>
+
+                            </div>
+
+                        </div>
+
+                    </div>
                     
-                    <?php PrintBookings($placeId) ?>
-
                 </div>
+
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
+
+            </div>
+
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
+
             </div>
 
         </div>
 
-        <div id="right-panel"></div>
-
-        <div id="hoja-livo-grande"></div>
-
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 
     <script>
 
-        fieldChecker_Load('email-input', 'email-check-icon', ['@','.'], 6);
+        fieldChecker_Load('input-email', 'icon-check-email', ['@','.'], 6);
 
     </script>
 

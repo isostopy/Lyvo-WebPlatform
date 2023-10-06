@@ -2,50 +2,68 @@
 <html>
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Lyvo Register</title>
-   <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/login_form.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyvo Register</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
+
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
 <body>
-    <div class="main-container">
+   
+   <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
-        </div>
+      <!-- HEADER -->
+      <div id="header">
 
-        <div id="left-panel">
+         <!-- LOGO -->
+         <img id="logo" src="../assets/images/t_logo_lyvo_color.png" alt="Lyvo">
 
-            <div id="hoja-livo"></div>
+      </div>
 
-            <div class="content">
+      <!-- PANELS -->
+      <div id="panels">
 
-                <h1>Sesión caducada</h1>
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-                <p class="margin-bottom-50px">Por motivos de seguridad su sesión ha expirado. Es necesario que vuelva a introducir sus credenciales.</p>
+            <div class="panel-content max-width-300px">
 
-                <p>Puede volver desde aquí al <a href="../public/login_form.php">LOGIN</a></p>
+               <!-- Título del panel -->
+               <div class="panel-title">
+                  <h1 class="text-color-blue">Sesión caducada</h1>
+               </div> 
 
-               </form>
+               <div class="margin-bottom-20px"></div>
+
+               <p>Por motivos de seguridad su sesión ha expirado. Es necesario que vuelva a introducir sus credenciale.</p>
+
+               <div class="margin-bottom-20px"></div>
+
+               <p>Puede volver desde aquí al <a class="link link-bold" href="../public/login_form.php">LOGIN</a></p>
 
             </div>
 
-        </div>
+            <div class="lyvo-leaf lyvo-leaf-solid"></div>
 
-        <div id="right-panel"></div>
+         </div>
 
-        <div id="hoja-livo-grande"></div>
+         <!-- PANEL DERECHO -->
+         <div id="panel-right">
+
+            <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
+
+         </div>
+
+      </div>
 
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
     </div>
-
 
 </body>
 

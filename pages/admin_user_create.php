@@ -196,6 +196,13 @@
 
                     </form>
 
+                    <div class="margin-bottom-30px"></div>
+
+                    <!-- Enlace volver -->
+                    <div class="panel-sub flex-justify-center">
+                        <a class="text-color-white" href="admin_users.php">Volver</a>
+                    </div>
+
                 </div>
 
                 <div class="lyvo-leaf lyvo-leaf-outline"></div>
@@ -203,7 +210,11 @@
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right"></div>
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
+
+            </div>
 
         </div>
 

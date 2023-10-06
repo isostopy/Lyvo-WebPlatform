@@ -39,11 +39,10 @@
     function CreateInputs($title, $name, $items) 
     {
         for ($i = 1; $i <= $items; $i++) {
-            echo '<div class="content-label">';
-            echo '    <h2>'. $title . ' ' . $i . '</h2>';
-            echo '    <div class="input-icon">';
-            echo '        <input type="file" name="' . $name . '_' . $i . '" id="' . $name . '_' . $i . '">';
-            echo '    </div>';
+            echo '<div>';
+            echo '    <h2 class="text-color-blue">'. $title . ' ' . $i . '</h2>';
+            echo '    <div class="margin-bottom-5px"></div>';
+            echo '    <input type="file" name="' . $name . '_' . $i . '" id="' . $name . '_' . $i . '">';
             echo '</div>';
         }
     }  
@@ -62,7 +61,7 @@
     <title>Lyvo Config</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -71,93 +70,137 @@
     
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-            <div class="content">
+                <div class="panel-content max-width-700px">
 
-                <!-- AUDITORIO -->
-                <div id="CustomAuditorio" style="display: none">
+                    <div class="margin-bottom-10vh"></div>
 
-                    <h1>Personalización Auditorio</h1>
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white">Personalización sala exposiciones</h1>
+                    </div>  
 
-                    <p class="margin-bottom-30px">Gestión de personalización del espacio por parte del usuario. Desde este panel se pueden subir las imágenes para personalizar el espacio.</p>
+                    <div class="margin-bottom-20px"></div>
 
+                    <p class="text-color-white">Gestión de personalización del espacio por parte del usuario. Desde este panel se pueden subir las imágenes para personalizar el espacio.</p>
+
+                    <div class="margin-bottom-20px"></div>
+
+                    <!-- FORM -->
                     <form id="uploadForm" action="" method="post">
 
-                        <input type="hidden" name="reference" value="<?php echo $placeId?>">
+                        <!-- AUDITORIO -->
+                        <div id="CustomAuditorio" style="display: none">
 
-                        <?php CreateInputs("Auditorio","image_auditorio",3); ?>
+                            <input type="hidden" name="reference" value="<?php echo $placeId?>">
 
-                        <input type="button" name="submit" value="SUBIR IMÁGENES" class="form-btn margin-bottom-50px" onclick="uploadFiles('uploadForm')">
+                            <div class="panel-subpanels-container">
 
-                        <span id="messages" class="msg msg-error"></span>
+                                <div class="panel-sub flex-wrap flex-margin-r20-c20 flex-spaceBetween">
+
+                                    <?php CreateInputs("Auditorio","image_auditorio",3); ?>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- SALA EXPOSICIONES -->
+                        <div id="CustomSalaexposiciones" style="display: none">
+
+                            <div class="panel-subpanel-container">
+
+                                <input type="hidden" name="reference" value="<?php echo $placeId?>">
+
+                                <div class="panel-subpanels-container">
+
+                                    <div class="panel-sub flex-wrap flex-margin-r10-c10 flex-spaceBetween panel-background-white">
+
+                                        <?php CreateInputs("Sala exposiciones","image_salaexposiciones",12); ?>
+
+                                    </div>
+                                
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- SALA PRIVADA -->
+                        <div id="CustomSalaprivada" style="display: none">
+
+                            <div class="panel-subpanel-container">
+
+                                <input type="hidden" name="reference" value="<?php echo $placeId?>">
+
+                                <div class="panel-subpanels-container">
+
+                                    <?php CreateInputs("Sala privada","image_salaprivada",2); ?>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="margin-bottom-20px"></div>
+
+                        <div class="panel-sub flex-column panel-background-white overflow-scroll height-100px">
+
+                            <span id="messages" class="msg msg-general">Esperando la carga de imágenes.</span>
+
+                        </div>
+
+                        <div class="margin-bottom-20px"></div>
+
+                        <!-- Esto lo hacemos llamando a JAVA para que la página no se recargue y nos de feedback -->
+                        <input type="button" name="submit" value="SUBIR IMÁGENES" class="button-general button-color" onclick="uploadFiles('uploadForm')">
+
+                        <div class="margin-bottom-20px"></div>
 
                     </form>
 
-                </div>
-
-                <!-- SALA EXPOSICIONES -->
-                <div id="CustomSalaexposiciones" style="display: none">
-
-                    <h1>Personalización Sala Exposiciones</h1>
-
-                    <p class="margin-bottom-30px">Gestión de personalización del espacio por parte del usuario. Desde este panel se pueden subir las imágenes para personalizar el espacio.</p>
-
-                    <form id="uploadForm" action="" method="post">
-
-                        <input type="hidden" name="reference" value="<?php echo $placeId?>">
-
-                        <?php CreateInputs("Sala exposiciones","image_salaexposiciones",12); ?>
-
-                        <input type="button" name="submit" value="SUBIR IMÁGENES" class="form-btn margin-bottom-50px" onclick="uploadFiles('uploadForm')">
-
-                        <span id="messages" class="msg msg-error"></span>
-
-                    </form>
+                    <div class="margin-bottom-40px"></div>
 
                 </div>
 
-                <!-- SALA PRIVADA -->
-                <div id="CustomSalaprivada" style="display: none">
+                <!-- Enlace volver -->
 
-                    <h1>Personalización Sala Privada</h1>
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
 
-                    <p class="margin-bottom-30px">Gestión de personalización del espacio por parte del usuario. Desde este panel se pueden subir las imágenes para personalizar el espacio.</p>
+            </div>
 
-                    <form id="uploadForm" action="" method="post">
+            <!-- PANEL DERECHO -->
+            <div id="panel-right">
 
-                        <input type="hidden" name="reference" value="<?php echo $placeId?>">
-
-                        <?php CreateInputs("Sala privada","image_salaprivada",2); ?>
-
-                        <input type="button" name="submit" value="SUBIR IMÁGENES" class="form-btn margin-bottom-50px" onclick="uploadFiles('uploadForm')">
-
-                        <span id="messages" class="msg msg-error"></span>
-
-                    </form>
-
-                </div>
-
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
 
             </div>
 
         </div>
 
-        <div id="right-panel"></div>
-
-        <div id="hoja-livo-grande"></div>
-
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

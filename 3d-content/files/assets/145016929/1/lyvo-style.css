@@ -83,7 +83,7 @@
 
 /* Centra los elementos de la div. */
 .center { justify-content: center; }
-/* Coloca los elemtnos de la div al final. */
+/* Coloca los elementos de la div al final. */
 .end { justify-content: end; }
 /* Separa homogeneamente los elementos de la div. */
 .space-betweeen { justify-content: space-between; }

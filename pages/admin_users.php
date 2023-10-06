@@ -44,87 +44,18 @@
 
     function UsersDisplay($users)
     {
-        /*
-        foreach ($users as $user) 
-        {
-            echo '<div class="userListElement">';
-            echo '<a class="link link-text text-color-blue" href="admin_user.php?id='.$user->id.'">'.$user->first_name.' '.$user->last_name.'</a>';
-            echo "<div class ='margin-bottom-20px'></div>";
-            echo '</div>';
-        }
-        */
-
-        echo '<ul class="userList">';  // Inicia la lista no ordenada
-        
-            foreach ($users as $user) {
-                echo '<li class="userListElement">';
-                echo '<a class="link link-text text-color-blue" href="admin_user.php?id='.$user->id.'">'.$user->first_name.' '.$user->last_name.'</a>';
-                echo '</li>';
-                echo '<div class="margin-bottom-10px"></div>';
-            }
-        
-            echo '</ul>';  // Finaliza la lista no ordenada
-    }
-
-    // CÓDIGO ANTIGUO EN DOS PARTES.
-    /*
-    // Función para mostrar a los usuarios llamada desde HTML.
-    function ShowUsersAsButtons()
-    {
-        // Obtener la información de todos los usuarios.
-        $usersInfo = UserGetDataAll();
-
-        // Comprobamos que la información es correcta.
-        if (!isset($usersInfo->data)) 
-        {
-            throw new Exception(Message_Error_General());
-        }
-
-        // Creamos el mapeo de usuarios.
-        $roleMapping = [
-            // Código comentado para no mostrar a los administradores.
-            //$GLOBALS['Role_Administrator'] => [],
-            $GLOBALS['Role_Company']       => [],
-            $GLOBALS['Role_Professional']  => [],
-            $GLOBALS['Role_Client']        => [],
-        ];
-
-        // Categorizamos a los usuarios según su valor.
-        foreach ($usersInfo->data as $user) 
-        {
-            if (isset($roleMapping[$user->role])) 
-            {
-                $roleMapping[$user->role][] = $user;
-            }
-        }
-
-        // Código comentado para no mostrar a los administradores.
-        // displayUsers("ADMINISTRADORES:", $roleMapping[$GLOBALS['Role_Administrator']]);
-
-        echo '<div id="empresas">';
-            DisplayUsers("EMPRESAS", $roleMapping[$GLOBALS['Role_Company']]);
-        echo '</div>';
-
-        echo '<div id="profesionales">';
-            DisplayUsers("PROFESIONALES", $roleMapping[$GLOBALS['Role_Professional']]);
-        echo '</div>';
-
-        echo '<div id="clientes">';
-            DisplayUsers("CLIENTES", $roleMapping[$GLOBALS['Role_Client']]);
-        echo '</div>';
-    }
-
-    function DisplayUsers($title, $users) 
-    {
-        echo "<p class ='margin-bottom-10px'>{$title}:</p>";
+        echo '<ul class="list-general">';  // Inicia la lista no ordenada
         
         foreach ($users as $user) {
-            echo '<button class="button-general margin-bottom-10px" onclick="location.href=\'admin_user.php?id='.$user->id.'\'">';
-            echo "{$user->first_name} {$user->last_name}";
-            echo '</button>';
+            echo '<li>';
+            echo '<a class="link link-text text-color-blue" href="admin_user.php?id='.$user->id.'">'.$user->first_name.' '.$user->last_name.'</a>';
+            echo '</li>';
+            echo '<div class="margin-bottom-10px"></div>';
         }
+        
+        echo '</ul>';  // Finaliza la lista no ordenada
     }
-    */
+
 ?>
 
 <!DOCTYPE html>
@@ -160,7 +91,7 @@
         <div id="panels">
 
             <!-- PANEL IZQUIERDO -->
-            <div id="panel-left" class="width-60vw flex-align-center padding-left-50px">
+            <div id="panel-left" class="width-60vw flex-align-center">
 
                 <div class="margin-bottom-10vh"></div> <!-- Margen header -->
                 <div class="margin-bottom-10px"></div>
@@ -177,6 +108,7 @@
                     <!-- Subpaneles -->
                     <div class="panel-subpanels-container">
 
+                        <!-- PANEL DE CONTROLES -->
                         <div class="panel-sub flex-column max-width-300px">
 
                             <!-- Inputs para filtrar -->
@@ -218,9 +150,11 @@
 
                         </div>
 
+                        <!-- PANEL DE ETIQUETAS DE USUARIO -->
                         <div class="panel-sub flex-column">
 
-                            <div class="margin-bottom-20px"></div>
+                            <h2 class="text-color-none">///</h2>
+                            <div class="margin-bottom-5px"></div>
 
                             <div class="panel-subpanels-container flex-column overflow-scroll">
                                 
@@ -307,7 +241,11 @@
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right"></div>
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
+
+            </div>
 
         </div>
 

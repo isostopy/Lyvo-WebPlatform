@@ -2,6 +2,8 @@
 
     // Datos.
     require_once '../includes/config.php';
+    // Funcionalidades comunes.
+    require_once '../includes/messages.php';
 
     function GetRoute($value)
     {
@@ -14,9 +16,6 @@
             default: throw new Exception(Message_Error_General());
         }
     }
-
-    // Funcionalidades comunes.
-    require_once '../includes/messages.php';
 
     $target_dir = "";
     $message = "";

@@ -52,61 +52,86 @@
     <title>Lyvo Config</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-            <div class="content">
+                <div class="panel-content max-width-400px">
 
-                <h1>Administración de espacios</h1>
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white">Administración de espacios</h1>
+                    </div> 
 
-                <?php
-                    // El usuario tiene permisos para editar el auditorio.
-                    if($showAuditorio) 
-                    {
-                        echo '<button class="button-general margin-top-bottom-10px" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::AUDITORIO->value) . '\'">AUDITORIO</button>'; 
-                    }
+                    <div class="margin-bottom-40px"></div>
 
-                    // El usuario tiene permisos para editar la sala de exposiciones.
-                    if($showSalaexposiciones) 
-                    {
-                        echo '<button class="button-general margin-top-bottom-10px" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::SALAEXPOSICIONES->value) . '\'">SALA DE EXPOSICIONES</button>'; 
-                    } 
+                    <?php
+                        // El usuario tiene permisos para editar el auditorio.
+                        if($showAuditorio) 
+                        {
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::AUDITORIO->value) . '\'">AUDITORIO</button>'; 
+                            echo '<div class="margin-bottom-20px"></div>';
+                        }
 
-                    // El usuario tiene permisos para editar la sala privada.
-                    if($showSalaprivada) 
-                    {
-                        echo '<button class="button-general margin-top-bottom-10px" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::SALAPRIVADA->value) . '\'">SALA PRIVADA</button>'; 
-                    }
+                        // El usuario tiene permisos para editar la sala de exposiciones.
+                        if($showSalaexposiciones) 
+                        {
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::SALAEXPOSICIONES->value) . '\'">SALA DE EXPOSICIONES</button>'; 
+                            echo '<div class="margin-bottom-20px"></div>';
+                        } 
 
-                    // El usuario no tiene ningún permiso.
-                    if(!$showAuditorio && !$showSalaexposiciones && !$showSalaprivada)
-                    {
-                        echo '<p>Lo sentimos, no dispone de permisos de edición en este momento.</p>';
-                    }
-                ?>
+                        // El usuario tiene permisos para editar la sala privada.
+                        if($showSalaprivada) 
+                        {
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::SALAPRIVADA->value) . '\'">SALA PRIVADA</button>'; 
+                            echo '<div class="margin-bottom-20px"></div>';
+                        }
+
+                        // El usuario no tiene ningún permiso.
+                        if(!$showAuditorio && !$showSalaexposiciones && !$showSalaprivada)
+                        {
+                            echo '<p class="text-color-white">Lo sentimos, no dispone de permisos de edición en este momento.</p>';
+                            echo '<div class="margin-bottom-20px"></div>';
+                        }
+                    ?>
+
+                </div>
+
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
+
+            </div>
+
+            <!-- PANEL DERECHO -->
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
 
             </div>
 
         </div>
 
-        <div id="right-panel"></div>
-
-        <div id="hoja-livo-grande"></div>
-
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

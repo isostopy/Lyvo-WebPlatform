@@ -2,49 +2,72 @@
 <html>
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Lyvo Usuarios</title>
-   <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyvo Usuarios</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
+
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
+   
+   <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+
         </div>
 
-        <div id="left-panel">
+      <!-- PANELS -->
+      <div id="panels">
 
-            <div id="hoja-livo"></div>
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-            <div class="content">
+            <div class="panel-content max-width-300px">
 
-                <h1>Crear cuenta</h1>
+                <!-- Título del panel -->
+                <div class="panel-title">
+                    <h1 class="text-color-white">Registro de usuarios</h1>
+                </div> 
 
-                <p class="margin-bottom-50px">¡Usuario creado! El usuario se ha creado con éxito.</p>
+                <div class="margin-bottom-20px"></div>
 
-                <p>Volver a <a href="../pages/admin_users.php">ADMINISTRACIÓN DE USUARIOS</a></p>
+                <p class="text-color-white">¡Registro completo!</p>
 
-               </form>
+                <div class="margin-bottom-20px"></div>
+
+                <!-- Enlace volver -->
+                <div class="panel-sub flex-justify-center">
+                    <a class="text-color-white" href="admin_users.php">Volver</a>
+                </div>
 
             </div>
 
-        </div>
+            <div class="lyvo-leaf lyvo-leaf-outline"></div>
 
-        <div id="right-panel"></div>
+         </div>
 
-        <div id="hoja-livo-grande"></div>
+         <!-- PANEL DERECHO -->
+         <div id="panel-right">
+
+            <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
+
+         </div>
+
+      </div>
 
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
-
 
 </body>
 

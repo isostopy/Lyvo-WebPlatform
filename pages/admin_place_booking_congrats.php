@@ -7,41 +7,66 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Lyvo Usuarios</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+   
+   <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
 
-            <div id="hoja-livo"></div>
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-            <div class="content">
+                <div class="panel-content max-width-400px">
 
-                <h1>Reserva de espacios</h1>
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white text-align-center">Reserva de espacios</h1>
+                    </div> 
 
-                <p class="margin-bottom-50px">Reserva asignada con éxito.</p>
+                    <div class="margin-bottom-20px"></div>
 
-                <p>Volver a <a href="../pages/admin_places.php">ADMINISTRACIÓN DE ESPACIOS</a></p>
+                    <p class="text-color-white text-align-center">Reserva asignada con éxito.</p>
 
-               </form>
+                    <div class="margin-bottom-20px"></div>
+
+                    <!-- Enlace volver -->
+                    <div class="panel-sub flex-justify-center">
+                        <a class="text-color-white" href="admin_places.php">Volver</a>
+                    </div>
+
+                </div>
+
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
+
+            </div>
+
+            <!-- PANEL DERECHO -->
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
 
             </div>
 
         </div>
 
-        <div id="right-panel"></div>
-
-        <div id="hoja-livo-grande"></div>
-
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

@@ -50,6 +50,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
+    <script src="../assets/js/rememberUser.js"></script>
     <script src="../assets/js/input_field_utilities.js"></script>
 
 </head>
@@ -85,7 +86,7 @@
                     <div class="margin-bottom-40px"></div>
 
                     <!-- FORM -->
-                    <form action="" method="post">
+                    <form action="" method="post" id="loginForm">
 
                         <!-- Subpaneles -->
                         <div class="panel-subpanels-container">

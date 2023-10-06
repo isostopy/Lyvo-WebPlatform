@@ -75,8 +75,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyvo 3D</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-    <link rel="stylesheet" href="../assets/css/login_form.css">
+
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -97,7 +97,7 @@
          var userName = localStorage.getItem("email");
    
          // Redireccionamos al usuario a la otra página.
-         window.location.href = url3d;
+         //window.location.href = url3d;
       }
 
       var travelScreen = <?php echo $showTravelScreen ? 'true' : 'false'; ?>;
@@ -113,47 +113,64 @@
 
 <body>
 
-    <div class="main-container">
+   <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
-        </div>
+      <!-- HEADER -->
+      <div id="header">
 
-        <div id="left-panel">
+         <!-- LOGO -->
+         <img id="logo" src="../assets/images/t_logo_lyvo_color.png" alt="Lyvo">
 
-            <div id="hoja-livo"></div>
+      </div>
 
-            <div class="content">
+      <!-- PANELS -->
+      <div id="panels">
 
-               <h1>¡Todo listo!</h1>
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-               <div class="content-main margin-bottom-20px" id="page_1">
+            <div class="panel-content max-width-400px">
 
-                  <div id="texto-izquierda">
+               <!-- Título del panel -->
+               <div class="panel-title">
+                  <h1 class="text-color-blue">¡Todo listo!</h1>
+               </div>  
 
-                     <p>Ya está todo preparado para que descrubras el increible universo de Lyvo. Explora cada rincón para encontrar todas sus sorpresas.</p>
-   
-                  </div>
-               
-               </div>
+               <div class="margin-bottom-40px"></div>
 
-               <button class ="button-general margin-top-bottom-10px" id="travel-button" >VIAJAR</button>
+               <p>Ya está todo preparado para que descrubras el increible universo de Lyvo.</p>
+               <div class="margin-bottom-10px"></div>
+               <p>Explora cada rincón para encontrar todas sus sorpresas.</p>
+
+               <div class="margin-bottom-20px"></div>
+
+               <button class ="button-general button-color" id="travel-button" >VIAJAR</button>
 
             </div>
 
-        </div>
+            <div class="lyvo-leaf lyvo-leaf-solid"></div>
 
-        <div id="right-panel">
-        </div>
+         </div>
 
-        <div id="hoja-livo-grande">
-        </div>
+         <!-- PANEL DERECHO -->
+         <div id="panel-right">
 
-        <?php include_once "../utils/htmlFooter.php"; ?>
+            <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
 
-    </div>
+         </div>
 
-    <script>
+      </div>
+
+      </div>                       
+
+         <!-- FOOTER -->
+         <?php include_once "../utils/htmlFooter_Dark.php"; ?>
+
+      </div>
+
+   </div>
+
+   <script>
 
       var travelButton = document.getElementById('travel-button');
 

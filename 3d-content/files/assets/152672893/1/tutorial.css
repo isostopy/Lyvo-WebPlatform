@@ -1,0 +1,104 @@
+
+/* ----------------------------------------------------------------- */
+/* General */
+
+.tuto-message
+{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+
+    width: 370px;
+
+    margin: 10px;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.tuto-message .button-general, tuto-message .button-border
+{
+    width: 150px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Triangles */
+.triangle-top
+{
+    position:inherit;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 17.3px 10px;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+.triangle-bottom
+{
+    position:inherit;
+    
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 17.3px 10px 0 10px;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+/* ----------------------------------------------------------------- */
+/* Messages */
+
+.tuto-message
+{
+    position: absolute;
+}
+
+
+#tuto-intro
+{
+    bottom: 30px;
+    left: 30px;
+}
+
+
+#tuto-opciones
+{
+    right: 23px;
+    top:60px;
+}
+#tuto-opciones .triangle-top
+{
+    top: -17px;
+    right: 10px;
+}
+
+#tuto-micro, #tuto-quality, #tuto-map
+{
+    right: 23px;
+    bottom: 70px;
+}
+#tuto-micro .triangle-bottom
+{
+    bottom: -17px;
+    right: 10px;
+}
+#tuto-quality .triangle-bottom
+{
+    bottom: -17px;
+    right: 37px;
+}
+#tuto-map .triangle-bottom
+{
+    bottom: -17px;
+    right: 68px;
+}
+

@@ -104,6 +104,9 @@
     {
         $infoBookings = BookingGetByPlace($place);
 
+        // Comprobamos que no es null. Podría darse en caso de que el archivo JSON no exista.
+        if($infoBookings === null){ return false; }
+
         foreach ($infoBookings->bookings as $booking) 
         {
             // Comprobar fecha.

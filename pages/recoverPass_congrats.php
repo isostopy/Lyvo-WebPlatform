@@ -2,47 +2,66 @@
 <html>
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Lyvo Recover</title>
-   <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
-   <link rel="stylesheet" href="../assets/css/login_form.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyvo Pass</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 
 <body>
-    <div class="main-container">
+   
+   <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
-        </div>
+      <!-- HEADER -->
+      <div id="header">
 
-        <div id="left-panel">
+         <!-- LOGO -->
+         <img id="logo" src="../assets/images/t_logo_lyvo_color.png" alt="Lyvo">
 
-            <div id="hoja-livo"></div>
+      </div>
 
-            <div class="content">
+      <!-- PANELS -->
+      <div id="panels">
 
-                <h1>Cambiar / Recuperar contraseña</h1>
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-                <p class="margin-bottom-50px">Las instrucciónes para modificar la contraseña han sido enviadas a la cuenta de correo proporcionada.</p>
+            <div class="panel-content max-width-300px">
 
-                <p>Puede cerrar esta ventana o volver al <a href="../public/login_form.php">LOGIN</a></p>
+               <!-- Título del panel -->
+               <div class="panel-title">
+                  <h1 class="text-color-blue">Cambiar / Recuperar contraseña</h1>
+               </div> 
 
-               </form>
+               <div class="margin-bottom-20px"></div>
+
+               <p>Las instrucciones para modificar la contraseña han sido enviadas a la cuenta de correo proporcionada.</p>
+
+               <div class="margin-bottom-20px"></div>
+
+               <p>Puede volver desde aquí al <a class="link link-bold" href="../public/login_form.php">LOGIN</a></p>
 
             </div>
 
-        </div>
+         </div>
 
-        <div id="right-panel"></div>
+         <!-- PANEL DERECHO -->
+         <div id="panel-right">
 
-        <div id="hoja-livo-grande"></div>
+            <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
+
+         </div>
+
+      </div>
 
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
     </div>
 

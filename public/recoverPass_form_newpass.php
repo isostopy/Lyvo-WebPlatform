@@ -36,7 +36,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Lyvo Pass</title>
    <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
-   <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+   <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    
@@ -45,69 +45,94 @@
 </head>
 
 <body>
-   <div class="main-container">
 
-      <div id="lyvo-logo">
-         <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+   <!-- CONTENEDOR PRINCIPAL -->
+   <div id="content">
+
+      <!-- HEADER -->
+      <div id="header">
+
+         <!-- LOGO -->
+         <img id="logo" src="../assets/images/t_logo_lyvo_color.png" alt="Lyvo">
+
       </div>
 
-      <div id="left-panel">
+      <!-- PANELS -->
+      <div id="panels">
 
-         <div id="hoja-livo"></div>
+         <!-- PANEL IZQUIERDO -->
+         <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-         <div class="content">
+            <div class="panel-content max-width-300px">
 
-               <h1>Cambiar / Recuperar contraseña</h1>
+               <!-- Título del panel -->
+               <div class="panel-title">
+                  <h1 class="text-color-blue">Cambiar / Recuperar contraseña</h1>
+               </div>   
+
+               <div class="margin-bottom-20px"></div>
 
                <p class="margin-bottom-30px">Por favor, introduce la nueva contraseña.</p>
 
                <form action="" method="post">
 
-               <div class="content-label">
+                  <!-- Input field contraseña -->
+                  <div class="panel-element">
+                     <h2 class="text-color-blue">Contraseña</h2>
+                     <div class="margin-bottom-5px"></div>
 
-                  <h2>Contraseña</h2>
+                     <div class="input-field-icon-container">
+                        <i class="fa fa-check input-field-icon-icon margin-right-20px" id="icon-check-pass" style="visibility:hidden;"></i>
+                        
+                        <div id="icon-show-pass" class="hover-pointer" style="visibility:visible;">
+                           <i class="fa fa-eye-slash input-field-icon-icon"></i>
+                        </div>
 
-                  <div class="input-icon">
-                     <i class="fa fa-check icon-input icon-input-margin-right" id="pass-check-icon" style="visibility:hidden;"></i>
-
-                     <div id="show-pass-icon" class="hover-pointer" style="visibility:visible;">
-                        <i class="fa fa-eye-slash icon-input"></i>
+                        <div id="icon-hide-pass" class="hover-pointer" style="visibility:hidden;">
+                           <i class="fa fa-eye input-field-icon-icon"></i>
+                        </div>
+                        
+                        <input id="input-pass" type="password" name="password" placeholder="contraseña" required>
                      </div>
-
-                     <div id="hide-pass-icon" class="hover-pointer" style="visibility:hidden;">
-                        <i class="fa fa-eye icon-input"></i>
-                     </div>
-
-                     <input id="pass-input" type="password" name="newpass" required>
-
+                     
+                     <div class="margin-bottom-5px"></div>
+                     <p class="element-info-detail">La contraseña debe tener al menos 6 caracteres</p>
                   </div>
+               
+                  <div class="margin-bottom-20px"></div>
 
-                  <p class = "caracteres-minimos">La contraseña debe tener al menos 6 caracteres</p>
+                  <?php if (isset($error)) { echo '<span class="msg msg-error">'.$error.'</span>'; } ?>
 
-               </div>
+                  <input type="submit" name="submit" value="Modificar" class="button-general button-color">
 
-               <?php if (isset($error)) { echo '<span class="msg msg-error">'.$error.'</span>'; } ?>
-
-               <input type="submit" name="submit" value="CAMBIAR" >
+                  <div class="margin-bottom-10px"></div>
 
                </form>
+
+            </div>
+
+            <div class="lyvo-leaf lyvo-leaf-solid"></div>
+
+         </div>
+
+         <!-- PANEL DERECHO -->
+         <div id="panel-right">
+
+            <img src="../assets/images/web-image-01.jpg" alt="Lyvo" class="img-fullsize">
 
          </div>
 
       </div>
 
-      <div id="right-panel"></div>
-
-      <div id="hoja-livo-grande"></div>
-
-      <?php include_once "../utils/htmlFooter.php"; ?>
+      <!-- FOOTER -->
+      <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
    </div>
 
    <script>
 
-   passDisplay_Load('pass-input','show-pass-icon','hide-pass-icon');
-   fieldChecker_Load('pass-input', 'pass-check-icon', null, 6);
+      passDisplay_Load('input-pass','icon-show-pass','icon-hide-pass');
+      fieldChecker_Load('input-pass', 'icon-check-pass', undefined, 6);
    
    </script>
 

@@ -83,7 +83,11 @@
             </div>
 
             <!-- PANEL DERECHO -->
-            <div id="panel-right"></div>
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
+
+            </div>
 
         </div>
 

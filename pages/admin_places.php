@@ -17,44 +17,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyvo Config</title>
+    <title>Lyvo Usuarios</title>
     <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
 
-    <link rel="stylesheet" href="../assets/css/lyvo_style.css">
+    <link rel="stylesheet" href="../assets/css/style_lyvo.css">
 
 </head>
 
-<body>
-    <div class="main-container">
+<!-- Fondo oscuro -->
+<body style="background-color: var(--color_2);">
 
-        <div id="lyvo-logo">
-            <img src="../assets/images/t_logo_lyvo_dark_256.png" alt="Lyvo">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div id="content">
+
+        <!-- HEADER -->
+        <div id="header">
+
+            <!-- LOGO -->
+            <img id="logo" src="../assets/images/t_logo_lyvo_white.png" alt="Lyvo">
+            
         </div>
 
-        <div id="left-panel">
+        <!-- PANELS -->
+        <div id="panels">
+        
+            <!-- PANEL IZQUIERDO -->
+            <div id="panel-left" class="width-60vw flex-align-center flex-justify-center">
 
-            <div id="hoja-livo"></div>
+                <div class="panel-content max-width-400px">
 
-            <div class="content">
+                    <!-- Título del panel -->
+                    <div class="panel-title">
+                        <h1 class="text-color-white">Administración de espacios</h1>
+                    </div> 
 
-               <h1>Administración de espacios</h1>
+                    <div class="margin-bottom-20px"></div>
 
-               <p>Por favor, elige un espacio para configurar.</p>
+                    <p class="text-color-white">Por favor, elige un espacio para configurar.</p>
 
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_booking.php?placeId=<?php echo urlencode(Places::AUDITORIO->value);?>' ">AUDITORIO</button>
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_booking.php?placeId=<?php echo urlencode(Places::SALAEXPOSICIONES->value);?>' ">SALA DE EXPOSICIONES</button>
-               <button class ="button-general margin-top-bottom-10px" onclick="location.href = 'admin_place_booking.php?placeId=<?php echo urlencode(Places::SALAPRIVADA->value);?>' ">SALA PRIVADA</button>
-               
+                    <div class="margin-bottom-20px"></div>
+
+                    <!-- Espacios -->
+                    <div class="panel-sub flex-column panel-background-white">
+
+                        <ul class="list-general">
+            
+                            <div class="margin-bottom-10px"></div>
+                            <li>
+                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::AUDITORIO->value; ?>">Auditorio Lyvo</a>
+                            </li>
+                            <div class="margin-bottom-20px"></div>
+
+                            <li>
+                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::SALAEXPOSICIONES->value; ?>">Sala de Exposiciones Lyvo</a>
+                            </li>
+                            <div class="margin-bottom-20px"></div>
+
+                            <li>
+                                <a class="link link-text text-color-blue">Sala Privada 01 Lyvo (desarrollo)</a>
+                            </li>
+                            <div class="margin-bottom-20px"></div>
+
+                            <li>
+                                <a class="link link-text text-color-blue">Auditorio iFertility (desarrollo)</a>
+                            </li>
+                            <div class="margin-bottom-20px"></div>
+            
+                        </ul>
+
+                    </div>
+
+                    <div class="margin-bottom-30px"></div>
+
+                    <!-- Enlace volver -->
+                    <div class="panel-sub flex-justify-center">
+                        <a class="text-color-white" href="role_page_admin.php">Volver</a>
+                    </div>
+
+                </div>
+
+                <div class="lyvo-leaf lyvo-leaf-outline"></div>
+
+            </div>
+
+            <!-- PANEL DERECHO -->
+            <div id="panel-right">
+
+                <img src="../assets/images/web-image-02.jpg" alt="Lyvo" class="img-fullsize">
+
             </div>
 
         </div>
 
-        <div id="right-panel"></div>
-
-        <div id="hoja-livo-grande"></div>
-
         <!-- FOOTER -->
-        <?php include_once "../utils/htmlFooter.php"; ?>
+        <?php include_once "../utils/htmlFooter_Clear.php"; ?>
 
     </div>
 

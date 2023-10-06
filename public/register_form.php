@@ -183,7 +183,6 @@
 
                <div class="margin-bottom-20px"></div>
                
-
             </div>
 
             <div class="lyvo-leaf lyvo-leaf-solid"></div>

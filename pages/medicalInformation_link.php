@@ -6,7 +6,7 @@
    require_once '../includes/config.php';
 
    // Comprobar que el usuario tiene sesión iniciada.
-   UserCheckSession($GLOBALS['Role_Client']);
+   UserCheckSession();
    
    // Mostrar información
    $userData = $_SESSION['userData']->data;

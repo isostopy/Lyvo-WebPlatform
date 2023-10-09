@@ -56,6 +56,13 @@
 
       LoadPage("public/3d_launcher.php");
    }
+
+   // Saltar - TO-DO: En este caso en vez de hacer post quizá lo mejor sería utilizar un botón.
+   if(isset($_POST['skip'])) 
+   {
+      // Cargar
+      LoadPage("public/3d_launcher.php");
+   }
 ?>
 
 

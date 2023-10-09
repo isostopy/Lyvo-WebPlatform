@@ -32,11 +32,11 @@
             Register(
 
                 //Parámetros que recoge el formulario.
-                $_POST['general-info-name'], 
-                $_POST['general-info-surname'],
-                $_POST['general-info-email'],
+                $_POST['name'], 
+                $_POST['surname'],
+                $_POST['email'],
                 $_POST['password'],
-                $_POST['general-info-role'],
+                $_POST['role'],
 
                 // Parámetros que asignamos por crear la cuenta desde un administrador.
                 UserStatus::ACTIVE->value, // Usuario activado por defecto.
@@ -172,7 +172,7 @@
                                     <h2 class="text-color-white">Tipo de usuario</h2>
                                     <div class="margin-bottom-5px"></div>
                                     
-                                    <select id="filterDivSelect" name="general-info-role">
+                                    <select id="filterDivSelect" name="role">
                                         <option value="<?php echo UserType::CLIENT->value;?>">Cliente</option>
                                         <option value="<?php echo UserType::COMPANY->value;?>">Empresa</option>
                                         <option value="<?php echo UserType::PROFESSIONAL->value;?>">Profesional</option>

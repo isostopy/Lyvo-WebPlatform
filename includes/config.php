@@ -63,12 +63,10 @@
     // al ser el elemento principal, lo va a hacer desde la raiz.
 
 
-
     /*
+
     // RESOLVER A LOCALHOST
 
-
-    
     // QUIZÁ TODO ESTE CÓDIGO SEA MEJOR METERLO EN ENUMERACIONES QUE SON INMUTABLES Y NO SE PUEDEN CAMBIAR EN TIEMPO DE EJECUCIÓN ------------
     $URL_Base = "http://localhost/Lyvo-WebPlatform";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
@@ -77,7 +75,7 @@
     $URL_Partial_Validation = "/pages/register_emailValidation.php?user=";
 
     // Admin token
-    $DirectusToken = "EfACfwSA6TapIevXtYC_WcKVToLuct4o";
+    $DirectusToken = "XhgSUTxixDEnk6ZWYofEpcwAEGqKpmaz";
 
 
     // Endpoints
@@ -98,9 +96,10 @@
     $Role_Company = '61b7f792-de6e-4913-bc06-72d2a26bd2e3';
     $Role_Professional = '297aff85-3332-4b96-8b1b-e7a49e607a0f';
     $Role_Client = 'c46bd43c-1030-45c2-b0b2-d8abb74b5208';
+
     */
 
-    // RESOLVER A LOCALHOST
+    // RESOLVER A URLs
     $URL_Base = "https://lyvoweb.isostopyserver.net";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
 

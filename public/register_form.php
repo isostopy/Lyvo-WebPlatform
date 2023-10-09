@@ -29,9 +29,9 @@
          {
             throw new Exception(Message_Error_TermsCondNo());
          }
-      
+   
          // Register.
-         Register($_POST['name'], $_POST['surname'],$_POST['email'],$_POST['password'],UserType::CLIENT,UserStatus::INVITED,true);
+         Register($_POST['name'], $_POST['surname'],$_POST['email'],$_POST['password'],UserType::CLIENT->value,UserStatus::INVITED->value,true);
 
          // Registro completo.
          LoadPage("pages/register_congrats.php");

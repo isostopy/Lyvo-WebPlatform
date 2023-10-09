@@ -64,6 +64,7 @@
 
 
 
+    /*
     // RESOLVER A LOCALHOST
 
     // QUIZÁ TODO ESTE CÓDIGO SEA MEJOR METERLO EN ENUMERACIONES QUE SON INMUTABLES Y NO SE PUEDEN CAMBIAR EN TIEMPO DE EJECUCIÓN ------------
@@ -97,7 +98,7 @@
     $Role_Client = 'c46bd43c-1030-45c2-b0b2-d8abb74b5208';
 
 
-    /*
+    */
     // RESOLVER A URLs
     $URL_Base = "https://lyvoweb.isostopyserver.net";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
@@ -126,5 +127,5 @@
     $Role_Company = 'caca6253-adef-4e3d-828a-7153d23cd193';
     $Role_Professional = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
-    */
+
 ?>

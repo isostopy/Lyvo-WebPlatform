@@ -97,7 +97,7 @@
          var userName = localStorage.getItem("email");
    
          // Redireccionamos al usuario a la otra página.
-         //window.location.href = url3d;
+         window.location.href = url3d;
       }
 
       var travelScreen = <?php echo $showTravelScreen ? 'true' : 'false'; ?>;
@@ -144,7 +144,7 @@
 
                <div class="margin-bottom-20px"></div>
 
-               <button class ="button-general button-color" id="travel-button" >VIAJAR</button>
+               <button class ="button-general button-color" id="travel-button" >Viajar</button>
 
             </div>
 

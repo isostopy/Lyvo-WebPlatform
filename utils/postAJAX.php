@@ -9,12 +9,12 @@
     // enviamos, porque de otro modo por como recopilamos la información con "FormData" en JS,
     // el campo del botón no se añade.
 
-    if(isset($_POST['general-info-name']))
+    if(isset($_POST['name']))
     {
         $userId = $_POST['userId'];
 
         // Comprobar que el rol usuario está definido.
-        if($_POST['general-info-role'] == UserType::UNDEFINED->value)
+        if($_POST['role'] == UserType::UNDEFINED->value)
         {
             echo(Message_Error_UserRoleNotDefined());
             return;
@@ -23,10 +23,10 @@
         // Procesar información.
         $userUpdatedInfo = array(
 
-            "first_name" => $_POST['general-info-name'],
-            "last_name" => $_POST['general-info-surname'],
-            "email" => $_POST['general-info-email'],
-            "role" => RoleTranslatorByName($_POST['general-info-role'])
+            "first_name" => $_POST['name'],
+            "last_name" => $_POST['surname'],
+            "email" => $_POST['email'],
+            "role" => RoleTranslatorByName($_POST['role'])
         );
 
         $jsonBody = json_encode($userUpdatedInfo, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

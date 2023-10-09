@@ -109,7 +109,7 @@
 
                                     <div class="input-field-icon-container">
                                         <i class="fa fa-check input-field-icon-icon" id="icon-check-name" style="visibility:hidden;"></i>
-                                        <input id="input-name" type="text" name="general-info-name" placeholder="nombre" value="<?php echo isset($userInformation->first_name) ? $userInformation->first_name : ''; ?>">
+                                        <input id="input-name" type="text" name="name" placeholder="nombre" value="<?php echo isset($userInformation->first_name) ? $userInformation->first_name : ''; ?>">
                                     </div>
                                 </div>
 
@@ -120,7 +120,7 @@
 
                                     <div class="input-field-icon-container">
                                         <i class="fa fa-check input-field-icon-icon" id="icon-check-surname" style="visibility:hidden;"></i>
-                                        <input id="input-surname" type="text" name="general-info-surname" placeholder="apellidos" value="<?php echo isset($userInformation->last_name) ? $userInformation->last_name : ''; ?>">
+                                        <input id="input-surname" type="text" name="surname" placeholder="apellidos" value="<?php echo isset($userInformation->last_name) ? $userInformation->last_name : ''; ?>">
                                     </div>
                                 </div>
                             
@@ -140,7 +140,7 @@
                                     <h2 class="text-color-white">Tipo de usuario</h2>
                                     <div class="margin-bottom-5px"></div>
 
-                                    <select id="filterDivSelect" name="general-info-role">
+                                    <select id="filterDivSelect" name="role">
                                         <option value="<?php echo UserType::UNDEFINED->value;?>">No definido</option>
                                         <option value="<?php echo UserType::COMPANY->value;?>"         <?php echo ($userRole == UserType::COMPANY->value)       ? 'selected' : ''; ?>>Empresa</option>
                                         <option value="<?php echo UserType::PROFESSIONAL->value;?>"    <?php echo ($userRole == UserType::PROFESSIONAL->value)  ? 'selected' : ''; ?>>Profesional</option>
@@ -166,7 +166,16 @@
 
                         <input type="submit" name="submitInfo" value="Guardar" class="button-general button-color">
                         <div class="margin-bottom-20px"></div>
+                    
+
+                    </form>
+
+                    <!-- FORM DELETE -->
+                    <form id="userFormDelete" action="" method="post">
+
                         <input type="submit" name="submitDelete" value="Eliminar usuario" class="button-general button-white">
+
+                    </form>
 
                         <div class="margin-bottom-30px"></div>
                         <!-- Enlace volver -->
@@ -174,7 +183,7 @@
                             <a class="text-color-white" href="admin_users.php">Volver</a>
                         </div>
 
-                    </form>
+                    
 
                 </div>
                     

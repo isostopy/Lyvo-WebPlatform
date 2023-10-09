@@ -40,7 +40,7 @@
 
                 <div class="margin-bottom-20px"></div>
 
-                <p class="text-color-white">¡Registro completo!</p>
+                <p class="text-color-white text-align-center">¡Registro completo!</p>
 
                 <div class="margin-bottom-20px"></div>
 

@@ -47,7 +47,7 @@
         echo '<ul class="list-general">';  // Inicia la lista no ordenada
         
         foreach ($users as $user) {
-            echo '<li>';
+            echo '<li class="userListElement">';
             echo '<a class="link link-text text-color-blue" href="admin_user.php?id='.$user->id.'">'.$user->first_name.' '.$user->last_name.'</a>';
             echo '</li>';
             echo '<div class="margin-bottom-10px"></div>';
@@ -151,7 +151,7 @@
                         </div>
 
                         <!-- PANEL DE ETIQUETAS DE USUARIO -->
-                        <div class="panel-sub flex-column">
+                        <div id='filterDivSelect' class="panel-sub flex-column">
 
                             <h2 class="text-color-none">///</h2>
                             <div class="margin-bottom-5px"></div>

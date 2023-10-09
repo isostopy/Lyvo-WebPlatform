@@ -66,7 +66,7 @@
 
     // RESOLVER A LOCALHOST
 
-    /*
+
     // QUIZÁ TODO ESTE CÓDIGO SEA MEJOR METERLO EN ENUMERACIONES QUE SON INMUTABLES Y NO SE PUEDEN CAMBIAR EN TIEMPO DE EJECUCIÓN ------------
     $URL_Base = "http://localhost/Lyvo-WebPlatform";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
@@ -97,8 +97,9 @@
     $Role_Professional = '297aff85-3332-4b96-8b1b-e7a49e607a0f';
     $Role_Client = 'c46bd43c-1030-45c2-b0b2-d8abb74b5208';
 
-*/
 
+
+/*
     // Resolver a URLs
     $URL_Base = "https://lyvoweb.isostopyserver.net";
     $URL_Lyvo3D = $URL_Base."/3d-content/";
@@ -128,5 +129,5 @@
     $Role_Professional = 'a2327dfb-dc1f-4ef6-ac38-7be34fa86ee3';
     $Role_Client = 'ac99e1d4-c6c8-439e-ad50-9a97eed408cd';
 
-
+*/
 ?>

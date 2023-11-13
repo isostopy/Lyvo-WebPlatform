@@ -94,8 +94,8 @@
 
          var avatarId = localStorage.getItem("avatar-id");
          var userName = localStorage.getItem("user-name");
-         var userName = localStorage.getItem("email");
-   
+         var userEmail = localStorage.getItem("email");
+
          // Redireccionamos al usuario a la otra página.
          window.location.href = url3d;
       }

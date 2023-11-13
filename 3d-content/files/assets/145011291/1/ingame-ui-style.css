@@ -2,6 +2,11 @@
 /* ---------------------------------------------------------------------- */
 /* UI */
 
+/* Que la div que creamos desde Playcanvas y que contiene toda la UI no reciba eventos de puntero. */
+/* Pero todos sus hijos si. */
+#game-ui { pointer-events: none; }
+#game-ui * { pointer-events: auto; }
+
 /* Iconos que aparecen en el menu. */
 .ingame-icon
 {

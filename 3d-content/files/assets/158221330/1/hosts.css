@@ -1,0 +1,16 @@
+
+#open-host-ui-button
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#host-ui
+{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+
+    background-color: red;
+}

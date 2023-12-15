@@ -7,6 +7,7 @@
 //control
 var avatars = [];
 const avatarsId = ["avatar-1","avatar-2","avatar-3","avatar-4","avatar-5","avatar-6"];
+const avatarsRPM = ["https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb"];
 var selectedAvatar;
 
 var colorBase = "#e9f2ef";
@@ -28,7 +29,8 @@ window.onload = function () {
     submitValue = document.getElementById("avatar-selected");
 
     //event listeners
-    avatars[0].addEventListener('click', function() { selectAvatar(avatarsId[0]); });
+    //avatars[0].addEventListener('click', function() { selectAvatar(avatarsId[0]); });
+    avatars[0].addEventListener('click', function() { selectAvatar(avatarsRPM[1]); });
     avatars[1].addEventListener('click', function() { selectAvatar(avatarsId[1]); });
     avatars[2].addEventListener('click', function() { selectAvatar(avatarsId[2]); });
     avatars[3].addEventListener('click', function() { selectAvatar(avatarsId[3]); });

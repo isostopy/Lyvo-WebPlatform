@@ -74,6 +74,7 @@
       // Si el usuario no está registrado pasamos directamente a la página de Lyvo.
       LoadPage("public/3d_launcher.php");
    }
+
 ?>
 
 <!DOCTYPE html>
@@ -108,6 +109,24 @@
 
          </div>
 
+         <!-- iframe rpm -->
+         <!-- script para controlar el popup -->
+         <script src="../assets/js/controller_popup.js"></script>
+
+         <div class="popup-container" id="popup-rpm">
+
+            <div class="popup">
+
+               <iframe id="frame" class="iframe-rpm" allow="camera *; microphone *; clipboard-write"></iframe>
+               <script src="../assets/js/readyPlayerMe.js"></script>
+
+               <div class="margin-bottom-20px"></div>
+               <button class="button-general button-color max-width-300px" onclick="toggleElement('popup-rpm')">CERRAR</button>
+
+            </div>
+            
+         </div>
+
          <!-- PANELS -->
          <div id="panels">
 
@@ -124,7 +143,7 @@
                   <div class="margin-bottom-40px"></div>
 
                   <!-- FORM -->
-                  <form action="" method="post">
+                  <form action="" method="post" id="formAvatar">
 
                      <div class="panel-subpanels-container">
 
@@ -133,7 +152,6 @@
                            <?php
 
                               // Mostrar campo para añadir nombre si el usuario no está registrado
-
                               if(!isset($_SESSION['userData']))
                               {
                                  echo
@@ -164,8 +182,7 @@
                               // Mostrar opciones para crear una cuenta o hacer logout.
                               if(!isset($_SESSION['userData']))
                               {
-                                 echo '<p>¿Quieres más opciones de personalización?</p><a class="link link-bold" href="register_form.php"><p>CREA UNA CUENTA</p></a><div class="margin-bottom-20px"></div>
-                                 ';   
+                                 echo '<p>¿Quieres más opciones de personalización?</p><a class="link link-bold" href="register_form.php"><p>CREA UNA CUENTA</p></a><div class="margin-bottom-20px"></div>';   
                               }
                               else
                               {
@@ -186,6 +203,9 @@
                               <input type="hidden" value="avatar-1" name='avatar-selected' id='avatar-selected'>
 
                            </div>
+
+                           <p>¿Quieres más opciones? <span class="link link-bold" onclick="toggleElement('popup-rpm')"> Accede al editor</span></p>
+                           <div class="margin-bottom-20px"></div>
 
                         </div>
 
@@ -218,6 +238,9 @@
          <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
       </div>
+
+      <!-- Scripts -->
+      <script src="../assets/js/controller_popup.js"></script>
 
    </body>
 

@@ -211,26 +211,6 @@ h2{
     text-align: left;
 }
 
-/* ////////////////////////////////////////////////////////////////////////////// */
-/* IMAGES /////////////////////////////////////////////////////////////////////// */
-/* ////////////////////////////////////////////////////////////////////////////// */
-
-.img-center {
-    width: 50%; /* O el tamaño que prefieras para tu imagen */
-    height: 50%; /* O el tamaño que prefieras para tu imagen */
-
-    object-fit: contain;
-}
-
-.img-fullsize{
-
-    width: 100%;
-    max-height: 100vh;
-    z-index: -5;
-    object-fit: cover;  /* Para mantener las proporciones de la imagen mientras la redimensiona */
-
-}
-
 .panel-content{
 
     display: flex;
@@ -279,6 +259,79 @@ h2{
     border-radius: 10px;
 
     padding: 1.5em;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* POP-UP /////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+.popup-container{
+    
+    position: absolute;
+    display: none;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    z-index: 9999;
+}
+
+.popup{
+
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* IFRAMES ////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+.iframe-rpm{
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* IMAGES /////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+.img-center {
+    width: 50%; /* O el tamaño que prefieras para tu imagen */
+    height: 50%; /* O el tamaño que prefieras para tu imagen */
+
+    object-fit: contain;
+}
+
+.img-fullsize{
+
+    width: 100%;
+    max-height: 100vh;
+    z-index: -5;
+    object-fit: cover;  /* Para mantener las proporciones de la imagen mientras la redimensiona */
+
 }
 
 /* Márgenes */
@@ -446,11 +499,16 @@ input[type="checkbox"]:checked {
 
 .link {
     text-decoration: none; 
+    cursor: pointer;
 }
 
 .link-bold{
     color: var(--color_1);
     font-weight: bold;
+}
+
+.link:hover{
+    text-decoration-color: var(--color_1_hover);
 }
 
 .link-text:hover{

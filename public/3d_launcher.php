@@ -4,9 +4,11 @@
    require_once '../includes/config.php';
 
    // Recopilar toda la información necesaria para enviar al 3D.
-   $avatar = "avatar-1";
+   $id = "No registrado";
    $user_name = "No registrado";
+   $avatar = "avatar-1";
    $email = "No registrado";
+   
 
    $showTravelScreen = false;
 
@@ -22,7 +24,6 @@
       if(isset($_SESSION['userData']->data->AvatarInformation->type))
       {
          $avatar = $_SESSION['userData']->data->AvatarInformation->type;
-         $email = $_SESSION['userData']->data->email;
       }
    }
 
@@ -33,7 +34,9 @@
    // Si el usuario está registrado cogemos su nombre de sus datos.
    if(isset($_SESSION['userData'])) 
    {
+      $id = $_SESSION['userData']->data->id;
       $user_name = $_SESSION['userData']->data->first_name;
+      $email = $_SESSION['userData']->data->email;
    }
    // Si no está registrado, cogemos el nombre de los datos proporcionados al crear el avatar.
    else
@@ -59,8 +62,9 @@
 
    // PREPARAR INFORMACIÓN
    $userData = array(
-      "avatar-id" => $avatar,
+      "user-id" => $id,
       "user-name" => $user_name,
+      "avatar-id" => $avatar,
       "email" => $email
    );
 ?>
@@ -88,7 +92,8 @@
          var userData = <?php echo json_encode($userData); ?>;
          var url3d = <?php echo json_encode($URL_Lyvo3D); ?>;
 
-         for (var key in userData) {
+         for (var key in userData) 
+         {
             localStorage.setItem(key, userData[key]);
          }
 

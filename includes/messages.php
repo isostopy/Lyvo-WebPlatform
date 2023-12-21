@@ -101,6 +101,11 @@
         return "Se ha producido un error al obtener la información de las reservas.";
     }
 
+    function Message_Error_BookingOverlapping()
+    {
+        return "Ya existe una reserva para las fechas seleccionadas.";
+    }
+
     // OK --------------------------------------------------------------------------------------------------
 
     function Message_Ok_Validation()

@@ -407,8 +407,6 @@
         // No hay respuesta, Directus envía el correo y devuelve 204 No Content.
     }
 
-
-
     // ---------------------------------------------------------------------------------------------------------------------------------------
     // USER INFORMATION ----------------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -844,7 +842,7 @@
     }
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
-    // PLACES ---------------------------------------------------------------------------------------------------------------------------------
+    // PLACES --------------------------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------------------------------
 
     // Obtener de las variables de la URL el lugar.
@@ -864,5 +862,50 @@
         }
 
         return $placeId;
+    }
+
+    // ---------------------------------------------------------------------------------------------------------------------------------------
+    // DATES ---------------------------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------------------------
+
+    function DateFormat($date)
+    {
+        return DateTime::createFromFormat('Y-m-d', $date);
+    }
+
+    function DateCheck($date)
+    {
+        // Convertir la cadena a un objeto DateTime
+        $dateBase = DateFormat($date);
+
+        // Obtener la fecha actual
+        $dateCurrent = new DateTime();
+
+        // Comparar las fechas
+        // Devuelve falso si la fecha es menor que la actual.
+        return $dateBase > $dateCurrent;
+    }
+
+    function DateIntervalCheck($dateStart, $dateEnd)
+    {
+        // Convertir la cadena a un objeto DateTime
+        $start = DateFormat($dateStart);
+        $end = DateFormat($dateEnd);
+
+        return $start <= $end;
+    }
+
+    function DateIntervalCheckCurrent($dateStart, $dateEnd)
+    {
+        // Convertir la cadena a un objeto DateTime
+        $start = DateFormat($dateStart);
+        $end = DateFormat($dateEnd);
+
+        // Obtener la fecha actual
+        $dateCurrent = new DateTime();
+
+        $result = $start <= $dateCurrent && $end >= $dateCurrent;
+
+        return $result;
     }
 ?>

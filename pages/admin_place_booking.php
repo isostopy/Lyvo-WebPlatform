@@ -26,42 +26,43 @@
         if($place)
         {
             // Obtener la información.
-            $infoBookings = BookingGetByPlace($place);
+            $infoBookings = Bookings_Get_ByPlace($place);
 
-            // Si no hay archivo de reservas, volvemos.
-            if (is_object($infoBookings) && isset($infoBookings->bookings))
-            {
-                // TO DO - Hacer que solo salgan las reservas con fecha posterior a la actual.
-
+            // Si no hay información de reservas, volvemos.
+            if (is_object($infoBookings) && isset($infoBookings->data))
+            {       
                 // Mostrar la reservas.
-                foreach ($infoBookings->bookings as $booking) 
+                foreach ($infoBookings->data as $booking) 
                 {
+                    // Comprobamos que la reserva está activa.
+                    if(!DateCheck($booking->date_end)){ continue; };
 
                     echo '<div class="panel-sub flex-column panel-background-white">';
+                    
                     // Nombre
-                    echo '<h2 class="text-color-blue">'.$booking->userEmail.'</h2>';
+                    echo '<h2 class="text-color-blue">'.$booking->user_email.'</h2>';
                     echo '<div class="margin-bottom-5px"></div>';
                     echo '<div class="bar-horizontal"></div>';
 
                     echo '<div class="margin-bottom-10px"></div>';
                     echo '<ul class="list-general">';
                     echo '<li>';
-                    echo '<p class="text-color-blue">'.$booking->userEmail.'</p>';
+                    echo '<p class="text-color-blue">'.$booking->user_email.'</p>';
                     echo '</li>';
                     echo '<div class="margin-bottom-10px"></div>';
                     echo '<li>';
-                    echo '<p class="text-color-blue"> Inicio: '.$booking->startDate.'</p>'; 
+                    echo '<p class="text-color-blue"> Inicio: '.$booking->date_start.'</p>'; 
                     echo '</li>';
                     echo '<div class="margin-bottom-10px"></div>';
                     echo '<li>';
-                    echo '<p class="text-color-blue"> Fin: '.$booking->endDate.'</p>';
+                    echo '<p class="text-color-blue"> Fin: '.$booking->date_end.'</p>';
                     echo '</li>';
                     echo '</ul>';
 
                     echo '<div class="margin-bottom-20px"></div>';
 
                     echo '<form action="" method="post">';
-                    echo "<input type='hidden' name='booking-id' value='".$booking->bookingId."'>"; // Valor encerrado entre comillas
+                    echo "<input type='hidden' name='booking-id' value='".$booking->id."'>"; // Valor encerrado entre comillas
                     echo "<input type='submit' class='button-color' value='Eliminar reserva'>";
                     echo '</form>';
 
@@ -72,7 +73,7 @@
 
 
                 }
-            }      
+            }    
         }
 
         // Si no hay valor de lugar, indicar el error.
@@ -98,36 +99,14 @@
 
         try
         {
-            // 1. Comprobar que el usuario existe.
-            if(!UserCheckExistenceByEmail($email))
-            {
-                throw new Exception(Message_Error_UserNotRegistered());
-            }
-
-            // 2. Comprobar que la fecha de inicio es anterior a la de final.
-            // Convertir las fechas a objetos DateTime para compararlas
-            $start = new DateTime($dateStart);
-            $end = new DateTime($dateEnd);
-
-            if($start >= $end)
-            {
-                throw new Exception(Message_Error_Dates());
-            }
-
-            // 3. Realizar la reserva.
-            // Obtener el id del usuario. Recordemos que antes hemos comprobado
-            // que el email existe.
-            $userId = UserGetDataByEmail($email)->id;
-
+            // Realizar la reserva.
             // Almacenar la información en un stdClass;
             $booking = new stdClass();
 
-            $booking->bookingId = uniqid();
             $booking->place = $placeId;
-            $booking->userId = $userId;
-            $booking->userEmail = $email;
-            $booking->dateStart = $dateStart;
-            $booking->dateEnd = $dateEnd;
+            $booking->user_email = $email;
+            $booking->date_start = $dateStart;
+            $booking->date_end = $dateEnd;
 
             // Una vez tenemos todos los datos, hay que almacenar la reserva.
             BookingStore($booking);

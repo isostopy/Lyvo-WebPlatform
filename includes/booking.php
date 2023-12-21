@@ -2,139 +2,161 @@
 
     // Datos.
     require_once '../includes/config.php';
+    // Funcionalidades comunes.
+    require_once '../includes/functions.php';
     // Messages.
     require_once '../includes/messages.php';
 
-    // FUNCIONES GENERALES
-    function GetInfo($path)
-    {
-        // comprobar que el archivo existe
-        if (!is_readable($path)) { return null; }
-
-        $fileContents = file_get_contents($path);
-        return json_decode($fileContents);    
-    }
 
     // OBTENER INFORMACIÓN DE RESERVAS
-    function BookingGetByPlace($place)
+    function Bookings_Get_ByPlace($place)
     {
-        // Ubicación del archivo
-        $filePath = GetPath($place);
+        // Comprobar la sesión. *********** Desactivado por test
+        // UserCheckSession();
 
-        // comprobar que el archivo existe
-        if (!is_readable($filePath)) { return null; }
+        $bearer = $GLOBALS['DirectusToken'];
 
-        // Obtener información del archivo
-        $jsonContent = file_get_contents($filePath);
-        return json_decode($jsonContent);
+        // Preparar los datos.
+        $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
+
+        // Las reservas están por separado en Directus.
+        $urlUser = $GLOBALS['URL_DirectusBookings']."_".$place;
+
+        // Enviar la solicitud.
+        $responseArray = HttpRequest('GET', $urlUser, $headers);
+        $response = $responseArray['response'];
+
+        // Analizar código de la respuesta para comprobar errores, etc.
+        $httpcode = $responseArray['httpcode'];
+        HttpRequestCodeAnalyzer($response, $httpcode);
+
+        $obj = json_decode($response);
+
+        // Comprobar y gestionar la respuesta.
+        if (!isset($obj->data)) 
+        {
+            throw new Exception(Message_Error_General());
+        }
+
+        return $obj;
+    }
+
+    // CREAR RESERVA
+    function Bookings_Post($userInfo, $booking)
+    {
+        // Comprobar la sesión. *********** Desactivado por test
+        // UserCheckSession();
+
+        $bearer = $GLOBALS['DirectusToken'];
+
+        // Preparar los datos.
+        $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
+
+        // Las reservas están por separado en Directus.
+        $urlUser = $GLOBALS['URL_DirectusBookings']."_".$booking->place;
+
+        // Crear el Body
+        $body = array(
+            'user_email' => $booking->user_email, 
+            'user_id' => $userInfo->id,
+            'date_start' => $booking->date_start,
+            'date_end' => $booking->date_end,
+        );
+
+        $jsonBody = json_encode($body);
+
+        // Enviar la solicitud.
+        $responseArray = HttpRequest('POST', $urlUser, $headers, $jsonBody);
+        $response = $responseArray['response'];
+
+        // Analizar código de la respuesta para comprobar errores, etc.
+        $httpcode = $responseArray['httpcode'];
+        HttpRequestCodeAnalyzer($response, $httpcode);
+
+        $obj = json_decode($response);
+
+        // Comprobar y gestionar la respuesta.
+        if (!isset($obj->data)) 
+        {
+            throw new Exception("Error 2");
+        }
+
+        return $obj;
     }
 
     // GUARDAR RESERVAS - ESCRIBIR ARCHIVO
-    function BookingStore($booking)
+    function BookingStore($bookingNew)
     {
         try
         {
-            // Ubicación del archivo
-            $filePath = GetPath($booking->place);
-        
-            // Leer el archivo y decodificar el JSON 
-            $data = GetInfo($filePath);
-        
-            // Si recibimos datos vacios hay que crear el archivo.
-            if($data === null)
+            // 1. Comprobar que el usuario para el que estamos creando la reserva existe.
+            $userInfo = UserGetDataByEmail($bookingNew->user_email);
+
+            if(!isset($userInfo))
             {
-                $data = new stdClass();
-                $data->bookings = [];
+                throw new Exception(Message_Error_UserNotRegistered());
             }
 
-            // Crear un nuevo stdClass para la reserva
-            $newBooking = new stdClass();
+            // 2. Comprobar que la fecha de inicio es anterior a la de final.
+            if(!DateIntervalCheck($bookingNew->date_start, $bookingNew->date_end))
+            {
+                throw new Exception(Message_Error_Dates());
+            };
 
-            $newBooking->bookingId = $booking->bookingId;
-            $newBooking->userId = $booking->userId;
-            $newBooking->userEmail = $booking->userEmail;
-            $newBooking->startDate = $booking->dateStart;
-            $newBooking->endDate = $booking->dateEnd;
+            // 3. Comprobar que no se solapan las reservas.
+            $bookings = Bookings_Get_ByPlace($bookingNew->place);
 
-            // Añadir el nuevo stdClass a la lista de reservas
-            $data->bookings[] = $newBooking;
+            foreach($bookings->data as $booking)
+            {
+                if(BookingCheckoverlapping($bookingNew, $booking))
+                {
+                    throw new Exception(Message_Error_BookingOverlapping());
+                }
+            }
 
-            // Codificar de nuevo a JSON y escribir al archivo
-            $newFileContents = json_encode($data, JSON_PRETTY_PRINT);
-            file_put_contents($filePath, $newFileContents);
+            // 4. Reservar.
+            Bookings_Post($userInfo, $bookingNew);
         }
         catch (Exception $e)
         {
-            throw new Exception(Message_Error_BookingWrite());    
+            throw new Exception($e->getMessage());
         }
     }
 
     // ELIMINAR RESERVAS
     function BookingDelete($place, $id)
     {
-        // Ubicación del archivo
-        $filePath = GetPath($place);
+        
+    }
 
-        // Leer el archivo y decodificar el JSON
-        $data = GetInfo($filePath);
-
-        // Si recibimos datos vacios, terminamos.
-        if($data === null){return;}
-
-        // Buscar el elemento con el bookingId dado y eliminarlo
-        foreach ($data->bookings as $index => $booking) 
+    // COMPROBAR SUPERPOSICIÓN DE RESERVAS
+    function BookingCheckoverlapping($booking_1, $booking_2)
+    {
+        // Coversión de fecha, para asegurarnos.
+        $convertirFecha = function($fecha) 
         {
-            if ($booking->bookingId === $id)
-            {
-                unset($data->bookings[$index]);
+            return DateTime::createFromFormat('d/m/Y', $fecha);
+        };
 
-                // Reindexar el array para mantener la estructura consistente
-                $data->bookings = array_values($data->bookings);
-                break;
-            }
-        }
+        $booking_1_start = $convertirFecha($booking_1->date_start);
+        $booking_1_end = $convertirFecha($booking_1->date_end);
+        
+        $booking_2_start = $convertirFecha($booking_2->date_start);
+        $booking_2_end = $convertirFecha($booking_2->date_end);
 
-        // Guardar el JSON modificado de nuevo en el archivo
-        $newJsonContent = json_encode($data, JSON_PRETTY_PRINT);
-        file_put_contents($filePath, $newJsonContent);
+        // Comprobaciones.
+        $check_1 = $booking_1_start <= $booking_2_end && $booking_1_end >= $booking_2_start;
+        $check_2 = $booking_2_start <= $booking_1_end && $booking_2_end >= $booking_1_start;
+
+        $result = $check_1 || $check_2;
+
+        // Retorno.
+        return $result;
     }
 
     // COMPROBAR RESERVAS DEL USUARIO
     function BookingCheckUser($place, $user)
     {
-        $infoBookings = BookingGetByPlace($place);
-
-        // Comprobamos que no es null. Podría darse en caso de que el archivo JSON no exista.
-        if($infoBookings === null){ return false; }
-
-        foreach ($infoBookings->bookings as $booking) 
-        {
-            // Comprobar fecha.
-            $startDate = new DateTime($booking->startDate);
-            $endDate = new DateTime($booking->endDate);
-            $now = new DateTime();
-
-            $status = ($now >= $startDate && $now <= $endDate);
-
-            // Si el id está y también la fecha, damos acceso.
-            if($booking->userId == $user && $status)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        
     }
-
-    // FUNCIONES AUXILIARES
-    function GetPath($id)
-    {
-        switch ($id)
-        {
-            case Places::AUDITORIO->value: return "../3d-custom/place-auditorio/booking-auditorio.json";
-            case Places::SALAEXPOSICIONES->value: return "../3d-custom/place-salaexposiciones/booking-salaexposiciones.json";
-            case Places::SALAPRIVADA->value: return "../3d-custom/place-salaprivada/booking-salaprivada.json";
-        }
-    }
-
 ?>

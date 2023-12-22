@@ -65,8 +65,14 @@
     // SISTEMA GENERAL PARA ANALIZAR CÓDIGOS.
     function HttpRequestCodeAnalyzer($response, $httpcode)
     {
+        // Código 204 No Content
+        if($httpcode === 204)
+        {
+            return;
+        }
+
         // Código 400
-        if ($httpcode === 400) 
+        else if ($httpcode === 400) 
         {   
             HttpRequestCodeAnalyzer_400($response);
         }

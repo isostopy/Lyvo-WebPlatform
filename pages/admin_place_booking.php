@@ -71,7 +71,6 @@
 
                     echo '<div class="margin-bottom-20px"></div>';
 
-
                 }
             }    
         }

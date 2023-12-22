@@ -20,10 +20,10 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlUser = $GLOBALS['URL_DirectusBookings']."_".$place;
+        $urlBookings = $GLOBALS['URL_DirectusBookings']."_".$place;
 
         // Enviar la solicitud.
-        $responseArray = HttpRequest('GET', $urlUser, $headers);
+        $responseArray = HttpRequest('GET', $urlBookings, $headers);
         $response = $responseArray['response'];
 
         // Analizar código de la respuesta para comprobar errores, etc.
@@ -57,10 +57,12 @@
 
         // Crear el Body
         $body = array(
+
             'user_email' => $booking->user_email, 
             'user_id' => $userInfo->id,
             'date_start' => $booking->date_start,
-            'date_end' => $booking->date_end,
+            'date_end' => $booking->date_end
+
         );
 
         $jsonBody = json_encode($body);
@@ -126,7 +128,24 @@
     // ELIMINAR RESERVAS
     function BookingDelete($place, $id)
     {
-        
+        try
+        {
+            $bearer = $GLOBALS['DirectusToken'];
+
+            // Preparar los datos.
+            $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
+
+            // Las reservas están por separado en Directus.
+            $urlBookings = $GLOBALS['URL_DirectusBookings']."_".$place."/".$id;
+
+            // Enviar la solicitud.
+            HttpRequest('DELETE', $urlBookings, $headers);
+
+        }
+        catch (Exception $e)
+        {
+            throw new Exception(Message_Error_General());
+        }
     }
 
     // COMPROBAR SUPERPOSICIÓN DE RESERVAS

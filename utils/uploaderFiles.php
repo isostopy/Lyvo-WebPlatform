@@ -10,7 +10,7 @@
         switch ($value)
         {
             case Places::AUDITORIO->value: return "../3d-custom/place-auditorio/";
-            case Places::SALAEXPOSICIONES->value: return "../3d-custom/place-salaexposiciones/";
+            case Places::EXPOSICIONES->value: return "../3d-custom/place-exposiciones/";
             case Places::SALAPRIVADA->value: return "../3d-custom/place-salaprivada/";
 
             default: throw new Exception(Message_Error_General());

@@ -11,16 +11,13 @@
     // OBTENER INFORMACIÓN DE RESERVAS
     function Bookings_Get_ByPlace($place)
     {
-        // Comprobar la sesión. *********** Desactivado por test
-        // UserCheckSession();
-
         $bearer = $GLOBALS['DirectusToken'];
 
         // Preparar los datos.
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlBookings = $GLOBALS['URL_DirectusBookings']."_".$place;
+        $urlBookings = $GLOBALS['URL_DirectusItems']."place_".$place."_bookings";
 
         // Enviar la solicitud.
         $responseArray = HttpRequest('GET', $urlBookings, $headers);
@@ -32,20 +29,13 @@
 
         $obj = json_decode($response);
 
-        // Comprobar y gestionar la respuesta.
-        if (!isset($obj->data)) 
-        {
-            throw new Exception(Message_Error_General());
-        }
-
         return $obj;
     }
 
     // CREAR RESERVA
     function Bookings_Post($userInfo, $booking)
     {
-        // Comprobar la sesión. *********** Desactivado por test
-        // UserCheckSession();
+        UserCheckSession();
 
         $bearer = $GLOBALS['DirectusToken'];
 
@@ -53,16 +43,17 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlUser = $GLOBALS['URL_DirectusBookings']."_".$booking->place;
+        $urlUser = $GLOBALS['URL_DirectusBookings']."place_".$booking->place."_bookings";
 
         // Crear el Body
         $body = array(
 
+            'user_name' => $userInfo->first_name." ".$userInfo->last_name,
             'user_email' => $booking->user_email, 
             'user_id' => $userInfo->id,
             'date_start' => $booking->date_start,
-            'date_end' => $booking->date_end
-
+            'date_end' => $booking->date_end,
+            'pass' => $booking->pass
         );
 
         $jsonBody = json_encode($body);
@@ -80,13 +71,13 @@
         // Comprobar y gestionar la respuesta.
         if (!isset($obj->data)) 
         {
-            throw new Exception("Error 2");
+            throw new Exception(Message_Error_General());
         }
 
         return $obj;
     }
 
-    // GUARDAR RESERVAS - ESCRIBIR ARCHIVO
+    // GUARDAR RESERVAS EN CMS
     function BookingStore($bookingNew)
     {
         try
@@ -176,6 +167,19 @@
     // COMPROBAR RESERVAS DEL USUARIO
     function BookingCheckUser($place, $user)
     {
-        
+        // 1. Obtenemos reservas por lugar.
+        $bookings = Bookings_Get_ByPlace($place);
+
+        foreach ($bookings->data as $booking) 
+        {
+            // Comprobamos que el usuario tiene reserva.
+            $valueUser = $booking->user_id == $user;
+
+            // Comprobamos que las fechas están dentro del rango.
+            $valueDate = DateIntervalCheckCurrent($booking->date_start, $booking->date_end);
+
+            // Retornamos el valor.
+            return $valueUser && $valueDate;
+        }
     }
 ?>

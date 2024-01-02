@@ -30,7 +30,17 @@
 
             // Si no hay información de reservas, volvemos.
             if (is_object($infoBookings) && isset($infoBookings->data))
-            {       
+            {    
+                // Comprobamos que hay reservas
+                if(!count($infoBookings->data) > 0)
+                {
+                    echo '<div class="panel-sub flex-column panel-background-white">';
+                    echo '<h2 class="text-color-blue">'.Message_Bookings_NotFound().'</h2>';
+                    echo "</div>";
+
+                    return;
+                }
+                
                 // Mostrar la reservas.
                 foreach ($infoBookings->data as $booking) 
                 {
@@ -40,7 +50,7 @@
                     echo '<div class="panel-sub flex-column panel-background-white">';
                     
                     // Nombre
-                    echo '<h2 class="text-color-blue">'.$booking->user_email.'</h2>';
+                    echo '<h2 class="text-color-blue">'.$booking->user_name.'</h2>';
                     echo '<div class="margin-bottom-5px"></div>';
                     echo '<div class="bar-horizontal"></div>';
 
@@ -95,6 +105,7 @@
         $email = $_POST['general-info-email'];
         $dateStart = $_POST['info-dateStart'];
         $dateEnd = $_POST['info-dateEnd'];
+        $pass = $_POST['info-pass'];
 
         try
         {
@@ -106,6 +117,7 @@
             $booking->user_email = $email;
             $booking->date_start = $dateStart;
             $booking->date_end = $dateEnd;
+            $booking->pass = $pass;
 
             // Una vez tenemos todos los datos, hay que almacenar la reserva.
             BookingStore($booking);
@@ -195,23 +207,6 @@
                                 <!-- FORM -->
                                 <form action="" method="post">
 
-                                    <!-- Input field nombre -->
-                                    <div class="panel-element">
-                                        <h2 class="text-color-white">Nombre de usuario</h2>
-                                        <div class="margin-bottom-5px"></div>
-
-                                        <div class="input-field-icon-container">
-
-                                            <i class="fa fa-check input-field-icon-icon" id="icon-check-name" style="visibility:hidden;"></i>
-                                            <input id="input-name" type="text" name="general-info-name" placeholder="nombre" required>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="margin-bottom-20px"></div>
-
-                                    <!-- Input field email -->
                                     <div class="panel-element">
                                         <h2 class="text-color-white">E-mail del usuario</h2>
                                         <div class="margin-bottom-5px"></div>
@@ -227,7 +222,7 @@
 
                                     <div class="margin-bottom-20px"></div>
 
-                                    <!-- Fecha inicio reserva -->
+                                    <!-- Fechas de reserva -->
                                     <div class="panel-element">
 
                                         <h2 class="text-color-white">Fecha de inicio de reserva</h2>
@@ -248,7 +243,9 @@
 
                                     </div>
 
-                                    <div class="margin-bottom-40px"></div>
+                                    <div class="margin-bottom-20px"></div>
+
+                                    <div class="margin-bottom-20px"></div>
 
                                     <!-- Errores -->
                                     <?php

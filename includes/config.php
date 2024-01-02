@@ -48,7 +48,7 @@
     enum Places: string {
 
         case AUDITORIO = 'auditorio';
-        case SALAEXPOSICIONES = 'salaExposiciones';
+        case EXPOSICIONES = 'exposiciones';
         case SALAPRIVADA = "salaPrivada";
 
     }
@@ -75,7 +75,7 @@
     $URL_Partial_Validation = "/pages/register_emailValidation.php?user=";
 
     // Admin token
-    $DirectusToken = "XhgSUTxixDEnk6ZWYofEpcwAEGqKpmaz";
+    $DirectusToken = "gpD_NSRqmyjGFddyhMKN-hwxFCDvsbJG";
 
 
     // Endpoints
@@ -91,7 +91,7 @@
     $URL_RecoverPass = "http://localhost/Lyvo-WebPlatform/public/recoverPass_form_newpass.php";
     $URL_LoginEditor = "http://localhost/Lyvo-WebPlatform/public/login_form_editor.php";
 
-    $URL_DirectusBookings = "http://localhost:8055/items/bookings";
+    $URL_DirectusItems = "http://localhost:8055/items/";
 
     // Directus rolecode
     $Role_Administrator = '3f543429-02b7-420e-b5d7-14f1b2d8523f';
@@ -124,7 +124,7 @@
     $URL_RecoverPass = "https://lyvoweb.isostopyserver.net/public/recoverPass_form_newpass.php";
     $URL_LoginEditor = "https://lyvoweb.isostopyserver.net/public/login_form_editor.php";
 
-    $URL_DirectusBookings = "https://lyvocms.isostopyserver.net/items/bookings";
+    $URL_DirectusItems = "https://lyvocms.isostopyserver.net/items/";
 
     // Directus rolecode
     $Role_Administrator = 'b47ad7cb-c104-4a5b-a6c2-67c7e889160f';

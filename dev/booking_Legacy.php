@@ -132,7 +132,7 @@
         switch ($id)
         {
             case Places::AUDITORIO->value: return "../3d-custom/place-auditorio/booking-auditorio.json";
-            case Places::SALAEXPOSICIONES->value: return "../3d-custom/place-salaexposiciones/booking-salaexposiciones.json";
+            case Places::EXPOSICIONES->value: return "../3d-custom/place-salaexposiciones/booking-salaexposiciones.json";
             case Places::SALAPRIVADA->value: return "../3d-custom/place-salaprivada/booking-salaprivada.json";
         }
     }

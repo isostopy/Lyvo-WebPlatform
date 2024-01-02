@@ -861,7 +861,7 @@
             $placeId = urldecode($_GET['placeId']);
 
             // Es importante comprobar y sanear el varlor en la URL.
-            if (!in_array($placeId, [Places::AUDITORIO->value, Places::SALAEXPOSICIONES->value, Places::SALAPRIVADA->value])) 
+            if (!in_array($placeId, [Places::AUDITORIO->value, Places::EXPOSICIONES->value, Places::SALAPRIVADA->value])) 
             {
                 $placeId = null;
             }
@@ -889,7 +889,7 @@
 
         // Comparar las fechas
         // Devuelve falso si la fecha es menor que la actual.
-        return $dateBase > $dateCurrent;
+        return $dateBase >= $dateCurrent;
     }
 
     function DateIntervalCheck($dateStart, $dateEnd)

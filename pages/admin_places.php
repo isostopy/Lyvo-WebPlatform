@@ -69,7 +69,7 @@
                             <div class="margin-bottom-20px"></div>
 
                             <li>
-                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::SALAEXPOSICIONES->value; ?>">Sala de Exposiciones Lyvo</a>
+                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::EXPOSICIONES->value; ?>">Sala de Exposiciones Lyvo</a>
                             </li>
                             <div class="margin-bottom-20px"></div>
 

@@ -5,7 +5,6 @@
    require_once '../includes/config.php';
 
    $userRegistered = false;
-
    $fromMetaverse = false;
 
    // Comprobar si el usuario vuelve desde el metaverso, para no saltar si tiene sesión iniciada.
@@ -43,6 +42,7 @@
       }
    }
 
+
    // Continuamos si el usuario no tiene avatar, esté registrado o no.
    // -------------------------------------------------------------------------------------
    if($_POST)
@@ -53,7 +53,7 @@
       $_SESSION['avatarSelected'] = $avatarSelected;
 
       // Almacenamos el nombre del usuario.
-      $_SESSION['nameSelected'] = $_POST['input-name'];
+      $_SESSION['nameSelected'] = $_POST['name'];
 
       // Si el usuario ha hecho login, guardar en el CMS el avatar seleccionado.
       if($userRegistered)
@@ -85,13 +85,13 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Lyvo Login</title>
+      <title>Lyvo Avatar</title>
       <link rel="icon" type="image/x-icon" href="../assets/icono.ico"/>
       
       <link rel="stylesheet" href="../assets/css/style_lyvo.css">
-
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+      <!-- Cargar el script y arrancarlo -->
       <script src="../assets/js/avatar.js"></script>
 
    </head>
@@ -109,23 +109,16 @@
 
          </div>
 
-         <!-- iframe rpm -->
-         <!-- script para controlar el popup -->
-         <script src="../assets/js/controller_popup.js"></script>
+         <!-- SISTEMA RPM -->
+         <?php
 
-         <div class="popup-container" id="popup-rpm">
+            if(isset($_SESSION['userData']))
+            {
+               // Este sistema se incluye aquí para evitar tiempos de carga cuando no sea necesario cargar este editor.
+               include_once "../utils/htmlRPM_Frame.php"; 
+            }
 
-            <div class="popup">
-
-               <iframe id="frame" class="iframe-rpm" allow="camera *; microphone *; clipboard-write"></iframe>
-               <script src="../assets/js/readyPlayerMe.js"></script>
-
-               <div class="margin-bottom-20px"></div>
-               <button class="button-general button-color max-width-300px" onclick="toggleElement('popup-rpm')">CERRAR</button>
-
-            </div>
-            
-         </div>
+         ?>
 
          <!-- PANELS -->
          <div id="panels">
@@ -190,8 +183,16 @@
                               }
 
                            ?>
+                           
+                           <!-- Panel de carga -->
+                           <div class="panel-Loading min-height-250px" id="Panel_AvatarLoading">
 
-                           <div class="panel-sub flex-spaceBetween flex-wrap">
+                              <img class="img-loading" src="../assets/images/t_Loading.gif" alt="Loading">
+
+                           </div>
+
+                           <!-- Panel de selección de avatares -->
+                           <div class="panel-sub flex-spaceBetween flex-wrap min-height-250px" id="Panel_AvatarSelection" style="display: none;">
 
                               <div class="button-avatar" id="avatar-1"> <img src="../assets/images/t_icon_man_1.png"> </div>
                               <div class="button-avatar" id="avatar-2"> <img src="../assets/images/t_icon_woman_2.png"> </div>
@@ -204,8 +205,17 @@
 
                            </div>
 
-                           <p>¿Quieres más opciones? <span class="link link-bold" onclick="toggleElement('popup-rpm')"> Accede al editor</span></p>
                            <div class="margin-bottom-20px"></div>
+
+                           <?php
+
+                              // Mostrar acceso a editor RPM solo si el usuario tiene sesión iniciada.
+                              if (isset($_SESSION['userData'])) 
+                              {
+                                 echo '<p>¿Quieres más opciones? <span class="link link-bold" onclick="toggleElement(\'popup-rpm\')"> Accede al editor</span></p>';
+                              }
+                           
+                           ?>
 
                         </div>
 
@@ -238,10 +248,7 @@
          <?php include_once "../utils/htmlFooter_Dark.php"; ?>
 
       </div>
-
-      <!-- Scripts -->
-      <script src="../assets/js/controller_popup.js"></script>
-
+      
    </body>
 
 </html>

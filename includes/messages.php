@@ -177,4 +177,11 @@
     {
         return "Error al subir el archivo.";
     }
+
+    // BOOKINGS --------------------------------------------------------------------------------------------------
+
+    function Message_Bookings_NotFound()
+    {
+        return "No se han encontrado reservas.";
+    }
 ?>

@@ -31,9 +31,9 @@
         // Auditorio
         $showAuditorio = BookingCheckUser(Places::AUDITORIO->value,$userId);
         // Salaexposiciones
-        $showSalaexposiciones = BookingCheckUser(Places::SALAEXPOSICIONES->value,$userId);
+        $showSalaexposiciones = BookingCheckUser(Places::EXPOSICIONES->value,$userId);
         // Salaprivada
-        $showSalaprivada = BookingCheckUser(Places::SALAPRIVADA->value,$userId);
+        //$showSalaprivada = BookingCheckUser(Places::SALAPRIVADA->value,$userId);
     }
     else
     {
@@ -96,7 +96,7 @@
                         // El usuario tiene permisos para editar la sala de exposiciones.
                         if($showSalaexposiciones) 
                         {
-                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::SALAEXPOSICIONES->value) . '\'">SALA DE EXPOSICIONES</button>'; 
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::EXPOSICIONES->value) . '\'">SALA DE EXPOSICIONES</button>'; 
                             echo '<div class="margin-bottom-20px"></div>';
                         } 
 

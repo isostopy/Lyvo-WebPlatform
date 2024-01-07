@@ -49,7 +49,7 @@
 
         case AUDITORIO = 'auditorio';
         case EXPOSICIONES = 'exposiciones';
-        case SALAPRIVADA = "salaPrivada";
+        case SALAPRIVADA = "salaprivada";
 
     }
 

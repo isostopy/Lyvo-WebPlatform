@@ -43,7 +43,7 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlUser = $GLOBALS['URL_DirectusBookings']."place_".$booking->place."_bookings";
+        $urlUser = $GLOBALS['URL_DirectusItems']."place_".$booking->place."_bookings";
 
         // Crear el Body
         $body = array(
@@ -53,7 +53,6 @@
             'user_id' => $userInfo->id,
             'date_start' => $booking->date_start,
             'date_end' => $booking->date_end,
-            'pass' => $booking->pass
         );
 
         $jsonBody = json_encode($body);
@@ -78,7 +77,7 @@
     }
 
     // GUARDAR RESERVAS EN CMS
-    function BookingStore($bookingNew)
+    function BookingStore($bookingNew, $allowOverlapping = false)
     {
         try
         {
@@ -97,13 +96,16 @@
             };
 
             // 3. Comprobar que no se solapan las reservas.
-            $bookings = Bookings_Get_ByPlace($bookingNew->place);
-
-            foreach($bookings->data as $booking)
+            if(!$allowOverlapping)
             {
-                if(BookingCheckoverlapping($bookingNew, $booking))
+                $bookings = Bookings_Get_ByPlace($bookingNew->place);
+
+                foreach($bookings->data as $booking)
                 {
-                    throw new Exception(Message_Error_BookingOverlapping());
+                    if(DateCheckoverlapping($bookingNew, $booking))
+                    {
+                        throw new Exception(Message_Error_BookingOverlapping());
+                    }
                 }
             }
 
@@ -140,25 +142,17 @@
     }
 
     // COMPROBAR SUPERPOSICIÓN DE RESERVAS
-    function BookingCheckoverlapping($booking_1, $booking_2)
+    function DateCheckoverlapping($booking_1, $booking_2)
     {
-        // Coversión de fecha, para asegurarnos.
-        $convertirFecha = function($fecha) 
-        {
-            return DateTime::createFromFormat('d/m/Y', $fecha);
-        };
-
-        $booking_1_start = $convertirFecha($booking_1->date_start);
-        $booking_1_end = $convertirFecha($booking_1->date_end);
+        // Booking 1 intervalo.
+        $booking_1_start = $booking_1->date_start;
+        $booking_1_end = $booking_1->date_end;
         
-        $booking_2_start = $convertirFecha($booking_2->date_start);
-        $booking_2_end = $convertirFecha($booking_2->date_end);
+        // Booking 2 intervalo.
+        $booking_2_start = $booking_2->date_start;
+        $booking_2_end = $booking_2->date_end;
 
-        // Comprobaciones.
-        $check_1 = $booking_1_start <= $booking_2_end && $booking_1_end >= $booking_2_start;
-        $check_2 = $booking_2_start <= $booking_1_end && $booking_2_end >= $booking_1_start;
-
-        $result = $check_1 || $check_2;
+        $result = DateOverlapingCheck($booking_1_start, $booking_1_end, $booking_2_start, $booking_2_end);
 
         // Retorno.
         return $result;
@@ -170,6 +164,8 @@
         // 1. Obtenemos reservas por lugar.
         $bookings = Bookings_Get_ByPlace($place);
 
+        $status = false;
+
         foreach ($bookings->data as $booking) 
         {
             // Comprobamos que el usuario tiene reserva.
@@ -178,8 +174,13 @@
             // Comprobamos que las fechas están dentro del rango.
             $valueDate = DateIntervalCheckCurrent($booking->date_start, $booking->date_end);
 
-            // Retornamos el valor.
-            return $valueUser && $valueDate;
+            if($valueUser && $valueDate)
+            {
+                $status = true;
+                break;
+            }
         }
+
+        return $status;
     }
 ?>

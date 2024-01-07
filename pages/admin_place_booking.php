@@ -31,21 +31,15 @@
             // Si no hay información de reservas, volvemos.
             if (is_object($infoBookings) && isset($infoBookings->data))
             {    
-                // Comprobamos que hay reservas
-                if(!count($infoBookings->data) > 0)
-                {
-                    echo '<div class="panel-sub flex-column panel-background-white">';
-                    echo '<h2 class="text-color-blue">'.Message_Bookings_NotFound().'</h2>';
-                    echo "</div>";
-
-                    return;
-                }
+                $bookingsTotal = 0;
                 
                 // Mostrar la reservas.
                 foreach ($infoBookings->data as $booking) 
                 {
                     // Comprobamos que la reserva está activa.
                     if(!DateCheck($booking->date_end)){ continue; };
+
+                    $bookingsTotal += 1;
 
                     echo '<div class="panel-sub flex-column panel-background-white">';
                     
@@ -82,6 +76,14 @@
                     echo '<div class="margin-bottom-20px"></div>';
 
                 }
+
+                // Si no hay ninguna reserva para mostrar porque no existen o están caducadas, mostrar mensaje.
+                if($bookingsTotal == 0)
+                {
+                    echo '<div class="panel-sub flex-column panel-background-white">';
+                    echo '<h2 class="text-color-blue">'.Message_Bookings_NotFound().'</h2>';
+                    echo "</div>";
+                }
             }    
         }
 
@@ -105,7 +107,6 @@
         $email = $_POST['general-info-email'];
         $dateStart = $_POST['info-dateStart'];
         $dateEnd = $_POST['info-dateEnd'];
-        $pass = $_POST['info-pass'];
 
         try
         {
@@ -117,10 +118,18 @@
             $booking->user_email = $email;
             $booking->date_start = $dateStart;
             $booking->date_end = $dateEnd;
-            $booking->pass = $pass;
 
             // Una vez tenemos todos los datos, hay que almacenar la reserva.
-            BookingStore($booking);
+
+            // Si se trata de la sala privada, tenemos que permitir la superposición de reservas.
+            $bookingOverlapping = false;
+
+            if($placeId == Places::SALAPRIVADA->value)
+            {
+                $bookingOverlapping = true;
+            }
+
+            BookingStore($booking, $bookingOverlapping);
 
             // 4. finalmente informamos al usuario.
             $subject = Email_Bookings_Subject();

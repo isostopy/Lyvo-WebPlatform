@@ -184,4 +184,11 @@
     {
         return "No se han encontrado reservas.";
     }
+
+    // EDITOR --------------------------------------------------------------------------------------------------
+
+    function Message_Editor_ChangePass()
+    {
+        return "Contraseña cambiada correctamente.";
+    }
 ?>

@@ -74,7 +74,7 @@
                             <div class="margin-bottom-20px"></div>
 
                             <li>
-                                <a class="link link-text text-color-blue">Sala Privada 01 Lyvo (desarrollo)</a>
+                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::SALAPRIVADA->value; ?>">Sala privada</a>
                             </li>
                             <div class="margin-bottom-20px"></div>
 

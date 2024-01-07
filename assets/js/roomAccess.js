@@ -12,7 +12,7 @@ async function postPHP_form(formId)
     const formData = new FormData(document.getElementById(formId));
 
     try {
-        const response = await fetch('../utils/room_access.php', {
+        const response = await fetch('../includes/room_access.php', {
             method: 'POST',
             body: formData
         });
@@ -41,7 +41,7 @@ async function postPHP(content, element)
     }
 
     try {
-        const response = await fetch('../utils/room_access.php', {
+        const response = await fetch('../includes/room_access.php', {
             method: 'POST',
             body: formData
         });

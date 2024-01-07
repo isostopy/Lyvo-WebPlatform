@@ -9,9 +9,9 @@
     {
         switch ($value)
         {
-            case Places::AUDITORIO->value: return "../3d-custom/place-auditorio/";
-            case Places::EXPOSICIONES->value: return "../3d-custom/place-exposiciones/";
-            case Places::SALAPRIVADA->value: return "../3d-custom/place-salaprivada/";
+            case Places::AUDITORIO->value: return "../3d-custom/room-auditorio/";
+            case Places::EXPOSICIONES->value: return "../3d-custom/room-exposiciones/";
+            case Places::SALAPRIVADA->value: return "../3d-custom/room-salaprivada/";
 
             default: throw new Exception(Message_Error_General());
         }
@@ -53,6 +53,7 @@
 
             // Usando el nombre del input para renombrar el archivo
             $newFileName = $input_name . "." . strtolower(pathinfo($fileArray["name"], PATHINFO_EXTENSION));
+
             $target_file = $target_dir . basename($newFileName);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 

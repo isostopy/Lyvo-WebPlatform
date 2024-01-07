@@ -874,9 +874,9 @@
     // DATES ---------------------------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------------------------------
 
-    function DateFormat($date)
+    function DateFormat($date, $format = 'Y-m-d')
     {
-        return DateTime::createFromFormat('Y-m-d', $date);
+        return DateTime::createFromFormat($format, $date);
     }
 
     function DateCheck($date)
@@ -912,6 +912,25 @@
 
         $result = $start <= $dateCurrent && $end >= $dateCurrent;
 
+        return $result;
+    }
+
+    function DateOverlapingCheck($interval_1_start, $interval_1_end, $interval_2_start, $interval_2_end)
+    {
+        // Ajustamos el formato para que las comparaciones puedan hacerse de forma correcta.
+        $interval_1_start_formatted = DateFormat($interval_1_start);
+        $interval_1_end_formatted = DateFormat($interval_1_end);
+        
+        $interval_2_start_formatted = DateFormat($interval_2_start);
+        $interval_2_end_formatted = DateFormat($interval_2_end);
+
+        // Realizar comprobaciones.
+        $check_1 = $interval_1_start_formatted <= $interval_2_end_formatted && $interval_1_end_formatted >= $interval_2_start_formatted;
+        $check_2 = $interval_2_start_formatted <= $interval_1_end_formatted && $interval_2_end_formatted >= $interval_1_start_formatted;
+
+        $result = $check_1 || $check_2;
+
+        // Retorno.
         return $result;
     }
 ?>

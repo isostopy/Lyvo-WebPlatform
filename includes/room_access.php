@@ -6,6 +6,8 @@
     require_once '../includes/functions.php';
     // Reservas.
     require_once '../includes/booking.php';
+    // Mensajes.
+    require_once '../includes/messages.php';
 
     // DEFINICIONES --------------------------------------------------------------------------------
 
@@ -84,7 +86,7 @@
             $pass = $_POST['pass'];
             RoomAccess_Set($room, $pass);
 
-            echo "Contraseña modificada";
+            echo Message_Editor_ChangePass();
         }
         else
         {

@@ -1,5 +1,19 @@
 <?php
 
+    /* Resumen
+
+        Sistema de acceso a los espacios mediante contraseña.
+
+        ¿Cuándo tenemos acceso al espacio?
+        
+        1. Si no hay reserva tenemos acceso total. Retorna 200.
+        2. Si hay reserva en el momento de la consulta solo podemos acceder si la contraseña es correcta.
+            
+            -Correcta. Retorna 200.
+            -Incorreta. Retorna 300.
+
+    */
+
     // Datos.
     require_once '../includes/config.php';
     // Funcionalidades comunes.
@@ -14,7 +28,7 @@
     $authorization = isset($headers['authorization']) ? $headers['authorization'] : null;
     $room = isset($headers['room']) ? $headers['room'] : null;
 
-    // Comprobamos que la petición incluye usuario y lugar.
+    // Comprobamos que la petición incluye lugar.
     if(empty($room))
     {
         http_response_code(403);
@@ -23,6 +37,7 @@
 
     // REALIZAR COMPROBACIONES.
     // Obtener reservas.
+    // Necesitamos obtener las reservas porque si no hay reservas en ese momento damos total acceso.
     $bookings = Bookings_Get_ByPlace($room);
 
     // Obtener reservas activas.
@@ -30,7 +45,7 @@
 
     foreach ($bookings->data as $booking) 
     {
-        // Comprobamos que la reserva está activa.
+        // Comprobamos que la reserva está activa en el momento de la consulta.
         if (DateIntervalCheckCurrent($booking->date_start, $booking->date_end)) 
         { 
             $bookingsActive[] = $booking;
@@ -54,13 +69,6 @@
             http_response_code(200);
             return;
         }
-    }
-
-    // Si hay reservas pero el pass está vacío, dar acceso.
-    if(!empty($bookingsActive) && $obj->data->pass == null)
-    {
-        http_response_code(200);
-        return;
     }
 
     // Si no hay coincidencias, retornamos error.

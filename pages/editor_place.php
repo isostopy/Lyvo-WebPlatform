@@ -7,13 +7,15 @@
     // Mensajes.
     require_once '../includes/messages.php';
     // Accesos.
-    require_once '../utils/room_access.php';
+    require_once '../includes/room_access.php';
 
     // Comprobar que el usuario tiene sesión iniciada.
     UserCheckSession();
 
     // Obtener valor del lugar de la ID.
     $placeId = PlaceGetFromURL();
+
+    $userId = "";
 
     // Comprobar que el usuario tiene permisos de edición.
     if($_SESSION['userData']->data->id)
@@ -205,7 +207,7 @@
 
                                 <div class="panel-subpanels-container">
 
-                                    <?php CreateInputs("Sala privada","image_salaprivada",2); ?>
+                                    <?php CreateInputs("Sala privada",$userId."_image_salaprivada",2); ?>
 
                                 </div>
 

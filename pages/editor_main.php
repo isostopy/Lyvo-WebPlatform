@@ -33,7 +33,7 @@
         // Salaexposiciones
         $showSalaexposiciones = BookingCheckUser(Places::EXPOSICIONES->value,$userId);
         // Salaprivada
-        //$showSalaprivada = BookingCheckUser(Places::SALAPRIVADA->value,$userId);
+        $showSalaprivada = BookingCheckUser(Places::SALAPRIVADA->value,$userId);
     }
     else
     {

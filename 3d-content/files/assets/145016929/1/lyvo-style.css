@@ -10,6 +10,14 @@
     text-decoration: none;
 }
 
+
+/* ---------------------------------------------------------------------- */
+/* Clase para que una div ignore los eventos del buscador. */
+
+.ignore-pointer { pointer-events: none !important; }
+.ignore-pointer * { pointer-events: auto; }
+
+
 /* ---------------------------------------------------------------------- */
 /* BUTTONS */
 

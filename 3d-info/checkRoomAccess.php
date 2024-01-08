@@ -61,8 +61,7 @@
     else
     {
         // Si hay reservas determinar según el pass.
-        $obj = RoomAccess_Get($room);
-        $pass = $obj->data->pass;
+        $pass = RoomAccess_Get($room);
 
         if($pass == $authorization || $pass = null)
         {

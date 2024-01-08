@@ -13,7 +13,7 @@
     UserCheckSession();
 
     // Obtener valor del lugar de la ID.
-    $placeId = PlaceGetFromURL();
+    $roomId = RoomGetFromURL();
 
     $userId = "";
 
@@ -27,7 +27,7 @@
 
         if($userRole !== RoleTranslatorByName(UserType::ADMINISTRATOR->value))
         {
-            if(!BookingCheckUser($placeId, $userId))
+            if(!BookingCheckUser($roomId, $userId))
             {
                 LoadPage("errors/404.php");
             }
@@ -119,12 +119,12 @@
                         <script> 
                             
                             // Ejecutar solo si es el auditorio
-                            var place = "<?php echo $placeId; ?>";
+                            var room = "<?php echo $roomId; ?>";
                             
-                            if(place == "<?php echo Places::AUDITORIO->value; ?>")
+                            if(room == "<?php echo Rooms::AUDITORIO->value; ?>")
                             { 
                                 var body = {
-                                    room: "<?php echo $placeId; ?>"
+                                    room: "<?php echo $roomId; ?>"
                                 };
 
                                 postPHP(body,"accessCurrent"); 
@@ -138,7 +138,7 @@
 
                         <div class="margin-bottom-20px"></div>
 
-                        <input type="hidden" name="room" value="<?php echo $placeId?>">
+                        <input type="hidden" name="room" value="<?php echo $roomId?>">
 
                         <input type="button" name="submitPass" value="ACTUALIZAR CONTRASEÑA" class="button-general button-color" onclick="postPHP_form('uploadAccess')">
 
@@ -161,7 +161,7 @@
 
                             <div class="panel-subpanel-container">
 
-                                <input type="hidden" name="reference" value="<?php echo $placeId?>">
+                                <input type="hidden" name="reference" value="<?php echo $roomId?>">
 
                                 <div class="panel-subpanels-container">
 
@@ -182,7 +182,7 @@
 
                             <div class="panel-subpanel-container">
 
-                                <input type="hidden" name="reference" value="<?php echo $placeId?>">
+                                <input type="hidden" name="reference" value="<?php echo $roomId?>">
 
                                 <div class="panel-subpanels-container">
 
@@ -203,7 +203,7 @@
 
                             <div class="panel-subpanel-container">
 
-                                <input type="hidden" name="reference" value="<?php echo $placeId?>">
+                                <input type="hidden" name="reference" value="<?php echo $roomId?>">
 
                                 <div class="panel-subpanels-container">
 
@@ -256,11 +256,11 @@
 
     <script>
 
-        RemoveElementById("CustomAuditorio","<?php echo $placeId ?>" === "<?php echo Places::AUDITORIO->value ?>");
-        RemoveElementById("uploadAccess","<?php echo $placeId ?>" === "<?php echo Places::AUDITORIO->value ?>");
+        RemoveElementById("CustomAuditorio","<?php echo $roomId ?>" === "<?php echo Rooms::AUDITORIO->value ?>");
+        RemoveElementById("uploadAccess","<?php echo $roomId ?>" === "<?php echo Rooms::AUDITORIO->value ?>");
 
-        RemoveElementById("CustomSalaexposiciones","<?php echo $placeId ?>" === "<?php echo Places::EXPOSICIONES->value ?>");
-        RemoveElementById("CustomSalaprivada","<?php echo $placeId ?>" === "<?php echo Places::SALAPRIVADA->value ?>");
+        RemoveElementById("CustomSalaexposiciones","<?php echo $roomId ?>" === "<?php echo Rooms::EXPOSICIONES->value ?>");
+        RemoveElementById("CustomSalaprivada","<?php echo $roomId ?>" === "<?php echo Rooms::SALAPRIVADA->value ?>");
 
     </script>
 

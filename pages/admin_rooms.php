@@ -64,17 +64,17 @@
             
                             <div class="margin-bottom-10px"></div>
                             <li>
-                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::AUDITORIO->value; ?>">Auditorio Lyvo</a>
+                                <a class="link link-text text-color-blue" href="admin_room_booking.php?roomId=<?php echo Rooms::AUDITORIO->value; ?>">Auditorio Lyvo</a>
                             </li>
                             <div class="margin-bottom-20px"></div>
 
                             <li>
-                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::EXPOSICIONES->value; ?>">Sala de Exposiciones Lyvo</a>
+                                <a class="link link-text text-color-blue" href="admin_room_booking.php?roomId=<?php echo Rooms::EXPOSICIONES->value; ?>">Sala de Exposiciones Lyvo</a>
                             </li>
                             <div class="margin-bottom-20px"></div>
 
                             <li>
-                                <a class="link link-text text-color-blue" href="admin_place_booking.php?placeId=<?php echo Places::SALAPRIVADA->value; ?>">Sala privada</a>
+                                <a class="link link-text text-color-blue" href="admin_room_booking.php?roomId=<?php echo Rooms::SALAPRIVADA->value; ?>">Sala privada</a>
                             </li>
                             <div class="margin-bottom-20px"></div>
 

@@ -848,26 +848,26 @@
     }
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
-    // PLACES --------------------------------------------------------------------------------------------------------------------------------
+    // ROOMS --------------------------------------------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------------------------------------------------
 
     // Obtener de las variables de la URL el lugar.
-    function PlaceGetFromURL()
+    function RoomGetFromURL()
     {
-        $placeId = null;
+        $roomId = null;
 
-        if (isset($_GET['placeId'])) 
+        if (isset($_GET['roomId'])) 
         {
-            $placeId = urldecode($_GET['placeId']);
+            $roomId = urldecode($_GET['roomId']);
 
             // Es importante comprobar y sanear el varlor en la URL.
-            if (!in_array($placeId, [Places::AUDITORIO->value, Places::EXPOSICIONES->value, Places::SALAPRIVADA->value])) 
+            if (!in_array($roomId, [Rooms::AUDITORIO->value, Rooms::EXPOSICIONES->value, Rooms::SALAPRIVADA->value])) 
             {
-                $placeId = null;
+                $roomId = null;
             }
         }
 
-        return $placeId;
+        return $roomId;
     }
 
     // ---------------------------------------------------------------------------------------------------------------------------------------

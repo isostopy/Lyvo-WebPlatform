@@ -2,7 +2,7 @@
 <div id="footer">
 
     <div class="footer-element">
-        <p class="text-color-white">Copyright 2023© All rights reserved</p>
+        <p class="text-color-white">Copyright 2024© All rights reserved</p>
     </div>
 
     <div class="footer-element">

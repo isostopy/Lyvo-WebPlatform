@@ -163,7 +163,7 @@
 
                   <div class="panel-sub flex-row suboption">
                      <input class="margin-right-10px" type="checkbox" id="terms" name="terms">
-                     <p>He leído y acepto los <a class="link link-bold" href="../public/privacy.html">Términos y Condiciones de uso</a></p>   
+                     <p>He leído y acepto los <a class="link link-bold" href="../public/privacy.php">Términos y Condiciones de uso</a></p>   
                   </div>
 
                   <div class="margin-bottom-40px"></div>

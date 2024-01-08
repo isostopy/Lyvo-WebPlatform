@@ -17,16 +17,16 @@
    // ACCIONES INICIALES. OBTENER ESPACIO. -------------------------------------------------------------
    
    // Obtenemos el valor del espacio de la URL y lo decodificamos.
-   $placeId = PlaceGetFromURL();
+   $roomId = RoomGetFromURL();
 
    // ACCIONES PARA MOSTRAR LAS RESERVAS ACTUALES -------------------------------------------------------
-   function PrintBookings($place)
+   function PrintBookings($room)
    {
         // Comprobamos que tenemos un valor de lugar.
-        if($place)
+        if($room)
         {
             // Obtener la información.
-            $infoBookings = Bookings_Get_ByPlace($place);
+            $infoBookings = Bookings_Get_ByRoom($room);
 
             // Si no hay información de reservas, volvemos.
             if (is_object($infoBookings) && isset($infoBookings->data))
@@ -98,7 +98,7 @@
    if(isset($_POST['booking-id']))
    {
         $bookingId = $_POST['booking-id'];
-        BookingDelete($placeId, $bookingId);
+        BookingDelete($roomId, $bookingId);
    }
 
    // ACCIONES DE CONFIGURACIÓN. ------------------------------------------------------------------------
@@ -114,7 +114,7 @@
             // Almacenar la información en un stdClass;
             $booking = new stdClass();
 
-            $booking->place = $placeId;
+            $booking->room = $roomId;
             $booking->user_email = $email;
             $booking->date_start = $dateStart;
             $booking->date_end = $dateEnd;
@@ -124,7 +124,7 @@
             // Si se trata de la sala privada, tenemos que permitir la superposición de reservas.
             $bookingOverlapping = false;
 
-            if($placeId == Places::SALAPRIVADA->value)
+            if($roomId == Rooms::SALAPRIVADA->value)
             {
                 $bookingOverlapping = true;
             }
@@ -133,13 +133,13 @@
 
             // 4. finalmente informamos al usuario.
             $subject = Email_Bookings_Subject();
-            $body = Email_Bookings_Body($placeId, $dateStart, $dateEnd, $GLOBALS['URL_LoginEditor']);
-            $bodyNonHTML = Email_Bookings_BodyNonHtml($placeId, $dateStart, $dateEnd, $GLOBALS['URL_LoginEditor']);
+            $body = Email_Bookings_Body($roomId, $dateStart, $dateEnd, $GLOBALS['URL_LoginEditor']);
+            $bodyNonHTML = Email_Bookings_BodyNonHtml($roomId, $dateStart, $dateEnd, $GLOBALS['URL_LoginEditor']);
 
             SendEmail($email, $subject, $body, $bodyNonHTML);
 
             // Terminar en otra página.
-            LoadPage("pages/admin_place_booking_congrats.php");
+            LoadPage("pages/admin_room_booking_congrats.php");
         }
         catch (Exception $e)
         {
@@ -194,7 +194,7 @@
 
                     <!-- Título del panel -->
                     <div class="panel-title max-width-300px">
-                        <h1 class="text-color-white">Administración de <?php echo $placeId; ?></h1>
+                        <h1 class="text-color-white">Administración de <?php echo $roomId; ?></h1>
                     </div>
 
                     <div class="margin-bottom-40px"></div>
@@ -267,13 +267,13 @@
                                     <div class="margin-bottom-20px"></div>
 
                                     <!-- Botón configurar espacio -->
-                                    <button class="button-general button-white" onclick="location.href = 'editor_place.php?placeId=<?php echo urlencode($placeId);?>' ">Configurar espacio</button>
+                                    <button class="button-general button-white" onclick="location.href = 'editor_room.php?roomId=<?php echo urlencode($roomId);?>' ">Configurar espacio</button>
 
                                     <div class="margin-bottom-20px"></div>
 
                                     <!-- Enlace volver -->
                                     <div class="panel-sub flex-justify-center">
-                                        <a class="text-color-white" href="admin_places.php">Volver</a>
+                                        <a class="text-color-white" href="admin_rooms.php">Volver</a>
                                     </div>
 
                                 </form>
@@ -290,7 +290,7 @@
 
                                 <!-- Reservas -->
 
-                                <?php PrintBookings($placeId); ?>
+                                <?php PrintBookings($roomId); ?>
 
                             </div>
 

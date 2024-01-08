@@ -20,7 +20,7 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlBookings = $GLOBALS['URL_DirectusItems']."place_".$room."_access";
+        $urlBookings = $GLOBALS['URL_DirectusItems']."room_".$room."_access";
 
         // Enviar la solicitud.
         $responseArray = HttpRequest('GET', $urlBookings, $headers);
@@ -47,7 +47,7 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlBookings = $GLOBALS['URL_DirectusItems']."place_".$room."_access";
+        $urlBookings = $GLOBALS['URL_DirectusItems']."room_".$room."_access";
 
         $body = array(
             'pass' =>  $pass

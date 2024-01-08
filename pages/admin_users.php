@@ -159,7 +159,7 @@
                             <div class="panel-subpanels-container flex-column overflow-scroll">
                                 
                                 <!-- Panel Empresas -->
-                                <div id="empresas" class="panel-sub flex-column panel-background-white">
+                                <div id="empresas" class="panel-sub flex-column panel-background-white margin-bottom-20px">
 
                                     <!-- Título -->
                                     <h2 class="text-color-blue">EMPRESAS</h2>
@@ -177,10 +177,8 @@
 
                                 </div>
 
-                                <div class="margin-bottom-20px"></div>
-
                                 <!-- Panel Profesionales -->
-                                <div id="profesionales" class="panel-sub flex-column panel-background-white">
+                                <div id="profesionales" class="panel-sub flex-column panel-background-white margin-bottom-20px">
 
                                     <!-- Título -->
                                     <h2 class="text-color-blue">PROFESIONALES</h2>
@@ -198,10 +196,8 @@
 
                                 </div>
 
-                                <div class="margin-bottom-20px"></div>
-
                                 <!-- Panel Clientes -->
-                                <div id="clientes" class="panel-sub flex-column panel-background-white">
+                                <div id="clientes" class="panel-sub flex-column panel-background-white margin-bottom-20px">
 
                                     <!-- Título -->
                                     <h2 class="text-color-blue">CLIENTES</h2>

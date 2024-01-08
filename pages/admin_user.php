@@ -2,8 +2,12 @@
 
     // Funcionalidades comunes.
     require_once '../includes/functions.php';
+
     // Datos.
     require_once '../includes/config.php';
+
+    // Mensajes.
+    require_once '../includes/messages.php';
 
     // Comprobar que el usuario tiene sesión iniciada.
     UserCheckSession(UserType::ADMINISTRATOR->value);
@@ -93,7 +97,7 @@
                     <div class="margin-bottom-40px"></div>
 
                     <!-- FORM -->
-                    <form id="userForm" action="../utils/postAJAX.php" method="post">
+                    <form id="userForm" action="../utils/user_update.php" method="post">
 
                         <!-- Subpaneles -->
                         <div class="panel-subpanels-container">
@@ -222,6 +226,7 @@
                 .then(response => response.text())
                 .then(data => {
                     alert(data);
+                    console.log(data);
                 })
                 .catch(error => {
                     console.error('Error:', error);

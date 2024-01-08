@@ -20,7 +20,7 @@
 
     // REALIZAR COMPROBACIONES.
     // Obtener reservas.
-    $bookings = Bookings_Get_ByPlace($room);
+    $bookings = Bookings_Get_ByRoom($room);
 
     // Obtener reservas activas.
     $bookingsActive = array();

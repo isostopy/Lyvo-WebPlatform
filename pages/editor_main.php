@@ -21,7 +21,7 @@
         $info = $_SESSION['userData']->data;
 
         // Si el usuario es un administrador, redirigimos a la página específica de administración de espacios.
-        if($info->role === $GLOBALS['Role_Administrator']){ LoadPage("pages/admin_places.php"); }
+        if($info->role === $GLOBALS['Role_Administrator']){ LoadPage("pages/rooms.php"); }
 
         // Obtenemos la id del usuario para compararla con las reservas.
         $userId = $info->id;
@@ -29,11 +29,11 @@
         // Obtenemos las reservas para los distintos espacios cargamos los elementos necesarios.
         
         // Auditorio
-        $showAuditorio = BookingCheckUser(Places::AUDITORIO->value,$userId);
+        $showAuditorio = BookingCheckUser(Rooms::AUDITORIO->value,$userId);
         // Salaexposiciones
-        $showSalaexposiciones = BookingCheckUser(Places::EXPOSICIONES->value,$userId);
+        $showSalaexposiciones = BookingCheckUser(Rooms::EXPOSICIONES->value,$userId);
         // Salaprivada
-        $showSalaprivada = BookingCheckUser(Places::SALAPRIVADA->value,$userId);
+        $showSalaprivada = BookingCheckUser(Rooms::SALAPRIVADA->value,$userId);
     }
     else
     {
@@ -89,21 +89,21 @@
                         // El usuario tiene permisos para editar el auditorio.
                         if($showAuditorio) 
                         {
-                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::AUDITORIO->value) . '\'">AUDITORIO</button>'; 
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_room.php?roomId=' . urlencode(Rooms::AUDITORIO->value) . '\'">AUDITORIO</button>'; 
                             echo '<div class="margin-bottom-20px"></div>';
                         }
 
                         // El usuario tiene permisos para editar la sala de exposiciones.
                         if($showSalaexposiciones) 
                         {
-                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::EXPOSICIONES->value) . '\'">SALA DE EXPOSICIONES</button>'; 
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_room.php?roomId=' . urlencode(Rooms::EXPOSICIONES->value) . '\'">SALA DE EXPOSICIONES</button>'; 
                             echo '<div class="margin-bottom-20px"></div>';
                         } 
 
                         // El usuario tiene permisos para editar la sala privada.
                         if($showSalaprivada) 
                         {
-                            echo '<button class="button-general button-color" onclick="location.href = \'editor_place.php?placeId=' . urlencode(Places::SALAPRIVADA->value) . '\'">SALA PRIVADA</button>'; 
+                            echo '<button class="button-general button-color" onclick="location.href = \'editor_room.php?roomId=' . urlencode(Rooms::SALAPRIVADA->value) . '\'">SALA PRIVADA</button>'; 
                             echo '<div class="margin-bottom-20px"></div>';
                         }
 

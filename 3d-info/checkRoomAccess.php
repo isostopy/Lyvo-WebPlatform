@@ -38,7 +38,7 @@
     // REALIZAR COMPROBACIONES.
     // Obtener reservas.
     // Necesitamos obtener las reservas porque si no hay reservas en ese momento damos total acceso.
-    $bookings = Bookings_Get_ByPlace($room);
+    $bookings = Bookings_Get_ByRoom($room);
 
     // Obtener reservas activas.
     $bookingsActive = array();

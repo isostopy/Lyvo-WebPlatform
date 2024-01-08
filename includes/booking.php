@@ -9,7 +9,7 @@
 
 
     // OBTENER INFORMACIÓN DE RESERVAS
-    function Bookings_Get_ByPlace($place)
+    function Bookings_Get_ByRoom($room)
     {
         $bearer = $GLOBALS['DirectusToken'];
 
@@ -17,7 +17,7 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlBookings = $GLOBALS['URL_DirectusItems']."place_".$place."_bookings";
+        $urlBookings = $GLOBALS['URL_DirectusItems']."room_".$room."_bookings";
 
         // Enviar la solicitud.
         $responseArray = HttpRequest('GET', $urlBookings, $headers);
@@ -43,7 +43,7 @@
         $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
         // Las reservas están por separado en Directus.
-        $urlUser = $GLOBALS['URL_DirectusItems']."place_".$booking->place."_bookings";
+        $urlUser = $GLOBALS['URL_DirectusItems']."room_".$booking->room."_bookings";
 
         // Crear el Body
         $body = array(
@@ -98,7 +98,7 @@
             // 3. Comprobar que no se solapan las reservas.
             if(!$allowOverlapping)
             {
-                $bookings = Bookings_Get_ByPlace($bookingNew->place);
+                $bookings = Bookings_Get_ByRoom($bookingNew->room);
 
                 foreach($bookings->data as $booking)
                 {
@@ -119,7 +119,7 @@
     }
 
     // ELIMINAR RESERVAS
-    function BookingDelete($place, $id)
+    function BookingDelete($room, $id)
     {
         try
         {
@@ -129,7 +129,7 @@
             $headers = array('Content-Type: application/json','Authorization: Bearer '.$bearer);
 
             // Las reservas están por separado en Directus.
-            $urlBookings = $GLOBALS['URL_DirectusBookings']."_".$place."/".$id;
+            $urlBookings = $GLOBALS['URL_DirectusBookings']."_".$room."/".$id;
 
             // Enviar la solicitud.
             HttpRequest('DELETE', $urlBookings, $headers);
@@ -159,10 +159,10 @@
     }
 
     // COMPROBAR RESERVAS DEL USUARIO
-    function BookingCheckUser($place, $user)
+    function BookingCheckUser($room, $user)
     {
         // 1. Obtenemos reservas por lugar.
-        $bookings = Bookings_Get_ByPlace($place);
+        $bookings = Bookings_Get_ByRoom($room);
 
         $status = false;
 

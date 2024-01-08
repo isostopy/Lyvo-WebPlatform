@@ -47,7 +47,7 @@
 
                     <!-- Enlace volver -->
                     <div class="panel-sub flex-justify-center">
-                        <a class="text-color-white" href="admin_places.php">Volver</a>
+                        <a class="text-color-white" href="admin_rooms.php">Volver</a>
                     </div>
 
                 </div>

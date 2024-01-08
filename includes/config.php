@@ -44,8 +44,8 @@
 
     }
 
-    // Place
-    enum Places: string {
+    // Rooms
+    enum Rooms: string {
 
         case AUDITORIO = 'auditorio';
         case EXPOSICIONES = 'exposiciones';

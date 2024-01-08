@@ -63,7 +63,7 @@
                             <div class="margin-bottom-20px"></div>
                             <button class ="button-general button-color" onclick="location.href = 'admin_users.php' ">Gestión de usuarios</button>
                             <div class="margin-bottom-20px"></div>
-                            <button class ="button-general button-color" onclick="location.href = 'admin_places.php' ">Gestión de espacios</button>
+                            <button class ="button-general button-color" onclick="location.href = 'admin_rooms.php' ">Gestión de espacios</button>
                         
                             <div class="margin-bottom-40px"></div>
 

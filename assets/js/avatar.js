@@ -8,12 +8,12 @@
 var avatarButtons = [];
 var avatarsId = ["avatar-1","avatar-2","avatar-3","avatar-4","avatar-5","avatar-6"];
 
-const avatarsRPM = ["https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb---0",
-                    "https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb---1",
-                    "https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb---2",
-                    "https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb---3",
-                    "https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb---4",
-                    "https://models.readyplayer.me/657c6ba0bfb427795ec2bc68.glb---5"];
+const avatarsRPM = ["https://models.readyplayer.me/657c7762b6555802a3770db8.glb",
+                    "https://models.readyplayer.me/6593caa39e1b858d3d3bdb95.glb",
+                    "https://models.readyplayer.me/6593cdc39e1b858d3d3be232.glb",
+                    "https://models.readyplayer.me/6593d7f144c97659297ccc66.glb",
+                    "https://models.readyplayer.me/6593c9a59e1b858d3d3bd9b4.glb",
+                    "https://models.readyplayer.me/6593cee544c97659297cb4f9.glb"];
 
 var selectedAvatar;
 
